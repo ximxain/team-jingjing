@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.MainController">
+   <children>
+      <Canvas fx:id="board1" height="200.0" layoutX="98.0" layoutY="99.0" onMouseClicked="#clickone" width="200.0" />
+      <Canvas fx:id="board2" height="200.0" layoutX="298.0" layoutY="99.0" onMouseClicked="#clicktwo" width="200.0" />
+      <Canvas fx:id="board3" height="200.0" layoutX="498.0" layoutY="99.0" onMouseClicked="#clickthree" width="200.0" />
+      <Canvas fx:id="board4" height="200.0" layoutX="98.0" layoutY="299.0" onMouseClicked="#clickfour" width="200.0" />
+      <Canvas fx:id="board5" height="200.0" layoutX="298.0" layoutY="299.0" onMouseClicked="#clickfive" width="200.0" />
+      <Canvas fx:id="board6" height="200.0" layoutX="498.0" layoutY="299.0" onMouseClicked="#clicksix" width="200.0" />
+      <Canvas fx:id="board7" height="200.0" layoutX="98.0" layoutY="499.0" onMouseClicked="#clickseven" width="200.0" />
+      <Canvas fx:id="board8" height="200.0" layoutX="298.0" layoutY="499.0" onMouseClicked="#clickeight" width="200.0" />
+      <Canvas fx:id="board9" height="200.0" layoutX="498.0" layoutY="499.0" onMouseClicked="#clicknine" width="200.0" />
+      <Line endX="563.0" layoutX="135.0" layoutY="99.0" startX="-37.0" />
+      <Line endX="48.0" endY="482.0" layoutX="50.0" layoutY="217.0" startX="48.0" startY="-118.0" />
+      <Line endX="497.5" endY="-0.5" layoutX="200.0" layoutY="700.0" startX="-100.0" />
+      <Line endX="-20.0" endY="556.0" layoutX="718.0" layoutY="143.0" startX="-20.0" startY="-44.0" />
+      <Line endX="502.0" layoutX="198.0" layoutY="499.0" startX="-100.0" />
+      <Line endX="503.0" layoutX="198.0" layoutY="299.0" startX="-100.0" />
+      <Line endY="629.7929077148438" layoutX="297.0" layoutY="69.0" startY="30.5" />
+      <Line endX="-158.0" endY="600.0" layoutX="656.0" layoutY="99.0" startX="-158.0" />
+      <Label layoutX="355.0" layoutY="25.0" prefHeight="46.0" prefWidth="79.0" text="틱택토" textAlignment="CENTER">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
