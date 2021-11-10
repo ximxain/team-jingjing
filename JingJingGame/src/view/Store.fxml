@@ -15,8 +15,8 @@
                <font>
                   <Font size="35.0" />
                </font></Button>
-            <Button layoutX="45.0" layoutY="637.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="108.0" text="내 물건 보기" />
-            <Button layoutX="1108.0" layoutY="637.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="108.0" text="내 물건 보기" />
+            <Button fx:id="showMyItem" layoutX="45.0" layoutY="637.0" mnemonicParsing="false" onAction="#myItem" prefHeight="38.0" prefWidth="108.0" text="내 물건 보기" />
+            <Button fx:id="storeBtn" layoutX="1108.0" layoutY="637.0" mnemonicParsing="false" onAction="#store" prefHeight="38.0" prefWidth="108.0" text="상점" />
          </children>
       </Pane>
    </children>
