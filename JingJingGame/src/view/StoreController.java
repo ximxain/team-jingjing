@@ -21,6 +21,9 @@ public class StoreController {
 	@FXML
 	private Button storeBtn;
 	
+	@FXML
+	private Button foodBtn;
+	
 	public void changeToMainView() {
 		try {
 			Parent login = FXMLLoader.load(getClass().getResource("/view/MainView.fxml"));
@@ -96,5 +99,37 @@ public class StoreController {
 			e.printStackTrace();
 		}
 	}
+	
+	private Stage foods; // 스테이지가 들어갈 변수
+
+	public void foodpop() {
+		// 메인 스테이지 취득, 전의 두가지 방법 중 두번째 방법
+		Stage mainStage = (Stage) foodBtn.getScene().getWindow();
+
+		// 새로운 스테이지 생성 (옵션 추가, 스타일)
+		foods = new Stage(StageStyle.DECORATED); // 스테이지 옵션
+		foods.initModality(Modality.WINDOW_MODAL); // 그 위에 뜨는 모달의 옵션
+		foods.initOwner(mainStage); // 메인 스테이지 부여
+
+		try {
+			// 새로운 스테이지에 custom 레이아웃 불러오기
+			Parent root = FXMLLoader.load(getClass().getResource("/view/Food.fxml"));
+
+			// 씬에 추가
+			Scene sc = new Scene(root);
+			// 씬에 스타일 추가
+			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+			foods.setScene(sc);
+			foods.setTitle("팝업 띄우기");
+			foods.setResizable(false); // 창 사이즈 조절 차단
+
+			// 보여주기
+			foods.show();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 
 }
