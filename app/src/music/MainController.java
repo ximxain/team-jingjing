@@ -30,61 +30,93 @@ public class MainController extends MusicPop implements Initializable {
 	MediaPlayer mp;
 	Media m = null;
 
+	Image imgBlack;
+	Image imgBlank;
+	Image imgLife;
+	Image imgRed;
+	Image imgBlue;
+	
+
 	static ArrayList<String> musicNoteList = new ArrayList<String>();
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		String pathBlack = "src//resource/A,black.png";
+		String pathBlank = "src//resource/A,blank.png";
+		String pathLife = "src//resource/life.png";
+		String pathRed = "src//resource/A,red.png";
+		String pathBlue = "src//resource/A,Blue.png";
 
 		// 1. ������������������������������������
-		String path = "src//resource/A,black.png";
-		String path2 = "src//resource/life.png";
 		try {
 			// 2. ������������������ ������������
 
-			FileInputStream fis = new FileInputStream(path);
-			BufferedInputStream bis = new BufferedInputStream(fis);
-			FileInputStream fis2 = new FileInputStream(path2);
-			BufferedInputStream bis2 = new BufferedInputStream(fis2);
-			// 3. ������������ ������������������������
-			Image img = new Image(bis);
-			Image img2 = new Image(bis2);
-			noteA1.setImage(img);
-			noteA2.setImage(img);
-			noteA3.setImage(img);
-			noteA4.setImage(img);
-			noteA5.setImage(img);
+			FileInputStream fisBlack = new FileInputStream(pathBlack);
+			BufferedInputStream bisBlack = new BufferedInputStream(fisBlack);
+			
+			FileInputStream fisBlank = new FileInputStream(pathBlank);
+			BufferedInputStream bisBlank = new BufferedInputStream(fisBlank);
+			
+			FileInputStream fisLife = new FileInputStream(pathLife);
+			BufferedInputStream bisLife = new BufferedInputStream(fisLife);
+			
+			FileInputStream fisRed = new FileInputStream(pathRed);
+			BufferedInputStream bisRed = new BufferedInputStream(fisRed);
+			
+			FileInputStream fisBlue = new FileInputStream(pathBlue);
+			BufferedInputStream bisBlue = new BufferedInputStream(fisBlue);
 
-			notea1.setImage(img);
-			notea2.setImage(img);
-			notea3.setImage(img);
-			notea4.setImage(img);
-			notea5.setImage(img);
+			imgBlack = new Image(bisBlack);
+			imgBlank = new Image(bisBlank);
+			imgLife = new Image(bisLife);
+			imgRed = new Image(bisRed);
+			imgBlue = new Image(bisBlue);
+			
+			
+			noteA1.setImage(imgBlack);
+			noteA2.setImage(imgBlack);
+			noteA3.setImage(imgBlack);
+			noteA4.setImage(imgBlack);
+			noteA5.setImage(imgBlack);
 
-			noteB1.setImage(img);
-			noteB2.setImage(img);
-			noteB3.setImage(img);
-			noteB4.setImage(img);
-			noteB5.setImage(img);
+			notea1.setImage(imgBlack);
+			notea2.setImage(imgBlack);
+			notea3.setImage(imgBlack);
+			notea4.setImage(imgBlack);
+			notea5.setImage(imgBlack);
 
-			noteb1.setImage(img);
-			noteb2.setImage(img);
-			noteb3.setImage(img);
-			noteb4.setImage(img);
-			noteb5.setImage(img);
-			// 4. ������������ ������������
+			noteB1.setImage(imgBlack);
+			noteB2.setImage(imgBlack);
+			noteB3.setImage(imgBlack);
+			noteB4.setImage(imgBlack);
+			noteB5.setImage(imgBlack);
 
-			life1.setImage(img2);
-			life2.setImage(img2);
-			life3.setImage(img2);
-			life4.setImage(img2);
-			life5.setImage(img2);
+			noteb1.setImage(imgBlack);
+			noteb2.setImage(imgBlack);
+			noteb3.setImage(imgBlack);
+			noteb4.setImage(imgBlack);
+			noteb5.setImage(imgBlack);
+
+			life1.setImage(imgLife);
+			life2.setImage(imgLife);
+			life3.setImage(imgLife);
+			life4.setImage(imgLife);
+			life5.setImage(imgLife);
 
 			scoreLabel.setText("Score: " + score);
 			// String.valueOf(score)
 
 			try {
-				bis.close();
-				fis.close();
+				bisBlack.close();
+				fisBlack.close();
+				bisBlank.close();
+				fisBlank.close();
+				bisLife.close();
+				fisLife.close();
+				bisRed.close();
+				fisRed.close();
+				bisBlue.close();
+				fisBlue.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -98,217 +130,57 @@ public class MainController extends MusicPop implements Initializable {
 	}
 
 	public void noteFlow1(ImageView notes) {
-		Thread t = new Thread(new Runnable() {
-
-			@Override
-			public void run() {
-				String path = "src//resource/A,black.png";// ������������������ ������������ ������������������
-				// 1. ������������ ������������ ������������
-				try {// 2. ������������������ ������������
-					FileInputStream fis = new FileInputStream(path);
-					BufferedInputStream bis = new BufferedInputStream(fis);
-					// 3. ������������������������
-					Image img = new Image(bis);
-					notes.setImage(img);
-					try {
-
-						bis.close();
-						fis.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-						System.out.println("img");
-					}
-				} catch (FileNotFoundException e) {
-					e.printStackTrace();
-				}
-			}
-		});
-
-		t.start();
+		notes.setImage(imgBlack);
 
 	}
 
 	public void redFlow(ImageView notes) {
-		Thread t = new Thread(new Runnable() {
-
-			@Override
-			public void run() {
-				String path = "src//resource/A,red.png";// ������������������ ������������ ������������������
-				// 1. ������������ ������������ ������������
-				try {// 2. ������������������ ������������
-					FileInputStream fis = new FileInputStream(path);
-					BufferedInputStream bis = new BufferedInputStream(fis);
-					// 3. ������������������������
-					Image img = new Image(bis);
-					notes.setImage(img);
-					try {
-
-						bis.close();
-						fis.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-						System.out.println("img");
-					}
-				} catch (FileNotFoundException e) {
-					e.printStackTrace();
-				}
-			}
-		});
-
-		t.start();
+		notes.setImage(imgRed);
 
 	}
 
 	public void noteFlow2(ImageView notes, ImageView notes2) {
-		Thread t = new Thread(new Runnable() {
-
-			@Override
-			public void run() {
-				String path = "src//resource/A,black.png";// ������������������ ������������ ������������������
-				// 1. ������������ ������������ ������������
-				try {// 2. ������������������ ������������
-					FileInputStream fis = new FileInputStream(path);
-					BufferedInputStream bis = new BufferedInputStream(fis);
-					// 3. ������������������������
-					Image img = new Image(bis);
-					notes.setImage(img);
-					notes2.setImage(img);
-					try {
-
-						bis.close();
-						fis.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-						System.out.println("img");
-					}
-				} catch (FileNotFoundException e) {
-					e.printStackTrace();
-				}
-			}
-		});
-
-		t.start();
-
+		notes.setImage(imgBlack);
+		notes2.setImage(imgBlack);
 	}
 
 	public void noteFlow3(ImageView notes, ImageView notes2, ImageView notes3) {
-		Thread t = new Thread(new Runnable() {
-
-			@Override
-			public void run() {
-				String path = "src//resource/A,black.png";// ������������������ ������������ ������������������
-				// 1. ������������ ������������ ������������
-				try {// 2. ������������������ ������������
-					FileInputStream fis = new FileInputStream(path);
-					BufferedInputStream bis = new BufferedInputStream(fis);
-					// 3. ������������������������
-					Image img = new Image(bis);
-					notes.setImage(img);
-					notes2.setImage(img);
-					notes3.setImage(img);
-					try {
-
-						bis.close();
-						fis.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-						System.out.println("img");
-					}
-				} catch (FileNotFoundException e) {
-					e.printStackTrace();
-				}
-			}
-		});
-
-		t.start();
-
+		notes.setImage(imgBlack);
+		notes2.setImage(imgBlack);
+		notes3.setImage(imgBlack);
 	}
 
 	public void noteFlow4(ImageView notes, ImageView notes2, ImageView notes3, ImageView notes4) {
-		Thread t = new Thread(new Runnable() {
-
-			@Override
-			public void run() {
-				String path = "src//resource/A,black.png";// ������������������ ������������ ������������������
-				// 1. ������������ ������������ ������������
-				try {// 2. ������������������ ������������
-					FileInputStream fis = new FileInputStream(path);
-					BufferedInputStream bis = new BufferedInputStream(fis);
-					// 3. ������������������������
-					Image img = new Image(bis);
-					notes.setImage(img);
-					notes2.setImage(img);
-					notes3.setImage(img);
-					notes4.setImage(img);
-					try {
-
-						bis.close();
-						fis.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-						System.out.println("img");
-					}
-				} catch (FileNotFoundException e) {
-					e.printStackTrace();
-				}
-			}
-		});
-
-		t.start();
-
+		notes.setImage(imgBlack);
+		notes2.setImage(imgBlack);
+		notes3.setImage(imgBlack);
+		notes4.setImage(imgBlack);
 	}
 
 	public void AllBlank() {
-		Thread t = new Thread(new Runnable() {
+			noteA1.setImage(imgBlank);
+			noteA2.setImage(imgBlank);
+			noteA3.setImage(imgBlank);
+			noteA4.setImage(imgBlank);
+			noteA5.setImage(imgBlank);
 
-			@Override
-			public void run() {
-				String path = "src//resource/A,blank.png";
-				// 1. ������������ ������������ ������������
-				try {// 2. ������������������ ������������
-					FileInputStream fis = new FileInputStream(path);
-					BufferedInputStream bis = new BufferedInputStream(fis);
-					// 3. ������������������������
-					Image img = new Image(bis);
-					noteA1.setImage(img);
-					noteA2.setImage(img);
-					noteA3.setImage(img);
-					noteA4.setImage(img);
-					noteA5.setImage(img);
+			notea1.setImage(imgBlank);
+			notea2.setImage(imgBlank);
+			notea3.setImage(imgBlank);
+			notea4.setImage(imgBlank);
+			notea5.setImage(imgBlank);
 
-					notea1.setImage(img);
-					notea2.setImage(img);
-					notea3.setImage(img);
-					notea4.setImage(img);
-					notea5.setImage(img);
+			noteB1.setImage(imgBlank);
+			noteB2.setImage(imgBlank);
+			noteB3.setImage(imgBlank);
+			noteB4.setImage(imgBlank);
+			noteB5.setImage(imgBlank);
 
-					noteB1.setImage(img);
-					noteB2.setImage(img);
-					noteB3.setImage(img);
-					noteB4.setImage(img);
-					noteB5.setImage(img);
-
-					noteb1.setImage(img);
-					noteb2.setImage(img);
-					noteb3.setImage(img);
-					noteb4.setImage(img);
-					noteb5.setImage(img);
-					try {
-
-						bis.close();
-						fis.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-						System.out.println("img ������������");
-					}
-				} catch (FileNotFoundException e) {
-					e.printStackTrace();
-				}
-			}
-		});
-
-		t.start();
-
+			noteb1.setImage(imgBlank);
+			noteb2.setImage(imgBlank);
+			noteb3.setImage(imgBlank);
+			noteb4.setImage(imgBlank);
+			noteb5.setImage(imgBlank);
 	}
 
 	@FXML
@@ -355,7 +227,7 @@ public class MainController extends MusicPop implements Initializable {
 						e.printStackTrace();
 
 					}
-					AllBlank();
+					
 
 					if (A == 1) {
 						hurt();
@@ -377,6 +249,7 @@ public class MainController extends MusicPop implements Initializable {
 						D = 0;
 					}
 					;
+					AllBlank();
 					next(i);
 				}
 				System.out.println("hatsune");
@@ -487,7 +360,7 @@ public class MainController extends MusicPop implements Initializable {
 	}
 
 	public void gameOver() {
-		System.out.println("game over");
+		System.out.println("game over1");
 	}
 
 	public void fadeLife(ImageView notes) {
@@ -496,10 +369,8 @@ public class MainController extends MusicPop implements Initializable {
 
 	public void MusicDance(String musicName) {
 
-		// ������������
 		m = new Media(getClass().getResource("/musics/" + musicName + ".mp3").toString());
 		mp = new MediaPlayer(m);
-		// ������������
 		Runnable onEnd = new Runnable() {
 			@Override
 			public void run() {
