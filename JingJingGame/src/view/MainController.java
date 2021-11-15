@@ -13,7 +13,7 @@ public class MainController {
 
 	public void changeToGameView() {
 		try {
-			Parent login = FXMLLoader.load(getClass().getResource("/view/GameView.fxml"));
+			Parent login = FXMLLoader.load(getClass().getResource("/appScene/GameView.fxml"));
 			Scene scene = new Scene(login);
 			Stage primaryStage = (Stage) changeGameView.getScene().getWindow();
 			primaryStage.setScene(scene);
