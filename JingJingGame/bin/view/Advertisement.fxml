@@ -21,12 +21,12 @@
             <Button fx:id="closeAD" layoutX="1185.0" layoutY="26.0" mnemonicParsing="false" onAction="#changeToMainFromAD" prefHeight="23.0" prefWidth="58.0" text="닫기" />
             <ImageView fitHeight="394.0" fitWidth="255.0" layoutX="105.0" layoutY="163.0" pickOnBounds="true">
                <image>
-                  <Image url="@../picture/기본.png" />
+                  <Image url="@../picture/gain.jpg" />
                </image>
             </ImageView>
             <ImageView fitHeight="394.0" fitWidth="255.0" layoutX="500.0" layoutY="163.0" pickOnBounds="true">
                <image>
-                  <Image url="@../picture/기본.png" />
+                  <Image url="@../picture/coding.jpg" />
                </image>
             </ImageView>
             <ImageView fitHeight="394.0" fitWidth="255.0" layoutX="899.0" layoutY="163.0" pickOnBounds="true">
@@ -49,6 +49,7 @@
                   <Font size="23.0" />
                </font>
             </Label>
+            <Button layoutX="36.0" layoutY="27.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="58.0" text="설정" />
          </children>
       </Pane>
    </children>
