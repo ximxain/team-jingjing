@@ -24,6 +24,15 @@ public class StoreController {
 	@FXML
 	private Button foodBtn;
 	
+	@FXML
+	private Button cleanBtn;
+	
+	@FXML
+	private Button clothBtn;
+	
+	@FXML
+	private Button closeBtn;
+	
 	public void changeToMainView() {
 		try {
 			Parent login = FXMLLoader.load(getClass().getResource("/view/MainView.fxml"));
@@ -132,6 +141,72 @@ public class StoreController {
 	}
 	
 	
+	private Stage cleans; // 스테이지가 들어갈 변수
+
+	public void cleanpop() {
+		// 메인 스테이지 취득, 전의 두가지 방법 중 두번째 방법
+		Stage mainStage = (Stage) cleanBtn.getScene().getWindow();
+
+		// 새로운 스테이지 생성 (옵션 추가, 스타일)
+		cleans = new Stage(StageStyle.DECORATED); // 스테이지 옵션
+		cleans.initModality(Modality.WINDOW_MODAL); // 그 위에 뜨는 모달의 옵션
+		cleans.initOwner(mainStage); // 메인 스테이지 부여
+
+		try {
+			// 새로운 스테이지에 custom 레이아웃 불러오기
+			Parent root = FXMLLoader.load(getClass().getResource("/view/MDClean.fxml"));
+
+			// 씬에 추가
+			Scene sc = new Scene(root);
+			// 씬에 스타일 추가
+			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+			cleans.setScene(sc);
+			cleans.setTitle("팝업 띄우기");
+			cleans.setResizable(false); // 창 사이즈 조절 차단
+
+			// 보여주기
+			cleans.show();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	
+	
+	private Stage clothes; // 스테이지가 들어갈 변수
+
+	public void clothpop() {
+		// 메인 스테이지 취득, 전의 두가지 방법 중 두번째 방법
+		Stage mainStage = (Stage) clothBtn.getScene().getWindow();
+
+		// 새로운 스테이지 생성 (옵션 추가, 스타일)
+		clothes = new Stage(StageStyle.DECORATED); // 스테이지 옵션
+		clothes.initModality(Modality.WINDOW_MODAL); // 그 위에 뜨는 모달의 옵션
+		clothes.initOwner(mainStage); // 메인 스테이지 부여
+
+		try {
+			// 새로운 스테이지에 custom 레이아웃 불러오기
+			Parent root = FXMLLoader.load(getClass().getResource("/view/clothes.fxml"));
+
+			// 씬에 추가
+			Scene sc = new Scene(root);
+			// 씬에 스타일 추가
+			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+			clothes.setScene(sc);
+			clothes.setTitle("팝업 띄우기");
+			clothes.setResizable(false); // 창 사이즈 조절 차단
+
+			// 보여주기
+			clothes.show();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void close() {
+		pop = (Stage) closeBtn.getScene().getWindow();
+		pop.close();
+	}
 
 }
