@@ -10,6 +10,7 @@ public class prologue {
 	@FXML
 	Label textBuffer;
 	static int a = 0;
+	static String text2 = "";
 
 	public void start() {
 
@@ -27,28 +28,30 @@ public class prologue {
 	}
 
 	public void text(String text) {
-		
-
+		text2 = "";
 		Thread t = new Thread(new Runnable() {
 			@Override
 			public void run() {
-				for (int i = text.length(); i > -1; i--) {
-					String text2 = "";
-					text2 = text.substring(0, text.length() - i);
-					System.out.println(text2);
-					
-					try {
-						Thread.sleep(100);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-
-					}
-					textBuffer.setText(text2);
-				}
+				textBuffer.setText(text2);
 			}
 		});
-		t.start();
+
+		for (int i = text.length(); i > -1; i--) {
+
+			text2 = text.substring(0, text.length() - i);
+			System.out.println(text2);
+			t.start();
+
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+
+			}
+		}
+		text2 = "";
+
 	}
 
 }

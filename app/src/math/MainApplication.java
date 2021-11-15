@@ -22,6 +22,10 @@ import javafx.stage.StageStyle;
 
 public class MainApplication extends Stopwatch{
 	@FXML
+	ImageView backGround;
+	
+	
+	@FXML
 	Label problem;
 	@FXML
 	Label input;
@@ -90,7 +94,7 @@ public class MainApplication extends Stopwatch{
 			System.out.println( "정답률: "+(int)((double) valueAnswer / (double) stepLimit * 100.0) + "%");
 			stopwatch(0);
 			System.out.format("Timer OFF! 경과 시간: [%s]%n", timerBuffer);
-			resultWindow.setText("정답률: "+(int)((double) valueAnswer / (double) stepLimit * 100.0)+"%"+"\n재시작할려면 화면 오른쪽의 =키를 누르시오"+"\n걸린시간: "+time+"초");
+			resultWindow.setText("정답률: "+(int)((double) valueAnswer / (double) stepLimit * 100.0)+"%"+"\n재시작할려면 계산기의 =키를 누르시오"+"\n걸린시간: "+time+"초");
 			presentStep = 0;
 			question1.setText(""+0);
 			question2.setText(""+0);
@@ -295,11 +299,20 @@ public class MainApplication extends Stopwatch{
 			if(value2.equals(""+intAnswer)) {
 				System.out.println("answer");
 				String path = "src//resource/answer.png";
+				String path2 = "src//resource/수학퀴즈1.png";
+				String path3 = "src//resource/수학퀴즈2.png";
 				try {
 					FileInputStream fis = new FileInputStream(path);
 					BufferedInputStream bis = new BufferedInputStream(fis);
 					Image img = new Image(bis);
+					FileInputStream fis2 = new FileInputStream(path2);
+					BufferedInputStream bis2 = new BufferedInputStream(fis2);
+					Image img2 = new Image(bis2);
+					FileInputStream fis3 = new FileInputStream(path3);
+					BufferedInputStream bis3 = new BufferedInputStream(fis3);
+					Image img3 = new Image(bis3);
 					correctAnswer.setImage(img);
+					backGround.setImage(img2);
 					try {
 
 						bis.close();
@@ -311,6 +324,7 @@ public class MainApplication extends Stopwatch{
 								try {
 									Thread.sleep(1000);
 									correctAnswer.setImage(null);
+									backGround.setImage(img3);
 								} catch (InterruptedException e) {
 									// TODO Auto-generated catch block
 									e.printStackTrace();

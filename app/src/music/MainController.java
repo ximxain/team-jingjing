@@ -47,9 +47,7 @@ public class MainController extends MusicPop implements Initializable {
 		String pathRed = "src//resource/A,red.png";
 		String pathBlue = "src//resource/A,Blue.png";
 
-		// 1. ������������������������������������
 		try {
-			// 2. ������������������ ������������
 
 			FileInputStream fisBlack = new FileInputStream(pathBlack);
 			BufferedInputStream bisBlack = new BufferedInputStream(fisBlack);
