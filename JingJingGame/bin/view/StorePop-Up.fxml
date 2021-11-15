@@ -17,10 +17,9 @@
                </font>
             </Label>
             <Line endX="299.0" layoutX="101.0" layoutY="80.0" startX="-100.0" />
-            <Button layoutX="346.0" layoutY="18.0" mnemonicParsing="false" text="닫기" />
             <Button fx:id="foodBtn" layoutX="139.0" layoutY="165.0" mnemonicParsing="false" onAction="#foodpop" prefHeight="85.0" prefWidth="124.0" text="음식" />
-            <Button fx:id="cleanBtn" layoutX="139.0" layoutY="326.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="124.0" text="약 / 청결물품" />
-            <Button fx:id="clothBtn" layoutX="138.0" layoutY="489.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="124.0" text="옷" />
+            <Button fx:id="MDCBtn" layoutX="139.0" layoutY="326.0" mnemonicParsing="false" onAction="#MDCpop" prefHeight="85.0" prefWidth="124.0" text="약 / 청결물품" />
+            <Button fx:id="clothesBtn" layoutX="138.0" layoutY="489.0" mnemonicParsing="false" onAction="#clothespop" prefHeight="85.0" prefWidth="124.0" text="옷" />
          </children></Pane>
    </children>
 </AnchorPane>

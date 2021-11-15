@@ -23,9 +23,9 @@ public class MainLayOut {
 
 	private static String viewName = "Init & Quiz";
 	//서술형 답
-	private static String Quiz3 = "a";
-	private static String Quiz7 = "b";
-	private static String Quiz9 = "c";
+	private static String Quiz3 = "1";
+	private static String Quiz7 = "2";
+	private static String Quiz9 = "3";
 
 	// 결과출력
 	public void initialize() {
@@ -138,6 +138,7 @@ public class MainLayOut {
 
 	@FXML private Button Quiz4Correct;
 	@FXML private Button Quiz4Wrong;
+	@FXML private Button Quiz4Wrong2;
 
 	public void ClickQuiz4Correct() {
 		score += 10;
@@ -162,9 +163,21 @@ public class MainLayOut {
 			e.printStackTrace();
 		}
 	}
+	
+	public void ClickQuiz4Wrong2() {
+		try {
+			Parent login = FXMLLoader.load(getClass().getResource("/view/Quiz5.fxml"));
+			Scene scene = new Scene(login);
+			Stage primaryStage = (Stage) Quiz4Wrong2.getScene().getWindow();
+			primaryStage.setScene(scene);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	@FXML private Button Quiz5Correct;
 	@FXML private Button Quiz5Wrong;
+	@FXML private Button Quiz5Wrong2;
 
 	public void ClickQuiz5Correct() {
 		score += 10;
@@ -184,6 +197,17 @@ public class MainLayOut {
 			Parent login = FXMLLoader.load(getClass().getResource("/view/Quiz6.fxml"));
 			Scene scene = new Scene(login);
 			Stage primaryStage = (Stage) Quiz5Wrong.getScene().getWindow();
+			primaryStage.setScene(scene);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void ClickQuiz5Wrong2() {
+		try {
+			Parent login = FXMLLoader.load(getClass().getResource("/view/Quiz6.fxml"));
+			Scene scene = new Scene(login);
+			Stage primaryStage = (Stage) Quiz5Wrong2.getScene().getWindow();
 			primaryStage.setScene(scene);
 		} catch (Exception e) {
 			e.printStackTrace();
