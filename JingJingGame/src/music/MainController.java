@@ -18,17 +18,22 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.Stage;
 
 public class MainController extends MusicPop implements Initializable {
 
 	MediaPlayer mp;
 	Media m = null;
+	
+	@FXML
+	Button btn;
 
 	Image imgBlack;
 	Image imgBlank;
@@ -69,6 +74,7 @@ public class MainController extends MusicPop implements Initializable {
 			imgLife = new Image(bisLife);
 			imgRed = new Image(bisRed);
 			imgBlue = new Image(bisBlue);
+			
 			
 			
 			noteA1.setImage(imgBlack);
@@ -685,6 +691,17 @@ public class MainController extends MusicPop implements Initializable {
 		// MusicDance("night_bug_thread");
 		MusicStart();
 
+	}
+	
+	public void exit() {
+		try {
+			Parent login = FXMLLoader.load(getClass().getResource("/appScene/GameView.fxml"));
+			Scene scene = new Scene(login);
+			Stage primaryStage = (Stage) btn.getScene().getWindow();
+			primaryStage.setScene(scene);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

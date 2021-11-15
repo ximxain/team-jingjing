@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ItemController">
    <children>
       <Pane prefHeight="600.0" prefWidth="350.0">
          <children>
@@ -20,7 +20,7 @@
                </font>
             </Label>
             <Line endX="249.0" layoutX="101.0" layoutY="80.0" startX="-100.0" />
-            <Button fx:id="closeBtn" layoutX="296.0" layoutY="14.0" mnemonicParsing="false" text="닫기" />
+            <Button fx:id="closeBtn" layoutX="296.0" layoutY="14.0" mnemonicParsing="false" onAction="#close" text="닫기" />
             <ListView layoutX="14.0" layoutY="310.0" prefHeight="284.0" prefWidth="325.0" />
             <ImageView fitHeight="203.0" fitWidth="325.0" layoutX="14.0" layoutY="95.0" pickOnBounds="true">
                <image>
