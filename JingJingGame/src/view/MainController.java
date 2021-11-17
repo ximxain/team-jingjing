@@ -74,18 +74,7 @@ public class MainController implements Initializable {
 		}
 	}
 
-	@FXML private Button closeAD;
-
-	public void changeToMainFromAD() {
-		try {
-			Parent login = FXMLLoader.load(getClass().getResource("/view/MainView.fxml"));
-			Scene scene = new Scene(login);
-			Stage primaryStage = (Stage) closeAD.getScene().getWindow();
-			primaryStage.setScene(scene);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -96,7 +85,6 @@ public class MainController implements Initializable {
 		experienceBar.setProgress((double) presentExperience / limitExperience);
 		presentGrowth.setText(currentStat[presentLevel]);
 		moneyLabel.setText(""+money);
-		
 	}
 	
 	//버튼 클릭 하면 음성나오기(징징이)
