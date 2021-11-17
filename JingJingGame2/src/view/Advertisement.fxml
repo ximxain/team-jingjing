@@ -19,19 +19,19 @@
                </font>
             </Label>
             <Button fx:id="closeAD" layoutX="1185.0" layoutY="26.0" mnemonicParsing="false" onAction="#changeToMainFromAD" prefHeight="23.0" prefWidth="58.0" text="닫기" />
-            <ImageView fitHeight="394.0" fitWidth="255.0" layoutX="105.0" layoutY="163.0" onMouseClicked="#changeToAD1" pickOnBounds="true">
+            <ImageView fitHeight="394.0" fitWidth="255.0" layoutX="105.0" layoutY="163.0" pickOnBounds="true">
                <image>
-                  <Image url="@../picture/gain.jpg" />
+                  <Image url="@../picture/기본.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="394.0" fitWidth="255.0" layoutX="500.0" layoutY="163.0" onMouseClicked="#changeToAD2" pickOnBounds="true">
+            <ImageView fitHeight="394.0" fitWidth="255.0" layoutX="500.0" layoutY="163.0" pickOnBounds="true">
                <image>
-                  <Image url="@../picture/coding.jpg" />
+                  <Image url="@../picture/기본.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="394.0" fitWidth="255.0" layoutX="899.0" layoutY="163.0" onMouseClicked="#changeToAD3" pickOnBounds="true">
+            <ImageView fitHeight="394.0" fitWidth="255.0" layoutX="899.0" layoutY="163.0" pickOnBounds="true">
                <image>
-                  <Image url="@../resource/shop.jpg" />
+                  <Image url="@../picture/기본.png" />
                </image>
             </ImageView>
             <Label layoutX="113.0" layoutY="573.0" text="김가인의 댄스 클래스 !">
