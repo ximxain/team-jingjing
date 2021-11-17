@@ -88,5 +88,17 @@ public class MainController implements Initializable {
 	}
 	
 	//버튼 클릭 하면 음성나오기(징징이)
+	
+	//프롤로그(임시)
+	public void changeSceneToProlog() {
+		try {
+			Parent login = FXMLLoader.load(getClass().getResource("/prolog/prolog.fxml"));
+			Scene scene = new Scene(login);
+			Stage primaryStage = (Stage) changeGameView.getScene().getWindow();
+			primaryStage.setScene(scene);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }
