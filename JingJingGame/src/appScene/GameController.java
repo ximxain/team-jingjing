@@ -46,6 +46,7 @@ public class GameController {
 	}
 
 	public void clickMath() {
+		System.out.println("clickMath");
 		mainStage = (Stage) app.getScene().getWindow();
 		pop = new Stage(StageStyle.DECORATED);
 		pop.initModality(Modality.WINDOW_MODAL);
@@ -67,6 +68,7 @@ public class GameController {
 	}
 	
 	public void changeToMainViewFromGame() {
+		System.out.println("changeToMainViewFromGame");
 		try {
 			Parent login = FXMLLoader.load(getClass().getResource("/view/MainView.fxml"));
 			Scene scene = new Scene(login);
