@@ -38,17 +38,23 @@ public class MainController extends MusicPop implements Initializable {
 	Image imgBlack;
 	Image imgBlank;
 	Image imgLife;
+	Image imgLifeBlank;
 	Image imgRed;
 	Image imgBlue;
+	
+	static boolean exit = false;
 	
 
 	static ArrayList<String> musicNoteList = new ArrayList<String>();
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
+		exit = false;
 		String pathBlack = "src//resource/A,black.png";
 		String pathBlank = "src//resource/A,blank.png";
 		String pathLife = "src//resource/life.png";
+		String pathLifeBlank = "src//resource/lifeBlank.png";
 		String pathRed = "src//resource/A,red.png";
 		String pathBlue = "src//resource/A,Blue.png";
 
@@ -68,12 +74,16 @@ public class MainController extends MusicPop implements Initializable {
 			
 			FileInputStream fisBlue = new FileInputStream(pathBlue);
 			BufferedInputStream bisBlue = new BufferedInputStream(fisBlue);
+			
+			FileInputStream fisLifeBlank = new FileInputStream(pathLifeBlank);
+			BufferedInputStream bisLifeBlank = new BufferedInputStream(fisLifeBlank);
 
 			imgBlack = new Image(bisBlack);
 			imgBlank = new Image(bisBlank);
 			imgLife = new Image(bisLife);
 			imgRed = new Image(bisRed);
 			imgBlue = new Image(bisBlue);
+			imgLifeBlank = new Image(bisLifeBlank);
 			
 			
 			
@@ -253,8 +263,15 @@ public class MainController extends MusicPop implements Initializable {
 						D = 0;
 					}
 					;
+					A = 0;
+					B = 0;
+					C = 0;
+					D = 0;
 					AllBlank();
 					next(i);
+					if(exit == true) {
+						break;
+					}
 				}
 				System.out.println("hatsune");
 
@@ -271,7 +288,6 @@ public class MainController extends MusicPop implements Initializable {
 			A = 2;
 			scoreLabel.setText("Score: " + score);
 		} else if (A == 0) {
-			life = life - 1;
 			hurt();
 		}
 	}
@@ -283,7 +299,6 @@ public class MainController extends MusicPop implements Initializable {
 			B = 2;
 			scoreLabel.setText("Score: " + score);
 		} else if (B == 0) {
-			life = life - 1;
 			hurt();
 		}
 	}
@@ -295,7 +310,6 @@ public class MainController extends MusicPop implements Initializable {
 			C = 2;
 			scoreLabel.setText("Score: " + score);
 		} else if (C == 0) {
-			life = life - 1;
 			hurt();
 		}
 	}
@@ -307,14 +321,13 @@ public class MainController extends MusicPop implements Initializable {
 			D = 2;
 			scoreLabel.setText("Score: " + score);
 		} else if (D == 0) {
-			life = life - 1;
 			hurt();
 		}
 	}
 
 	public void hurt() {
 		System.out.println("hurt!");
-		life = life - 1;
+		life--;
 		if (life == 4) {
 			fadeLife(life5);
 			System.out.println("life 4");
@@ -368,7 +381,7 @@ public class MainController extends MusicPop implements Initializable {
 	}
 
 	public void fadeLife(ImageView notes) {
-		notes.setImage(null);
+		notes.setImage(imgLifeBlank);
 	}
 
 	public void MusicDance(String musicName) {
@@ -694,6 +707,7 @@ public class MainController extends MusicPop implements Initializable {
 	}
 	
 	public void exit() {
+		exit = true;
 		try {
 			Parent login = FXMLLoader.load(getClass().getResource("/appScene/GameView.fxml"));
 			Scene scene = new Scene(login);

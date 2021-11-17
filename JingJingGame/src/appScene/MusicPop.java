@@ -107,6 +107,8 @@ public class MusicPop extends GameController {
 	Button closebtn2;
 
 	public void gameStart() {
+		life = 5;
+		score = 0;
 		pop = (Stage) closebtn2.getScene().getWindow();
 		pop.close();
 		try {

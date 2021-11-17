@@ -81,7 +81,7 @@ public class MainApplication extends Stopwatch{
 	
 	
 	public void start() {
-		
+		valueAnswer = 0;
 		problem();
 		stopwatch(1);
 		resultWindow.setText(null);
