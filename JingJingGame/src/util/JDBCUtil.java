@@ -11,9 +11,9 @@ public class JDBCUtil {
 			e.printStackTrace();
 		}
 		
-		String connectionString = "jdbc:mysql://localhost/yydh";
-		String userId = "root";
-		String password = "";
+		String connectionString = "jdbc:mysql://yark.yydhsoft.com/skills06";
+		String userId = "skills06";
+		String password = "1q2w";
 		
 		Connection con = null;
 		try {
