@@ -25,13 +25,15 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class MainController extends MusicPop implements Initializable {
 
 	MediaPlayer mp;
 	Media m = null;
-	
+
 	@FXML
 	Button btn;
 
@@ -41,16 +43,15 @@ public class MainController extends MusicPop implements Initializable {
 	Image imgLifeBlank;
 	Image imgRed;
 	Image imgBlue;
-	
-	static boolean exit = false;
-	
 
-	static ArrayList<String> musicNoteList = new ArrayList<String>();
+	static boolean exit = false;
+	static boolean GOW = false;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		System.out.println(musicNoteList.size());
 		exit = false;
+		GOW = false;
 		String pathBlack = "src//resource/A,black.png";
 		String pathBlank = "src//resource/A,blank.png";
 		String pathLife = "src//resource/life.png";
@@ -62,19 +63,19 @@ public class MainController extends MusicPop implements Initializable {
 
 			FileInputStream fisBlack = new FileInputStream(pathBlack);
 			BufferedInputStream bisBlack = new BufferedInputStream(fisBlack);
-			
+
 			FileInputStream fisBlank = new FileInputStream(pathBlank);
 			BufferedInputStream bisBlank = new BufferedInputStream(fisBlank);
-			
+
 			FileInputStream fisLife = new FileInputStream(pathLife);
 			BufferedInputStream bisLife = new BufferedInputStream(fisLife);
-			
+
 			FileInputStream fisRed = new FileInputStream(pathRed);
 			BufferedInputStream bisRed = new BufferedInputStream(fisRed);
-			
+
 			FileInputStream fisBlue = new FileInputStream(pathBlue);
 			BufferedInputStream bisBlue = new BufferedInputStream(fisBlue);
-			
+
 			FileInputStream fisLifeBlank = new FileInputStream(pathLifeBlank);
 			BufferedInputStream bisLifeBlank = new BufferedInputStream(fisLifeBlank);
 
@@ -84,9 +85,7 @@ public class MainController extends MusicPop implements Initializable {
 			imgRed = new Image(bisRed);
 			imgBlue = new Image(bisBlue);
 			imgLifeBlank = new Image(bisLifeBlank);
-			
-			
-			
+
 			noteA1.setImage(imgBlack);
 			noteA2.setImage(imgBlack);
 			noteA3.setImage(imgBlack);
@@ -131,6 +130,8 @@ public class MainController extends MusicPop implements Initializable {
 				fisRed.close();
 				bisBlue.close();
 				fisBlue.close();
+				MusicStart();
+				System.out.println(t);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -172,29 +173,29 @@ public class MainController extends MusicPop implements Initializable {
 	}
 
 	public void AllBlank() {
-			noteA1.setImage(imgBlank);
-			noteA2.setImage(imgBlank);
-			noteA3.setImage(imgBlank);
-			noteA4.setImage(imgBlank);
-			noteA5.setImage(imgBlank);
+		noteA1.setImage(imgBlank);
+		noteA2.setImage(imgBlank);
+		noteA3.setImage(imgBlank);
+		noteA4.setImage(imgBlank);
+		noteA5.setImage(imgBlank);
 
-			notea1.setImage(imgBlank);
-			notea2.setImage(imgBlank);
-			notea3.setImage(imgBlank);
-			notea4.setImage(imgBlank);
-			notea5.setImage(imgBlank);
+		notea1.setImage(imgBlank);
+		notea2.setImage(imgBlank);
+		notea3.setImage(imgBlank);
+		notea4.setImage(imgBlank);
+		notea5.setImage(imgBlank);
 
-			noteB1.setImage(imgBlank);
-			noteB2.setImage(imgBlank);
-			noteB3.setImage(imgBlank);
-			noteB4.setImage(imgBlank);
-			noteB5.setImage(imgBlank);
+		noteB1.setImage(imgBlank);
+		noteB2.setImage(imgBlank);
+		noteB3.setImage(imgBlank);
+		noteB4.setImage(imgBlank);
+		noteB5.setImage(imgBlank);
 
-			noteb1.setImage(imgBlank);
-			noteb2.setImage(imgBlank);
-			noteb3.setImage(imgBlank);
-			noteb4.setImage(imgBlank);
-			noteb5.setImage(imgBlank);
+		noteb1.setImage(imgBlank);
+		noteb2.setImage(imgBlank);
+		noteb3.setImage(imgBlank);
+		noteb4.setImage(imgBlank);
+		noteb5.setImage(imgBlank);
 	}
 
 	@FXML
@@ -215,33 +216,30 @@ public class MainController extends MusicPop implements Initializable {
 	}
 
 	public void MusicStart() {
-		Thread t = new Thread(new Runnable() {
+		stopwatch(1);
+		Thread musicThread = new Thread(new Runnable() {
 
 			@Override
 			public void run() {
-				int t = Integer.parseInt(musicNoteList.get(0));
+
 				System.out.println("t is " + t);
-				System.out.println("tempo: " + 60 / t);
-				double s = (double) 60 / t;
-				System.out.println("s: " + s);
-				s = s * 1000;
-				int a = (int) s;
+				System.out.println(musicNoteList.size());
+				for (int i = 5; i <= musicNoteList.size() - 5; i++) {
+					if (exit == true) {
+						System.out.println("?");
+						break;
+					}
 
-				System.out.println("please");
-				System.out.println("s: " + s);
-				System.out.println("a: " + a);
-
-				for (int i = 4; i <= musicNoteList.size() - 5; i++) {
+					
 
 					System.out.println(i);
 					try {
-						Thread.sleep(a);
+						Thread.sleep(t);
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 
 					}
-					
 
 					if (A == 1) {
 						hurt();
@@ -269,16 +267,16 @@ public class MainController extends MusicPop implements Initializable {
 					D = 0;
 					AllBlank();
 					next(i);
-					if(exit == true) {
-						break;
-					}
 				}
-				System.out.println("hatsune");
-
+				stopwatch(0);
+				if (GOW == true) {
+					gameOver();
+					System.out.println("uuu");
+				}
 			}
 		});
 
-		t.start();
+		musicThread.start();
 	}
 
 	public void aClick() {
@@ -352,7 +350,8 @@ public class MainController extends MusicPop implements Initializable {
 			fadeLife(life3);
 			fadeLife(life2);
 			fadeLife(life1);
-			gameOver();
+			GOW = true;
+			exit = true;
 		}
 	}
 
@@ -376,8 +375,33 @@ public class MainController extends MusicPop implements Initializable {
 		}
 	}
 
+	Stage pop3;
+
 	public void gameOver() {
-		System.out.println("game over1");
+		System.out.println("game over");
+		exit = true;
+		Stage mainStage4 = (Stage) btn.getScene().getWindow();
+
+		pop3 = new Stage(StageStyle.DECORATED);
+		pop3.initModality(Modality.WINDOW_MODAL);
+		pop3.initOwner(mainStage4);
+
+		try {
+
+			Parent root = FXMLLoader.load(getClass().getResource("/music/prolog.fxml"));
+
+			// �뵮�뿉 異붽�
+			Scene sc = new Scene(root);
+			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+			pop3.setScene(sc);
+			pop3.setTitle("�뙘�뾽 �쓣�슦湲�");
+			pop3.setResizable(false);
+
+			pop3.show();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void fadeLife(ImageView notes) {
@@ -606,29 +630,6 @@ public class MainController extends MusicPop implements Initializable {
 		}
 	}
 
-	public void txtRead(String txtLink) throws IOException {
-		File file = new File("src//resource/" + txtLink + ".txt");
-
-		/*
-		 * 
-		 */
-		BufferedReader reader = new BufferedReader(new FileReader(file));
-		String str;
-		System.out.println("@@@@@@@@@@@@");
-		while ((str = reader.readLine()) != null) {
-			musicNoteList.add(str);
-		}
-		musicNoteList.add("0000");
-		musicNoteList.add("0000");
-		musicNoteList.add("0000");
-		musicNoteList.add("0000");
-		musicNoteList.add("0000");
-		for (int i = 0; i < musicNoteList.size(); i++) {
-			System.out.println("music1: " + musicNoteList.get(i));
-		}
-		reader.close();
-	}
-
 //	public void aClick() {
 //		if (A == 1) {
 //			score = score + 100;
@@ -676,25 +677,10 @@ public class MainController extends MusicPop implements Initializable {
 //		}
 //	}
 
-	public void Music1() {
-		AllBlank();
-		System.out.println("music1");
-		musicNoteList.clear();
-		try {
-			txtRead("music1");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		// MusicDance("usagi");
-		MusicStart();
-
-	}
-
 	public void Music2() {
 		AllBlank();
 		System.out.println("music2");
-		musicNoteList.clear();
+		// musicNoteList.clear();
 		try {
 			txtRead("music2");
 		} catch (IOException e) {
@@ -705,7 +691,7 @@ public class MainController extends MusicPop implements Initializable {
 		MusicStart();
 
 	}
-	
+
 	public void exit() {
 		exit = true;
 		try {
@@ -716,6 +702,31 @@ public class MainController extends MusicPop implements Initializable {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	// stop watch
+	public static String timerBuffer;
+	static int oldTime;
+	static int time = 0;
+
+	public static void stopwatch(int onOff) {
+		if (onOff == 1)
+			oldTime = (int) System.currentTimeMillis() / 1000;
+
+		if (onOff == 0)
+			secToHHMMSS(((int) System.currentTimeMillis() / 1000) - oldTime);
+	}
+
+	public static void secToHHMMSS(int secs) {
+		int hour, min, sec;
+		System.out.println(secs);
+		;
+		sec = secs % 60;
+		min = secs / 60 % 60;
+		hour = secs / 3600;
+
+		timerBuffer = String.format("%02d:%02d:%02d", hour, min, sec);
+		time = sec;
 	}
 
 }

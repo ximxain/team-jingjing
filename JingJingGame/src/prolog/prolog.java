@@ -26,20 +26,20 @@ public class prolog {
 	static boolean readingCheck = true;
 	static int a = 0;
 	static int b = 0;
-	static String[] textArr = { "하츠네 미쿠 공부법으로 허접 코딩 탈출하자!", "잃어버린 고향을 찾기 위해서 인간은 타향으로 가야 한다",
-			"내 돈이 불쌍한 자들의 관을 짜는데 쓰이길 바란다", "그 마녀의 이름은 무엇일까요?", "나는 잠이 올 수 밖에", "별 하나에 아름다운 말 한마디씩 불러 봅니다"};
-	
-	
-	//true는 화면이 넘어감. false는 넘어가지 않고 화면이 정체되어 있음. 첫 배열은 무조건 true로.
-	//textArr 배열과 booleanArr 배열의 크기가 서로 같아야함
-	static boolean[] booleanArr = {true, false, true, true, false, false};
-	
+	static String[] textArr = { "하...", "나는 일만 하다 살아와서 40대가 다 되어도 결혼은 커녕 여친 한번 사귀어 본 적 없구나",
+			"내 주변 ", "'나는 일만 하다가 살아와서 40대가 되어가는데 결혼은 커녕 여자친구를 사귀어 본 적도 없지",
+			"", "나는 잠이 올 수 밖에", "별 하나에 아름다운 말 한마디씩 불러 봅니다" };
+
+	// true는 화면이 넘어감. false는 넘어가지 않고 화면이 정체되어 있음. 첫 배열은 무조건 true로.
+	// textArr 배열과 booleanArr 배열의 크기가 서로 같아야함
+	static boolean[] booleanArr = { true, false, true, true, false, false };
+
 	public void start() {
 
 	}
 
 	public void next() {
-		if(a<textArr.length) {
+		if (a < textArr.length) {
 			if (readingCheck == true) {
 				text(textArr[a]);
 				if (booleanArr[a] == true) {
@@ -68,7 +68,7 @@ public class prolog {
 			}
 		} else {
 			System.out.println("end");
-			//임시
+			// 임시
 			try {
 				Parent login = FXMLLoader.load(getClass().getResource("/view/MainView.fxml"));
 				Scene scene = new Scene(login);
@@ -78,7 +78,7 @@ public class prolog {
 				e.printStackTrace();
 			}
 		}
-		
+
 	}
 
 	public void text(String text) {
