@@ -39,6 +39,7 @@ public class prolog implements Initializable{
 			"바람이 추워졌다. 남자는 밤낚시를 계속할까 고민하다가 돌아가기로 결정했다.",
 			"낚싯대를 치울려고 마구 릴을 감았다. 뭔가가 걸려있다는걸 눈치채고 끌어 올려보니",
 			"징징이었다. 외계에서 온듯한 징징이가 찌에 걸려 몸을 축 늘어트리고 있었다.",
+			"사내는 징징이를 잠시 지긋이 바라보고는 소리쳤다.",
 			"\"내가 정말로 미쳤군. 오징어 따위에게 연민을 느끼다니!\"",
 			"사내는 징징이를 품에 넣었다가 곧 숨 쉬기가 불편할거라고 깨닿고는",
 			"통에 들은 생선을 버리고 그 안에 징징이를 물 조금과 함께 넣었다.",
@@ -49,7 +50,7 @@ public class prolog implements Initializable{
 	static boolean[] booleanArr = {
 			true, false, false, false, false,
 			false, false, false, true, false,
-			false, false, true};
+			false, false, false, true};
 
 	public void start() {
 
