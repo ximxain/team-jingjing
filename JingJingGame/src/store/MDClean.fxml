@@ -18,32 +18,32 @@
                </font>
             </Label>
             <Line endX="299.0" layoutX="101.0" layoutY="80.0" startX="-100.0" />
-            <ImageView fitHeight="106.0" fitWidth="124.0" layoutX="51.0" layoutY="118.0" pickOnBounds="true">
+            <ImageView fx:id="MDC1" fitHeight="106.0" fitWidth="124.0" layoutX="51.0" layoutY="118.0" onMouseClicked="#MDCName1" pickOnBounds="true">
                <image>
                   <Image url="@../picture/기본.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="106.0" fitWidth="124.0" layoutX="218.0" layoutY="118.0" pickOnBounds="true">
+            <ImageView fx:id="MDC2" fitHeight="106.0" fitWidth="124.0" layoutX="218.0" layoutY="118.0" onMouseClicked="#MDCName2" pickOnBounds="true">
                <image>
                   <Image url="@../picture/기본.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="106.0" fitWidth="124.0" layoutX="51.0" layoutY="256.0" pickOnBounds="true">
+            <ImageView fx:id="MDC3" fitHeight="106.0" fitWidth="124.0" layoutX="51.0" layoutY="256.0" onMouseClicked="#MDCName3" pickOnBounds="true">
                <image>
                   <Image url="@../picture/기본.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="106.0" fitWidth="124.0" layoutX="218.0" layoutY="256.0" pickOnBounds="true">
+            <ImageView fx:id="MDC4" fitHeight="106.0" fitWidth="124.0" layoutX="218.0" layoutY="256.0" onMouseClicked="#MDCName4" pickOnBounds="true">
                <image>
                   <Image url="@../picture/기본.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="106.0" fitWidth="124.0" layoutX="51.0" layoutY="396.0" pickOnBounds="true">
+            <ImageView fx:id="MDC5" fitHeight="106.0" fitWidth="124.0" layoutX="51.0" layoutY="396.0" onMouseClicked="#MDCName5" pickOnBounds="true">
                <image>
                   <Image url="@../picture/기본.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="106.0" fitWidth="124.0" layoutX="218.0" layoutY="396.0" pickOnBounds="true">
+            <ImageView fx:id="MDC6" fitHeight="106.0" fitWidth="124.0" layoutX="218.0" layoutY="396.0" onMouseClicked="#MDCName6" pickOnBounds="true">
                <image>
                   <Image url="@../picture/기본.png" />
                </image>

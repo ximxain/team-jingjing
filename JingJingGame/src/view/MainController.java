@@ -29,7 +29,7 @@ public class MainController implements Initializable {
 	int presentExperience;
 	int presentLevel;
 	int money;
-	String[] currentStat = {"애기", "유딩", "중딩", "고딩", "사회인", "중년", "노인", "천국"};
+	String[] currentStat = {"애기", "유딩", "학생", "성인"};
 	
 	
 	
@@ -53,7 +53,7 @@ public class MainController implements Initializable {
 
 	public void changeToStore() {
 		try {
-			Parent login = FXMLLoader.load(getClass().getResource("/view/Store.fxml"));
+			Parent login = FXMLLoader.load(getClass().getResource("/store/Store.fxml"));
 			Scene scene = new Scene(login);
 			Stage primaryStage = (Stage) changeStore.getScene().getWindow();
 			primaryStage.setScene(scene);
