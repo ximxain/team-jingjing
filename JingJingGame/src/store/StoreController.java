@@ -472,6 +472,7 @@ public class StoreController extends MainController{
 		}
 		if (str.equals("애기")) { // 단계가 애기일 때 이미지뷰 전환
 			StudentClothes1();
+			System.out.println("정상출력");
 		}
 	}
 	
