@@ -6,12 +6,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import view.MainController;
 
-public class StoreController {
+public class StoreController extends MainController{
 
 	@FXML private Button changeMainView;
 
@@ -438,6 +440,13 @@ public class StoreController {
 			e.printStackTrace();
 		}
 	}
+	
+	public void StudentClothes1() { // 학생일 때 옷이미지1
+		System.out.println("clothes1");
+		Image image = new Image("resource/clothes1.png");
+		clothes1.setImage(image);
+	}
+	String[] str = currentStat; // 성장 단계
 
 	private Stage clothes;
 
@@ -460,6 +469,9 @@ public class StoreController {
 
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+		if (str.equals("애기")) { // 단계가 애기일 때 이미지뷰 전환
+			StudentClothes1();
 		}
 	}
 	

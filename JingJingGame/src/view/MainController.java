@@ -21,7 +21,7 @@ public class MainController implements Initializable {
 	ProgressBar experienceBar;
 	
 	@FXML
-	Label presentGrowth;
+	protected Label presentGrowth;
 	@FXML
 	Label moneyLabel;
 	
@@ -29,7 +29,7 @@ public class MainController implements Initializable {
 	int presentExperience;
 	int presentLevel;
 	int money;
-	String[] currentStat = {"애기", "유딩", "학생", "성인"};
+	protected String[] currentStat = {"애기", "유딩", "학생", "성인"};
 	
 	
 	
