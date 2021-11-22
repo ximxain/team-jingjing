@@ -100,5 +100,29 @@ public class MainController extends Login implements Initializable {
 			e.printStackTrace();
 		}
 	}
+	
+	public void up() {
+		util.JDBCUtil db = new util.JDBCUtil();
+		Connection con = db.getConnection();
+		// PreparedStatement 날릴 것을 저장해두는 곳
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "UPDATE jingjing_currentStat SET exp =" + presentExperience +" , money =" + money + ", grows = "+presentLevel+" where userId ='"+user+"'";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.executeUpdate();
+
+			System.out.println("정보가 데이터 베이스로 갔어요");
+			System.out.println("exp: "+presentExperience);
+			System.out.println("money: "+money);
+			System.out.println("level: "+presentLevel);
+
+			// insert, update, delete
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("정보가 데이터 베이스로 못감 ㅅㅂㅋㅋ");
+		}
+	}
 
 }
