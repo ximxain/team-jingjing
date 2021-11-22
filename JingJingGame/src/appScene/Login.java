@@ -2,6 +2,7 @@ package appScene;
 
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
@@ -49,11 +50,27 @@ public class Login {
 				stmt = con.createStatement();
 				rs = stmt.executeQuery(sql);
 				while(rs.next()) {
-					Parent login = FXMLLoader.load(getClass().getResource("/prolog/prolog.fxml"));
-					Scene scene = new Scene(login);
-					Stage primaryStage = (Stage) button.getScene().getWindow();
-					primaryStage.setScene(scene);
-					scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+					Integer prolog = rs.getInt("prolog");
+					
+					if(prolog == 0) {
+						Parent login = FXMLLoader.load(getClass().getResource("/prolog/prolog.fxml"));
+						Scene scene = new Scene(login);
+						Stage primaryStage = (Stage) button.getScene().getWindow();
+						primaryStage.setScene(scene);
+						scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+					}else {
+						Parent login = FXMLLoader.load(getClass().getResource("/view/MainController.fxml"));
+						Scene scene = new Scene(login);
+						Stage primaryStage = (Stage) button.getScene().getWindow();
+						primaryStage.setScene(scene);
+						scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+					}
+					
+					
+					
+					
+					
+					
 				}
 			}catch (Exception e) {
 				e.printStackTrace();
