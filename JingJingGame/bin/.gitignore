@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /StorePopup/
 /appScene/
 /application/
@@ -8,3 +9,11 @@
 /store/
 /util/
 /view/
+=======
+/appScene/
+/login/
+/application/
+/prolog/
+/view/
+/math/
+>>>>>>> f5b6c21b3bea2de21a7117862f7e33e0e7f38bd4
