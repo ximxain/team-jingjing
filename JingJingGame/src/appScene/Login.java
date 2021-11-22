@@ -79,7 +79,6 @@ public class Login {
 				AppUtil.alert("로그인 오류", "아이디 또는 비밀번호가 틀렸습니다");
 			}catch (Exception e) {
 				e.printStackTrace();
-				AppUtil.alert("로그인 오류", "아이디 또는 비밀번호가 틀렸습니다");
 				return;
 			}finally {
 				if(rs != null) try { rs.close(); } catch (Exception e) {}
