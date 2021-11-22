@@ -26,7 +26,7 @@ public class SignUp {
 	private TextField pw;
 
 	private JDBCUtil db;
-	
+
 	public void clickButton() {
 		try {
 			db = new JDBCUtil();
@@ -36,65 +36,81 @@ public class SignUp {
 			ResultSet rs = null;
 			String user = id.getText();
 			String pass = pw.getText();
+			System.out.println(user);
 			String sql = "SELECT * FROM `jingjing_users` WHERE userId = " + "'" + user + "'";
+			
+			if (user.equals("") || pass.equals("")) {
+				AppUtil.alert("아이디나 비밀번호가 공백입니다.", null);
 
-			try {
-				stmt = con.createStatement();
-				rs = stmt.executeQuery(sql);
-				
-				boolean logins = rs.next();
-				System.out.println(logins);
-				if(logins == true) {
-					AppUtil.alert("이미 있는 아이디입니다.", null);
-				}
-				
-				if(logins == false) {
-					PreparedStatement pstmt = null;
-					sql = "INSERT INTO `jingjing_users`(`userId`, `pass`) VALUES (" + "'" + user + "', '" + pass + "')";
-					System.out.println(sql);
-					
-					try {
-						pstmt = con.prepareStatement(sql);
-						int cnt = pstmt.executeUpdate();
-						AppUtil.alert("회원가입 완료", null);
-						Parent login = FXMLLoader.load(getClass().getResource("/appScene/Login.fxml"));
-						Scene scene = new Scene(login);
-						Stage primaryStage = (Stage) button.getScene().getWindow();
-						primaryStage.setScene(scene);
-						scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
-						if(cnt == 0) {
+			}else {
+				try {
+					stmt = con.createStatement();
+					rs = stmt.executeQuery(sql);
+
+					boolean logins = rs.next();
+					System.out.println(logins);
+					if (logins == true) {
+						AppUtil.alert("이미 있는 아이디입니다.", null);
+					}
+
+					if (logins == false) {
+						PreparedStatement pstmt = null;
+						sql = "INSERT INTO `jingjing_users`(`userId`, `pass`) VALUES (" + "'" + user + "', '" + pass
+								+ "')";
+						System.out.println(sql);
+
+						try {
+							pstmt = con.prepareStatement(sql);
+							int cnt = pstmt.executeUpdate();
+							AppUtil.alert("회원가입 완료", null);
+							Parent login = FXMLLoader.load(getClass().getResource("/appScene/Login.fxml"));
+							Scene scene = new Scene(login);
+							Stage primaryStage = (Stage) button.getScene().getWindow();
+							primaryStage.setScene(scene);
+							scene.getStylesheets()
+									.add(getClass().getResource("/application/application.css").toExternalForm());
+							if (cnt == 0) {
+								System.out.println("데이터 삽입 실패");
+								return;
+							}
+						} catch (Exception e) {
+							e.printStackTrace();
 							System.out.println("데이터 삽입 실패");
 							return;
+						} finally {
+							if (pstmt != null)
+								try {
+									pstmt.close();
+								} catch (Exception e) {
+								}
+							if (con != null)
+								try {
+									con.close();
+								} catch (Exception e) {
+								}
 						}
-					}catch (Exception e) {
-						e.printStackTrace();
-						System.out.println("데이터 삽입 실패");
-						return;
-					}finally {
-						if(pstmt != null) try { pstmt.close(); } catch (Exception e) {}
-						if(con != null) try { con.close(); } catch (Exception e) {}
 					}
-				}
 
-			} catch (Exception e) {
-				e.printStackTrace();
-				return;
-			} finally {
-				if (rs != null)
-					try {
-						rs.close();
-					} catch (Exception e) {
-					}
-				if (stmt != null)
-					try {
-						stmt.close();
-					} catch (Exception e) {
-					}
-				if (con != null)
-					try {
-						con.close();
-					} catch (Exception e) {
-					}
+				} catch (Exception e) {
+					e.printStackTrace();
+					return;
+				} finally {
+					if (rs != null)
+						try {
+							rs.close();
+						} catch (Exception e) {
+						}
+					if (stmt != null)
+						try {
+							stmt.close();
+						} catch (Exception e) {
+						}
+					if (con != null)
+						try {
+							con.close();
+						} catch (Exception e) {
+						}
+				}
 			}
 
 		} catch (Exception e) {
