@@ -29,6 +29,8 @@ public class Login {
 
 	private JDBCUtil db;
 	
+	public static String user;
+	
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		
@@ -42,9 +44,11 @@ public class Login {
 			Connection con = db.getConnection();
 			Statement stmt = null;
 			ResultSet rs = null;
-			String user = id.getText();
+			user = id.getText();
 			String pass = pw.getText();
 			String sql = "SELECT * FROM `jingjing_users` WHERE userId = " + "'" + user + "'" + "and pass = " + "'" + pass + "'";
+			
+			
 			
 			try {
 				stmt = con.createStatement();
@@ -59,7 +63,7 @@ public class Login {
 						primaryStage.setScene(scene);
 						scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 					}else {
-						Parent login = FXMLLoader.load(getClass().getResource("/view/MainController.fxml"));
+						Parent login = FXMLLoader.load(getClass().getResource("/view/MainView.fxml"));
 						Scene scene = new Scene(login);
 						Stage primaryStage = (Stage) button.getScene().getWindow();
 						primaryStage.setScene(scene);
@@ -72,9 +76,9 @@ public class Login {
 					
 					
 				}
+				AppUtil.alert("로그인 오류", "아이디 또는 비밀번호가 틀렸습니다");
 			}catch (Exception e) {
 				e.printStackTrace();
-				AppUtil.alert("데이터 삽입 실패", null);
 				return;
 			}finally {
 				if(rs != null) try { rs.close(); } catch (Exception e) {}

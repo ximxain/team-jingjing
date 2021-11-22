@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.ResourceBundle;
 
+import appScene.Login;
 import javafx.animation.Animation;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,7 +24,7 @@ import javafx.animation.Transition;
 import javafx.util.Duration;
 import util.JDBCUtil;
 
-public class prolog implements Initializable{
+public class prolog extends Login implements Initializable{
 	@FXML
 	Label textBuffer;
 	@FXML
@@ -130,6 +131,7 @@ public class prolog implements Initializable{
 	
 	PreparedStatement pstmt = null;
 	String sql = "UPDATE `jingjing_users` SET `prolog`= 1 WHERE userId = " + "'" + user + "'";
+	System.out.println(sql);
 	db = new JDBCUtil();
 	
 	Connection con = db.getConnection();
