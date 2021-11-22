@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appScene.Login">
    <children>
       <Label layoutX="575.0" layoutY="35.0" prefHeight="68.0" prefWidth="130.0" text="LOGIN">
          <font>
@@ -24,8 +23,8 @@
             <Font size="42.0" />
          </font>
       </Label>
-      <TextField layoutX="422.0" layoutY="222.0" prefHeight="68.0" prefWidth="436.0" />
-      <TextField layoutX="422.0" layoutY="367.0" prefHeight="68.0" prefWidth="436.0" />
-      <Button layoutX="586.0" layoutY="577.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="108.0" text="OK" />
+      <TextField fx:id="id" layoutX="422.0" layoutY="222.0" prefHeight="68.0" prefWidth="436.0" />
+      <TextField fx:id="pw" layoutX="422.0" layoutY="367.0" prefHeight="68.0" prefWidth="436.0" />
+      <Button fx:id="button" layoutX="586.0" layoutY="577.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="52.0" prefWidth="108.0" text="OK" />
    </children>
 </AnchorPane>

@@ -13,9 +13,9 @@ public class JDBCUtil {
 		
 		//http://yark.yydhsoft.com:3307/
 		
-		String connectionString = "jdbc:mysql://yark.yydhsoft.com/skills06";
+		String connectionString = "jdbc:mysql://yark.yydhsoft.com/skills06?characterEncoding=UTF-8&serverTimezone=UTC";
 		String userId = "skills06";
-		String password = "1q2w";
+		String password = "1q2w3e4r";
 		
 		Connection con = null;
 		try {

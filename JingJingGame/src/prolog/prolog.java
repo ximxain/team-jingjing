@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.ResourceBundle;
 
 import javafx.animation.Animation;
@@ -19,6 +21,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.animation.Transition;
 import javafx.util.Duration;
+import util.JDBCUtil;
 
 public class prolog implements Initializable{
 	@FXML
@@ -26,6 +29,8 @@ public class prolog implements Initializable{
 	@FXML
 	ImageView prologBackground;
 
+	
+	private JDBCUtil db;
 	static boolean readingCheck = true;
 	static int a = 0;
 	static int b = 0;
@@ -122,6 +127,28 @@ public class prolog implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	next();
+	
+	PreparedStatement pstmt = null;
+	String sql = "UPDATE `jingjing_users` SET `prolog`= 1 WHERE userId = " + "'" + user + "'";
+	db = new JDBCUtil();
+	
+	Connection con = db.getConnection();
+	
+	try {
+		pstmt = con.prepareStatement(sql);
+		int cnt = pstmt.executeUpdate();
+		if(cnt == 0) {
+			System.out.println("데이터 삽입 실패");
+			return;
+		}
+	}catch (Exception e) {
+		e.printStackTrace();
+		System.out.println("데이터 삽입 실패");
+		return;
+	}finally {
+		if(pstmt != null) try { pstmt.close(); } catch (Exception e) {}
+		if(con != null) try { con.close(); } catch (Exception e) {}
+	}
 	}
 
 }
