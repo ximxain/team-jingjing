@@ -53,7 +53,8 @@ public class Login {
 			try {
 				stmt = con.createStatement();
 				rs = stmt.executeQuery(sql);
-				while(rs.next()) {
+				boolean logins = rs.next();
+				if(logins){
 					Integer prolog = rs.getInt("prolog");
 					
 					if(prolog == 0) {
@@ -71,12 +72,10 @@ public class Login {
 					}
 					
 					
-					
-					
-					
-					
 				}
-				AppUtil.alert("로그인 오류", "아이디 또는 비밀번호가 틀렸습니다");
+				else if(logins == false) {
+					AppUtil.alert("로그인 오류", "아이디 또는 비밀번호가 틀렸습니다");
+				}
 			}catch (Exception e) {
 				e.printStackTrace();
 				return;
