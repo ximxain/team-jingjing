@@ -15,7 +15,7 @@ public class JDBCUtil {
 		
 		String connectionString = "jdbc:mysql://yark.yydhsoft.com/skills06";
 		String userId = "skills06";
-		String password = "1q2w";
+		String password = "1q2w3e4r";
 		
 		Connection con = null;
 		try {

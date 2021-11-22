@@ -280,6 +280,7 @@ public class MainController extends MusicPop implements Initializable {
 	}
 
 	public void aClick() {
+		System.out.println("D");
 		if (A == 1) {
 			score = score + 100;
 			blueFlow(notea5);
@@ -291,6 +292,7 @@ public class MainController extends MusicPop implements Initializable {
 	}
 
 	public void AClick() {
+		System.out.println("F");
 		if (B == 1) {
 			score = score + 100;
 			blueFlow(noteA5);
@@ -302,6 +304,7 @@ public class MainController extends MusicPop implements Initializable {
 	}
 
 	public void BClick() {
+		System.out.println("J");
 		if (C == 1) {
 			score = score + 100;
 			blueFlow(noteB5);
@@ -313,6 +316,7 @@ public class MainController extends MusicPop implements Initializable {
 	}
 
 	public void bClick() {
+		System.out.println("K");
 		if (D == 1) {
 			score = score + 100;
 			blueFlow(noteb5);
