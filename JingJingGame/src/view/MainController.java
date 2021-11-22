@@ -96,7 +96,7 @@ public class MainController implements Initializable {
 		Statement stmt = null;
 		ResultSet rs = null;
 		String user = "aaaa";
-		String sql = "SELECT * FROM `jingjing_currentStat` WHERE id = " + user;
+		String sql = "SELECT * FROM `jingjing_currentStat` WHERE userId = " + "'" + user + "'";
 		
 		try {
 			stmt = con.createStatement();
