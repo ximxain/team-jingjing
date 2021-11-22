@@ -99,6 +99,11 @@ public class MainApplication extends Stopwatch{
 			question1.setText(""+0);
 			question2.setText(""+0);
 			answer.setText(""+3939);
+			
+			
+			presentExperience += valueAnswer*10;
+			up();
+			
 		} else {
 			presentStep++;
 			step.setText(presentStep+"/"+stepLimit);

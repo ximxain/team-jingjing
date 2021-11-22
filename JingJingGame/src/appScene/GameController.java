@@ -10,8 +10,9 @@ import javafx.scene.control.Button;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import view.MainController;
 
-public class GameController {
+public class GameController extends MainController{
 	@FXML
 	private Button changeMainViewFromGame;
 
