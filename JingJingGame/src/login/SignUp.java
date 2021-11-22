@@ -1,4 +1,4 @@
-package appScene;
+package login;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -32,6 +32,7 @@ public class SignUp {
 			db = new JDBCUtil();
 
 			Connection con = db.getConnection();
+			Connection con2 = db.getConnection();
 			Statement stmt = null;
 			ResultSet rs = null;
 			String user = id.getText();
@@ -55,15 +56,20 @@ public class SignUp {
 
 					if (logins == false) {
 						PreparedStatement pstmt = null;
+						PreparedStatement pstmt2 = null;
 						sql = "INSERT INTO `jingjing_users`(`userId`, `pass`) VALUES (" + "'" + user + "', '" + pass
 								+ "')";
 						System.out.println(sql);
+						String sql2 = "INSERT INTO `jingjing_currentStat`(`userId`, `grows`, `money`, `exp`) VALUES (" + "'" + user + "', 0, 0, 0)";
+						System.out.println(sql2);
 
 						try {
 							pstmt = con.prepareStatement(sql);
+							pstmt2 = con2.prepareStatement(sql2);
 							int cnt = pstmt.executeUpdate();
+							pstmt2.executeUpdate();
 							AppUtil.alert("회원가입 완료", null);
-							Parent login = FXMLLoader.load(getClass().getResource("/appScene/Login.fxml"));
+							Parent login = FXMLLoader.load(getClass().getResource("/login/Login.fxml"));
 							Scene scene = new Scene(login);
 							Stage primaryStage = (Stage) button.getScene().getWindow();
 							primaryStage.setScene(scene);

@@ -1,11 +1,5 @@
-/cardgame/
-/math/
-/music/
-/prolog/
-/store/
-/util/
-/view/
 /appScene/
+/login/
 /application/
-/resource/
-/StorePopup/
+/prolog/
+/view/
