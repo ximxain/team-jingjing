@@ -10,24 +10,27 @@ import javafx.scene.control.Button;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.stage.Modality;
+import javafx.stage.Popup;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class ADControllerTwo implements Initializable{
 	@FXML
-	private MediaView ads;
-	
+	private Stage ads;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		//Instantiating Media class  
+
+
         Media media = new Media(getClass().getResource("/resource/ddddd2.mp4").toString());  
           
         //Instantiating MediaPlayer class   
         MediaPlayer mediaPlayer = new MediaPlayer(media);  
-          
-        ads.setMediaPlayer(mediaPlayer); 
         
         //by setting this property to true, the Video will be played   
-        
+
         
         
         mediaPlayer.setOnReady(new Runnable() {
@@ -42,6 +45,7 @@ public class ADControllerTwo implements Initializable{
 
 			}
 		});
+        
 	}
 	
 }

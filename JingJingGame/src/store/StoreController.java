@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import view.MainController;
 
-public class StoreController extends MainController{
+public class StoreController {
 
 	@FXML private Button changeMainView;
 
@@ -446,7 +446,6 @@ public class StoreController extends MainController{
 		Image image = new Image("resource/clothes1.png");
 		clothes1.setImage(image);
 	}
-	String[] str = currentStat; // 성장 단계
 
 	private Stage clothes;
 
@@ -469,10 +468,6 @@ public class StoreController extends MainController{
 
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
-		if (str.equals("애기")) { // 단계가 애기일 때 이미지뷰 전환
-			StudentClothes1();
-			System.out.println("정상출력");
 		}
 	}
 	
