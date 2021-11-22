@@ -1,5 +1,6 @@
 package appScene;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,6 +21,9 @@ import util.JDBCUtil;
 public class Login {
 	@FXML
 	private Button button;
+	
+	@FXML
+	private Button signUp;
 	
 	@FXML
 	private TextField id;
@@ -96,6 +100,21 @@ public class Login {
 			e.printStackTrace();
 		}
 
+	}
+	
+	public void toSignUp() {
+		Parent login;
+		try {
+			login = FXMLLoader.load(getClass().getResource("/appScene/SignUp.fxml"));
+			Scene scene = new Scene(login);
+			Stage primaryStage = (Stage) button.getScene().getWindow();
+			primaryStage.setScene(scene);
+			scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 	
