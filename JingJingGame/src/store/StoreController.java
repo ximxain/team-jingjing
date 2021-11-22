@@ -1,6 +1,9 @@
 package store;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,46 +14,71 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import util.JDBCUtil;
 import view.MainController;
 
 public class StoreController {
 
-	@FXML private Button changeMainView;
+	@FXML
+	private Button changeMainView;
 
-	@FXML private Button showMyItem;
+	@FXML
+	private Button showMyItem;
 
-	@FXML private Button storeBtn;
+	@FXML
+	private Button storeBtn;
 
-	@FXML private Button foodBtn;
+	@FXML
+	private Button foodBtn;
 
-	@FXML private Button MDCBtn;
+	@FXML
+	private Button MDCBtn;
 
-	@FXML private Button clothesBtn;
+	@FXML
+	private Button clothesBtn;
 	// 음식 종류
-	@FXML private ImageView food1;
-	@FXML private ImageView food2;
-	@FXML private ImageView food3;
-	@FXML private ImageView food4;
-	@FXML private ImageView food5;
-	@FXML private ImageView food6;
+	@FXML
+	private ImageView food1;
+	@FXML
+	private ImageView food2;
+	@FXML
+	private ImageView food3;
+	@FXML
+	private ImageView food4;
+	@FXML
+	private ImageView food5;
+	@FXML
+	private ImageView food6;
 	// 청결용품/약 종류
-	@FXML private ImageView MDC1;
-	@FXML private ImageView MDC2;
-	@FXML private ImageView MDC3;
-	@FXML private ImageView MDC4;
-	@FXML private ImageView MDC5;
-	@FXML private ImageView MDC6;
+	@FXML
+	private ImageView MDC1;
+	@FXML
+	private ImageView MDC2;
+	@FXML
+	private ImageView MDC3;
+	@FXML
+	private ImageView MDC4;
+	@FXML
+	private ImageView MDC5;
+	@FXML
+	private ImageView MDC6;
 	// 옷 종류
-	@FXML private ImageView clothes1;
-	@FXML private ImageView clothes2;
-	@FXML private ImageView clothes3;
-	@FXML private ImageView clothes4;
-	@FXML private ImageView clothes5;
-	@FXML private ImageView clothes6;
-	@FXML private ImageView clothes7;
-	@FXML private ImageView clothes8;
-	
-	
+	@FXML
+	private ImageView clothes1;
+	@FXML
+	private ImageView clothes2;
+	@FXML
+	private ImageView clothes3;
+	@FXML
+	private ImageView clothes4;
+	@FXML
+	private ImageView clothes5;
+	@FXML
+	private ImageView clothes6;
+	@FXML
+	private ImageView clothes7;
+	@FXML
+	private ImageView clothes8;
 
 	public void changeToMainView() {
 		try {
@@ -152,7 +180,7 @@ public class StoreController {
 		Food1.initOwner(mainStage);
 
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/StorePopup/FoodName1.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/store/FoodName1.fxml"));
 			Scene sc = new Scene(root);
 			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			Food1.setScene(sc);
@@ -175,7 +203,7 @@ public class StoreController {
 		Food2.initOwner(mainStage);
 
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/StorePopup/FoodName2.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/store/FoodName2.fxml"));
 			Scene sc = new Scene(root);
 			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			Food2.setScene(sc);
@@ -198,7 +226,7 @@ public class StoreController {
 		Food3.initOwner(mainStage);
 
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/StorePopup/FoodName3.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/store/FoodName3.fxml"));
 			Scene sc = new Scene(root);
 			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			Food3.setScene(sc);
@@ -221,7 +249,7 @@ public class StoreController {
 		Food4.initOwner(mainStage);
 
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/StorePopup/FoodName4.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/store/FoodName4.fxml"));
 			Scene sc = new Scene(root);
 			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			Food4.setScene(sc);
@@ -244,7 +272,7 @@ public class StoreController {
 		Food5.initOwner(mainStage);
 
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/StorePopup/FoodName5.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/store/FoodName5.fxml"));
 			Scene sc = new Scene(root);
 			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			Food5.setScene(sc);
@@ -267,7 +295,7 @@ public class StoreController {
 		Food6.initOwner(mainStage);
 
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/StorePopup/FoodName6.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/store/FoodName6.fxml"));
 			Scene sc = new Scene(root);
 			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			Food6.setScene(sc);
@@ -289,7 +317,7 @@ public class StoreController {
 		MDC.initOwner(mainStage);
 
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/store/MDClean.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/store/MD.fxml"));
 
 			Scene sc = new Scene(root);
 			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
@@ -302,7 +330,7 @@ public class StoreController {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private Stage MDCView1;
 
 	public void MDCName1() {
@@ -314,7 +342,7 @@ public class StoreController {
 		MDCView1.initOwner(mainStage);
 
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/StorePopup/MDCName1.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/store/MDCName1.fxml"));
 			Scene sc = new Scene(root);
 			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			MDCView1.setScene(sc);
@@ -337,7 +365,7 @@ public class StoreController {
 		MDCView2.initOwner(mainStage);
 
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/StorePopup/MDCName2.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/store/MDCName2.fxml"));
 			Scene sc = new Scene(root);
 			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			MDCView2.setScene(sc);
@@ -360,7 +388,7 @@ public class StoreController {
 		MDCView3.initOwner(mainStage);
 
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/StorePopup/MDCName3.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/store/MDCName3.fxml"));
 			Scene sc = new Scene(root);
 			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			MDCView3.setScene(sc);
@@ -383,7 +411,7 @@ public class StoreController {
 		MDCView4.initOwner(mainStage);
 
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/StorePopup/MDCName4.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/store/MDCName4.fxml"));
 			Scene sc = new Scene(root);
 			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			MDCView4.setScene(sc);
@@ -406,7 +434,7 @@ public class StoreController {
 		MDCView5.initOwner(mainStage);
 
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/StorePopup/MDCName5.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/store/MDCName5.fxml"));
 			Scene sc = new Scene(root);
 			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			MDCView5.setScene(sc);
@@ -429,7 +457,7 @@ public class StoreController {
 		MDCView6.initOwner(mainStage);
 
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/StorePopup/MDCName6.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/store/MDCName6.fxml"));
 			Scene sc = new Scene(root);
 			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			MDCView6.setScene(sc);
@@ -440,7 +468,7 @@ public class StoreController {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void StudentClothes1() { // 학생일 때 옷이미지1
 		System.out.println("clothes1");
 		Image image = new Image("resource/clothes1.png");
@@ -470,7 +498,7 @@ public class StoreController {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private Stage clothesView1;
 
 	public void clothesName1() {
@@ -482,7 +510,7 @@ public class StoreController {
 		clothesView1.initOwner(mainStage);
 
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/StorePopup/clothesName1.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/store/clothesName1.fxml"));
 			Scene sc = new Scene(root);
 			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			clothesView1.setScene(sc);
@@ -493,160 +521,229 @@ public class StoreController {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private Stage clothesView2;
-	
+
 	public void clothesName2() {
-		
+
 		Stage mainStage = (Stage) clothes2.getScene().getWindow();
-		
+
 		clothesView2 = new Stage(StageStyle.DECORATED);
 		clothesView2.initModality(Modality.WINDOW_MODAL);
 		clothesView2.initOwner(mainStage);
-		
+
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/StorePopup/clothesName2.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/store/clothesName2.fxml"));
 			Scene sc = new Scene(root);
 			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			clothesView2.setScene(sc);
 			clothesView2.setResizable(false);
 			clothesView2.show();
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+
 	private Stage clothesView3;
-	
+
 	public void clothesName3() {
-		
+
 		Stage mainStage = (Stage) clothes3.getScene().getWindow();
-		
+
 		clothesView3 = new Stage(StageStyle.DECORATED);
 		clothesView3.initModality(Modality.WINDOW_MODAL);
 		clothesView3.initOwner(mainStage);
-		
+
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/StorePopup/clothesName3.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/store/clothesName3.fxml"));
 			Scene sc = new Scene(root);
 			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			clothesView3.setScene(sc);
 			clothesView3.setResizable(false);
 			clothesView3.show();
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+
 	private Stage clothesView4;
-	
+
 	public void clothesName4() {
-		
+
 		Stage mainStage = (Stage) clothes4.getScene().getWindow();
-		
+
 		clothesView4 = new Stage(StageStyle.DECORATED);
 		clothesView4.initModality(Modality.WINDOW_MODAL);
 		clothesView4.initOwner(mainStage);
-		
+
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/StorePopup/clothesName4.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/store/clothesName4.fxml"));
 			Scene sc = new Scene(root);
 			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			clothesView4.setScene(sc);
 			clothesView4.setResizable(false);
 			clothesView4.show();
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+
 	private Stage clothesView5;
-	
+
 	public void clothesName5() {
-		
+
 		Stage mainStage = (Stage) clothes5.getScene().getWindow();
-		
+
 		clothesView5 = new Stage(StageStyle.DECORATED);
 		clothesView5.initModality(Modality.WINDOW_MODAL);
 		clothesView5.initOwner(mainStage);
-		
+
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/StorePopup/clothesName5.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/store/clothesName5.fxml"));
 			Scene sc = new Scene(root);
 			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			clothesView5.setScene(sc);
 			clothesView5.setResizable(false);
 			clothesView5.show();
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+
 	private Stage clothesView6;
-	
+
 	public void clothesName6() {
-		
+
 		Stage mainStage = (Stage) clothes6.getScene().getWindow();
-		
+
 		clothesView6 = new Stage(StageStyle.DECORATED);
 		clothesView6.initModality(Modality.WINDOW_MODAL);
 		clothesView6.initOwner(mainStage);
-		
+
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/StorePopup/clothesName6.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/store/clothesName6.fxml"));
 			Scene sc = new Scene(root);
 			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			clothesView6.setScene(sc);
 			clothesView6.setResizable(false);
 			clothesView6.show();
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+
 	private Stage clothesView7;
-	
+
 	public void clothesName7() {
-		
+
 		Stage mainStage = (Stage) clothes7.getScene().getWindow();
-		
+
 		clothesView7 = new Stage(StageStyle.DECORATED);
 		clothesView7.initModality(Modality.WINDOW_MODAL);
 		clothesView7.initOwner(mainStage);
-		
+
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/StorePopup/clothesName7.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/store/clothesName7.fxml"));
 			Scene sc = new Scene(root);
 			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			clothesView7.setScene(sc);
 			clothesView7.setResizable(false);
 			clothesView7.show();
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+
 	private Stage clothesView8;
-	
+
 	public void clothesName8() {
-		
+
 		Stage mainStage = (Stage) clothes8.getScene().getWindow();
-		
+
 		clothesView8 = new Stage(StageStyle.DECORATED);
 		clothesView8.initModality(Modality.WINDOW_MODAL);
 		clothesView8.initOwner(mainStage);
-		
+
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/StorePopup/clothesName8.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/store/clothesName8.fxml"));
 			Scene sc = new Scene(root);
 			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			clothesView8.setScene(sc);
 			clothesView8.setResizable(false);
 			clothesView8.show();
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	// 음식 구매하기
+	@FXML
+	private Button foodBtn1;
+	@FXML
+	private Button foodBtn2;
+	@FXML
+	private Button foodBtn3;
+	@FXML
+	private Button foodBtn4;
+	@FXML
+	private Button foodBtn5;
+	@FXML
+	private Button foodBtn6;
+	// 약/청결용품 구매하기
+	@FXML
+	private Button MDCBtn1;
+	@FXML
+	private Button MDCBtn2;
+	@FXML
+	private Button MDCBtn3;
+	@FXML
+	private Button MDCBtn4;
+	@FXML
+	private Button MDCBtn5;
+	@FXML
+	private Button MDCBtn6;
+	// 옷 구매하기
+	@FXML
+	private Button clothesBtn1;
+	@FXML
+	private Button clothesBtn2;
+	@FXML
+	private Button clothesBtn3;
+	@FXML
+	private Button clothesBtn4;
+	@FXML
+	private Button clothesBtn5;
+	@FXML
+	private Button clothesBtn6;
+
+	// insert
+	public void clickMDBtn1() {
+		JDBCUtil db = new JDBCUtil();
+		Connection con = db.getConnection();
+
+		PreparedStatement pstmt = null;
+		String sql = "insert into MD values(?,?)";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "약1");
+			pstmt.setString(2, "코인 가격");
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public void closeStage1() {
+		Stage stage = (Stage) MDCBtn1.getScene().getWindow();
+		stage.close();
 	}
 
 }
