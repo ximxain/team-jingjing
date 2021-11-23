@@ -28,11 +28,24 @@ public class GameController extends Login{
 
 	public void clickMusic() {
 		try {
+<<<<<<< HEAD
 			Parent login = FXMLLoader.load(getClass().getResource("/music/GameReadyScene.fxml"));
 			Scene scene = new Scene(login);
 			Stage primaryStage = (Stage) app.getScene().getWindow();
 			primaryStage.setScene(scene);
 		} catch (Exception e) {
+=======
+			Parent root = FXMLLoader.load(getClass().getResource("/appScene/MusicPop.fxml"));
+
+			Scene sc = new Scene(root);
+			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+			pop.setScene(sc);
+			pop.setTitle("징징리듬게임");
+			pop.setResizable(false);
+
+			pop.show();
+		} catch (IOException e) {
+>>>>>>> f7131ff9eda936e0d0cf9b6d913db5502cd9f87f
 			e.printStackTrace();
 		}
 	}
@@ -50,7 +63,7 @@ public class GameController extends Login{
 			Scene sc = new Scene(root);
 			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			pop.setScene(sc);
-			pop.setTitle("팝업");
+			pop.setTitle("수학퀴즈게임");
 			pop.setResizable(false); // â ������ ���� ����
 
 			pop.show();
@@ -59,7 +72,49 @@ public class GameController extends Login{
 		}
 	}
 	
-	public void changeToMainViewFromGame() {
+	public void clickButtonGame() {
+		mainStage = (Stage) app.getScene().getWindow();
+		pop = new Stage(StageStyle.DECORATED);
+		pop.initModality(Modality.WINDOW_MODAL);
+		pop.initOwner(mainStage);
+
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("/ButtonHitGame/StartPage.fxml"));
+
+			Scene sc = new Scene(root);
+			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+			pop.setScene(sc);
+			pop.setTitle("정예린을 이겨라 !");
+			pop.setResizable(false);
+
+			pop.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void clickCardGame() {
+		mainStage = (Stage) app.getScene().getWindow();
+		pop = new Stage(StageStyle.DECORATED);
+		pop.initModality(Modality.WINDOW_MODAL);
+		pop.initOwner(mainStage);
+
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("/cardgame/layout.fxml"));
+
+			Scene sc = new Scene(root);
+			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+			pop.setScene(sc);
+			pop.setTitle("운빨카드게임");
+			pop.setResizable(false);
+
+			pop.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void changeToMainViewFromGame() { //메인이동
 		System.out.println("changeToMainViewFromGame");
 		try {
 			Parent login = FXMLLoader.load(getClass().getResource("/view/MainView.fxml"));
