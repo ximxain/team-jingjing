@@ -27,22 +27,12 @@ public class GameController extends Login{
 	public static Stage mainStage;
 
 	public void clickMusic() {
-		mainStage = (Stage) app.getScene().getWindow();
-		pop = new Stage(StageStyle.DECORATED);
-		pop.initModality(Modality.WINDOW_MODAL);
-		pop.initOwner(mainStage);
-
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/appScene/MusicPop.fxml"));
-
-			Scene sc = new Scene(root);
-			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
-			pop.setScene(sc);
-			pop.setTitle("팝업");
-			pop.setResizable(false);
-
-			pop.show();
-		} catch (IOException e) {
+			Parent login = FXMLLoader.load(getClass().getResource("/music/GameReadyScene.fxml"));
+			Scene scene = new Scene(login);
+			Stage primaryStage = (Stage) app.getScene().getWindow();
+			primaryStage.setScene(scene);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

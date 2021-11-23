@@ -19,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -29,13 +30,71 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class MainController extends MusicPop implements Initializable {
+public class MainController extends GameReady implements Initializable {
 
 	MediaPlayer mp;
 	Media m = null;
 
 	@FXML
 	Button btn;
+	
+	@FXML
+	public Label scoreLabel;
+
+	@FXML
+	public ImageView noteA1;
+	@FXML
+	public ImageView noteA2;
+	@FXML
+	public ImageView noteA3;
+	@FXML
+	public ImageView noteA4;
+	@FXML
+	public ImageView noteA5;
+
+	@FXML
+	public ImageView notea1;
+	@FXML
+	public ImageView notea2;
+	@FXML
+	public ImageView notea3;
+	@FXML
+	public ImageView notea4;
+	@FXML
+	public ImageView notea5;
+
+	@FXML
+	public ImageView noteB1;
+	@FXML
+	public ImageView noteB2;
+	@FXML
+	public ImageView noteB3;
+	@FXML
+	public ImageView noteB4;
+	@FXML
+	public ImageView noteB5;
+
+	@FXML
+	public ImageView noteb1;
+	@FXML
+	public ImageView noteb2;
+	@FXML
+	public ImageView noteb3;
+	@FXML
+	public ImageView noteb4;
+	@FXML
+	public ImageView noteb5;
+
+	@FXML
+	public ImageView life1;
+	@FXML
+	public ImageView life2;
+	@FXML
+	public ImageView life3;
+	@FXML
+	public ImageView life4;
+	@FXML
+	public ImageView life5;
 
 	Image imgBlack;
 	Image imgBlank;
@@ -384,28 +443,6 @@ public class MainController extends MusicPop implements Initializable {
 	public void gameOver() {
 		System.out.println("game over");
 		exit = true;
-		Stage mainStage4 = (Stage) btn.getScene().getWindow();
-
-		pop3 = new Stage(StageStyle.DECORATED);
-		pop3.initModality(Modality.WINDOW_MODAL);
-		pop3.initOwner(mainStage4);
-
-		try {
-
-			Parent root = FXMLLoader.load(getClass().getResource("/music/prolog.fxml"));
-
-			// �뵮�뿉 異붽�
-			Scene sc = new Scene(root);
-			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
-			pop3.setScene(sc);
-			pop3.setTitle("�뙘�뾽 �쓣�슦湲�");
-			pop3.setResizable(false);
-
-			pop3.show();
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 
 	public void fadeLife(ImageView notes) {

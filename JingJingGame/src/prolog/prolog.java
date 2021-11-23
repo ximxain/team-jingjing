@@ -146,12 +146,4 @@ public class prolog extends Login implements Initializable {
 		}
 	}
 
-	@FXML
-	public void keyP(KeyEvent key) {
-
-		if (key.getCode() == KeyCode.D) {
-			next();
-		}
-	}
-
 }
