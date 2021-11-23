@@ -89,6 +89,8 @@ public class MainApplication extends Stopwatch{
 	
 	public void problem() {
 		if(presentStep >= stepLimit) {
+			
+			//게임 종료
 			System.out.println("end");
 			System.out.println(valueAnswer);
 			System.out.println( "정답률: "+(int)((double) valueAnswer / (double) stepLimit * 100.0) + "%");
@@ -102,7 +104,6 @@ public class MainApplication extends Stopwatch{
 			
 			
 			presentExperience += valueAnswer*10;
-			up();
 			
 		} else {
 			presentStep++;

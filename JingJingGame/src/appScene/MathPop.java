@@ -15,8 +15,9 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import login.Login;
 
-public class MathPop extends GameController {
+public class MathPop extends GameController{
 	public Stage pop2;
 	static public String modChoice = "easy";
 

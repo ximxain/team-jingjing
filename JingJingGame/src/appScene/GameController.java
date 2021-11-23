@@ -10,9 +10,10 @@ import javafx.scene.control.Button;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import login.Login;
 import view.MainController;
 
-public class GameController extends MainController{
+public class GameController extends Login{
 	@FXML
 	private Button changeMainViewFromGame;
 
