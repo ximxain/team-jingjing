@@ -1,6 +1,7 @@
 package store;
 
 import java.io.IOException;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
@@ -15,7 +16,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import util.JDBCUtil;
-import view.MainController;
 
 public class StoreController {
 
@@ -723,10 +723,152 @@ public class StoreController {
 	@FXML
 	private Button clothesBtn6;
 
-	// insert
+	// 음식1 insert
+	public void clickFoodBtn1() {
+		JDBCUtil db = new JDBCUtil();
+		Connection con = db.getConnection();
+
+		Stage stage = (Stage) foodBtn1.getScene().getWindow(); // 팝업창 닫기
+		stage.close();
+		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
+
+		PreparedStatement pstmt = null;
+		String sql = "insert into food values(?,?)";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "음식1");
+			pstmt.setString(2, "코인 가격");
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// 음식2 insert
+	public void clickFoodBtn2() {
+		JDBCUtil db = new JDBCUtil();
+		Connection con = db.getConnection();
+
+		Stage stage = (Stage) foodBtn2.getScene().getWindow(); // 팝업창 닫기
+		stage.close();
+		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
+
+		PreparedStatement pstmt = null;
+		String sql = "insert into food values(?,?)";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "음식2");
+			pstmt.setString(2, "코인 가격");
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// 음식3 insert
+	public void clickFoodBtn3() {
+		JDBCUtil db = new JDBCUtil();
+		Connection con = db.getConnection();
+
+		Stage stage = (Stage) foodBtn3.getScene().getWindow(); // 팝업창 닫기
+		stage.close();
+		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
+
+		PreparedStatement pstmt = null;
+		String sql = "insert into food values(?,?)";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "음식3");
+			pstmt.setString(2, "코인 가격");
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// 음식4 insert
+	public void clickFoodBtn4() {
+		JDBCUtil db = new JDBCUtil();
+		Connection con = db.getConnection();
+
+		Stage stage = (Stage) foodBtn4.getScene().getWindow(); // 팝업창 닫기
+		stage.close();
+		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
+
+		PreparedStatement pstmt = null;
+		String sql = "insert into food values(?,?)";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "음식4");
+			pstmt.setString(2, "코인 가격");
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// 음식5 insert
+	public void clickFoodBtn5() {
+		JDBCUtil db = new JDBCUtil();
+		Connection con = db.getConnection();
+
+		Stage stage = (Stage) foodBtn5.getScene().getWindow(); // 팝업창 닫기
+		stage.close();
+		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
+
+		PreparedStatement pstmt = null;
+		String sql = "insert into food values(?,?)";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "음식5");
+			pstmt.setString(2, "코인 가격");
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// 음식6 insert
+	public void clickFoodBtn6() {
+		JDBCUtil db = new JDBCUtil();
+		Connection con = db.getConnection();
+
+		Stage stage = (Stage) foodBtn6.getScene().getWindow(); // 팝업창 닫기
+		stage.close();
+		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
+
+		PreparedStatement pstmt = null;
+		String sql = "insert into food values(?,?)";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "음식6");
+			pstmt.setString(2, "코인 가격");
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// 약1 insert
 	public void clickMDBtn1() {
 		JDBCUtil db = new JDBCUtil();
 		Connection con = db.getConnection();
+
+		Stage stage = (Stage) MDCBtn1.getScene().getWindow(); // 팝업창 닫기
+		stage.close();
+		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
 		String sql = "insert into MD values(?,?)";
@@ -741,9 +883,120 @@ public class StoreController {
 			e.printStackTrace();
 		}
 	}
-	public void closeStage1() {
-		Stage stage = (Stage) MDCBtn1.getScene().getWindow();
+
+	// 약2 insert
+	public void clickMDBtn2() {
+		JDBCUtil db = new JDBCUtil();
+		Connection con = db.getConnection();
+
+		Stage stage = (Stage) MDCBtn2.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
+		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
+
+		PreparedStatement pstmt = null;
+		String sql = "insert into MD values(?,?)";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "약2");
+			pstmt.setString(2, "코인 가격");
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// 약3 insert
+	public void clickMDBtn3() {
+		JDBCUtil db = new JDBCUtil();
+		Connection con = db.getConnection();
+
+		Stage stage = (Stage) MDCBtn3.getScene().getWindow(); // 팝업창 닫기
+		stage.close();
+		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
+
+		PreparedStatement pstmt = null;
+		String sql = "insert into MD values(?,?)";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "약3");
+			pstmt.setString(2, "코인 가격");
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// 약4 insert
+	public void clickMDBtn4() {
+		JDBCUtil db = new JDBCUtil();
+		Connection con = db.getConnection();
+
+		Stage stage = (Stage) MDCBtn4.getScene().getWindow(); // 팝업창 닫기
+		stage.close();
+		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
+
+		PreparedStatement pstmt = null;
+		String sql = "insert into MD values(?,?)";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "약4");
+			pstmt.setString(2, "코인 가격");
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// 약5 insert
+	public void clickMDBtn5() {
+		JDBCUtil db = new JDBCUtil();
+		Connection con = db.getConnection();
+
+		Stage stage = (Stage) MDCBtn5.getScene().getWindow(); // 팝업창 닫기
+		stage.close();
+		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
+
+		PreparedStatement pstmt = null;
+		String sql = "insert into MD values(?,?)";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "약5");
+			pstmt.setString(2, "코인 가격");
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// 약6 insert
+	public void clickMDBtn6() {
+		JDBCUtil db = new JDBCUtil();
+		Connection con = db.getConnection();
+
+		Stage stage = (Stage) MDCBtn6.getScene().getWindow(); // 팝업창 닫기
+		stage.close();
+		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
+
+		PreparedStatement pstmt = null;
+		String sql = "insert into MD values(?,?)";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "약6");
+			pstmt.setString(2, "코인 가격");
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }
