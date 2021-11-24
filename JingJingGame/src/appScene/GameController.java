@@ -13,39 +13,26 @@ import javafx.stage.StageStyle;
 import login.Login;
 import view.MainController;
 
-public class GameController extends Login{
+public class GameController extends Login {
 	@FXML
 	private Button changeMainViewFromGame;
 
 	@FXML
 	public Button app;
-	
+
 	public Stage pop;
-	
+
 	@FXML
 	public Button closebtn;
 	public static Stage mainStage;
 
 	public void clickMusic() {
 		try {
-<<<<<<< HEAD
 			Parent login = FXMLLoader.load(getClass().getResource("/music/GameReadyScene.fxml"));
 			Scene scene = new Scene(login);
 			Stage primaryStage = (Stage) app.getScene().getWindow();
 			primaryStage.setScene(scene);
-		} catch (Exception e) {
-=======
-			Parent root = FXMLLoader.load(getClass().getResource("/appScene/MusicPop.fxml"));
-
-			Scene sc = new Scene(root);
-			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
-			pop.setScene(sc);
-			pop.setTitle("징징리듬게임");
-			pop.setResizable(false);
-
-			pop.show();
 		} catch (IOException e) {
->>>>>>> f7131ff9eda936e0d0cf9b6d913db5502cd9f87f
 			e.printStackTrace();
 		}
 	}
@@ -71,7 +58,7 @@ public class GameController extends Login{
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void clickButtonGame() {
 		mainStage = (Stage) app.getScene().getWindow();
 		pop = new Stage(StageStyle.DECORATED);
@@ -92,7 +79,7 @@ public class GameController extends Login{
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void clickCardGame() {
 		mainStage = (Stage) app.getScene().getWindow();
 		pop = new Stage(StageStyle.DECORATED);
@@ -113,8 +100,8 @@ public class GameController extends Login{
 			e.printStackTrace();
 		}
 	}
-	
-	public void changeToMainViewFromGame() { //메인이동
+
+	public void changeToMainViewFromGame() { // 메인이동
 		System.out.println("changeToMainViewFromGame");
 		try {
 			Parent login = FXMLLoader.load(getClass().getResource("/view/MainView.fxml"));

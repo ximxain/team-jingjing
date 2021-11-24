@@ -275,7 +275,6 @@ public class MainController extends GameReady implements Initializable {
 	}
 
 	public void MusicStart() {
-		stopwatch(1);
 		Thread musicThread = new Thread(new Runnable() {
 
 			@Override
@@ -285,7 +284,8 @@ public class MainController extends GameReady implements Initializable {
 				System.out.println(musicNoteList.size());
 				for (int i = 5; i <= musicNoteList.size() - 5; i++) {
 					if (exit == true) {
-						System.out.println("?");
+						System.out.println("게임 오버");
+						exit();
 						break;
 					}
 
@@ -327,11 +327,8 @@ public class MainController extends GameReady implements Initializable {
 					AllBlank();
 					next(i);
 				}
+				
 				stopwatch(0);
-				if (GOW == true) {
-					gameOver();
-					System.out.println("uuu");
-				}
 			}
 		});
 
@@ -736,7 +733,7 @@ public class MainController extends GameReady implements Initializable {
 	public void exit() {
 		exit = true;
 		try {
-			Parent login = FXMLLoader.load(getClass().getResource("/appScene/GameView.fxml"));
+			Parent login = FXMLLoader.load(getClass().getResource("/music/GameOver.fxml"));
 			Scene scene = new Scene(login);
 			Stage primaryStage = (Stage) btn.getScene().getWindow();
 			primaryStage.setScene(scene);

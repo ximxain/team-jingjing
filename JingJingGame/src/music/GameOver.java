@@ -10,24 +10,24 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 
 public class GameOver extends MainController implements Initializable{
+	
 	@FXML
-	Label resultLabel;
-	@FXML
-	Label barLabel;
-	@FXML
-	ProgressBar bar;
+	ProgressBar musicProgressBar;
 	@FXML
 	ImageView albumArt;
+	@FXML
+	Label musicProgressLabel;
 	
-	String result;
+	
+	public void retry(){
+		
+	}
+	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		double aaa = time / limitTimeOfMusic;
-		bar.setProgress(aaa);
-		barLabel.setText(aaa*100+"%");
-		resultLabel.setText("곡 제목:"+musicName);
-		
+		musicProgressBar.setProgress(time/Integer.parseInt(musicNoteList.get(2)));
+		musicProgressLabel.setText( Math.round(time/Integer.parseInt(musicNoteList.get(2)))+"%");
 	}
 
 }
