@@ -12,4 +12,13 @@ public class AppUtil {
 		
 		alert.show();
 	}
+	
+	public void check(String msg, String header) {
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("알림");
+		alert.setHeaderText(header);
+		alert.setContentText(msg);
+		
+		alert.show();
+	}
 }
