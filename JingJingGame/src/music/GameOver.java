@@ -34,6 +34,16 @@ public class GameOver extends MainController implements Initializable{
 			e.printStackTrace();
 		}
 	}
+	public void quit() {
+		try {
+			Parent login = FXMLLoader.load(getClass().getResource("/appScene/GameView.fxml"));
+			Scene scene = new Scene(login);
+			Stage primaryStage = (Stage) btn.getScene().getWindow();
+			primaryStage.setScene(scene);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	
 	@Override
@@ -43,5 +53,7 @@ public class GameOver extends MainController implements Initializable{
 		musicProgressBar.setProgress((double)adder/(musicNoteList.size()-9));
 		musicProgressLabel.setText((int)((double)adder/(musicNoteList.size()-9)*100)+"%");
 	}
+	
+	
 
 }

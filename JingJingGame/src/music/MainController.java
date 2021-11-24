@@ -26,15 +26,13 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import util.AppUtil;
 
 public class MainController extends GameReady implements Initializable {
-
-	MediaPlayer mp;
-	Media m = null;
 
 	@FXML
 	Button btn;
@@ -100,6 +98,9 @@ public class MainController extends GameReady implements Initializable {
 	@FXML
 	public Label stateLabel;
 
+	@FXML
+	private MediaView mediaView;
+
 	Image imgBlack;
 	Image imgBlank;
 	Image imgLife;
@@ -107,16 +108,19 @@ public class MainController extends GameReady implements Initializable {
 	Image imgRed;
 	Image imgBlue;
 
+	static boolean start = false;
 	static boolean exit = false;
 	static boolean GOW = false;
 	static boolean clear = false;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+
 		System.out.println(musicNoteList.size());
 		exit = false;
 		GOW = false;
 		clear = false;
+		start = false;
 		String pathBlack = "src//resource/A,black.png";
 		String pathBlank = "src//resource/A,blank.png";
 		String pathLife = "src//resource/life.png";
@@ -182,6 +186,7 @@ public class MainController extends GameReady implements Initializable {
 			life5.setImage(imgLife);
 
 			scoreLabel.setText("Score: " + score);
+			stateLabel.setText("D, F, J, K중 하나를 눌러\n연주를 시작합니다.");
 			// String.valueOf(score)
 
 			try {
@@ -195,7 +200,7 @@ public class MainController extends GameReady implements Initializable {
 				fisRed.close();
 				bisBlue.close();
 				fisBlue.close();
-				MusicStart();
+
 				System.out.println(t);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -281,6 +286,26 @@ public class MainController extends GameReady implements Initializable {
 	}
 
 	public void MusicStart() {
+		stateLabel.setText(null);
+		
+//		//배경음악 
+		m = new Media(getClass().getResource("/musicResource/"+musicLink+".mp3").toString());
+		mp = new MediaPlayer(m);
+		
+//		//반복재생
+//		Runnable onEnd = new Runnable() {
+//			@Override
+//			public void run() {
+//				mp.dispose();
+//				mp = new MediaPlayer(m);
+//				mp.play();
+//				mp.setOnEndOfMedia(this);
+//			}
+//		};
+//		mp.setOnEndOfMedia(onEnd);
+		
+		mp.play();
+		
 		Thread musicThread = new Thread(new Runnable() {
 
 			@Override
@@ -331,6 +356,7 @@ public class MainController extends GameReady implements Initializable {
 					AllBlank();
 					next(i);
 				}
+				mp.stop();
 				if (exit == false) {
 					System.out.println("clear");
 					clear = true;
@@ -342,67 +368,88 @@ public class MainController extends GameReady implements Initializable {
 	}
 
 	public void aClick() {
-		if (clear == true) {
-			stateLabel.setText("연주를 성공적으로 마쳤습니다.\n무대에서 내려갑시다.");
-		} else {
-			System.out.println("D");
-			if (A == 1) {
-				score = score + 100;
-				blueFlow(notea5);
-				A = 2;
-				scoreLabel.setText("Score: " + score);
-			} else if (A == 0) {
-				hurt();
+		if (start == true) {
+			if (clear == true) {
+				stateLabel.setText("연주를 성공적으로 마쳤습니다.\n무대에서 내려갑시다.");
+			} else {
+				System.out.println("D");
+				if (A == 1) {
+					score = score + 100;
+					blueFlow(notea5);
+					A = 2;
+					scoreLabel.setText("Score: " + score);
+				} else if (A == 0) {
+					hurt();
+				}
 			}
+		} else {
+			start = true;
+			MusicStart();
 		}
 
 	}
 
 	public void AClick() {
-		if (clear == true) {
-			stateLabel.setText("연주를 성공적으로 마쳤습니다.\n무대에서 내려갑시다.");
-		} else {
-			System.out.println("F");
-			if (B == 1) {
-				score = score + 100;
-				blueFlow(noteA5);
-				B = 2;
-				scoreLabel.setText("Score: " + score);
-			} else if (B == 0) {
-				hurt();
+		if (start == true) {
+			if (clear == true) {
+				stateLabel.setText("연주를 성공적으로 마쳤습니다.\n무대에서 내려갑시다.");
+			} else {
+				System.out.println("F");
+				if (B == 1) {
+					score = score + 100;
+					blueFlow(noteA5);
+					B = 2;
+					scoreLabel.setText("Score: " + score);
+				} else if (B == 0) {
+					hurt();
+				}
 			}
+		} else {
+			start = true;
+			MusicStart();
 		}
+
 	}
 
 	public void BClick() {
-		if (clear == true) {
-			stateLabel.setText("연주를 성공적으로 마쳤습니다.\n무대에서 내려갑시다.");
-		} else {
-			System.out.println("J");
-			if (C == 1) {
-				score = score + 100;
-				blueFlow(noteB5);
-				C = 2;
-				scoreLabel.setText("Score: " + score);
-			} else if (C == 0) {
-				hurt();
+		if (start == true) {
+			if (clear == true) {
+				stateLabel.setText("연주를 성공적으로 마쳤습니다.\n무대에서 내려갑시다.");
+			} else {
+				System.out.println("J");
+				if (C == 1) {
+					score = score + 100;
+					blueFlow(noteB5);
+					C = 2;
+					scoreLabel.setText("Score: " + score);
+				} else if (C == 0) {
+					hurt();
+				}
 			}
+		} else {
+			start = true;
+			MusicStart();
 		}
 	}
 
 	public void bClick() {
-		if (clear == true) {
-			stateLabel.setText("연주를 성공적으로 마쳤습니다.\n무대에서 내려갑시다.");
-		} else {
-			System.out.println("K");
-			if (D == 1) {
-				score = score + 100;
-				blueFlow(noteb5);
-				D = 2;
-				scoreLabel.setText("Score: " + score);
-			} else if (D == 0) {
-				hurt();
+		if (start == true) {
+			if (clear == true) {
+				stateLabel.setText("연주를 성공적으로 마쳤습니다.\n무대에서 내려갑시다.");
+			} else {
+				System.out.println("K");
+				if (D == 1) {
+					score = score + 100;
+					blueFlow(noteb5);
+					D = 2;
+					scoreLabel.setText("Score: " + score);
+				} else if (D == 0) {
+					hurt();
+				}
 			}
+		} else {
+			start = true;
+			MusicStart();
 		}
 	}
 
@@ -477,24 +524,6 @@ public class MainController extends GameReady implements Initializable {
 
 	public void fadeLife(ImageView notes) {
 		notes.setImage(imgLifeBlank);
-	}
-
-	public void MusicDance(String musicName) {
-
-		m = new Media(getClass().getResource("/musics/" + musicName + ".mp3").toString());
-		mp = new MediaPlayer(m);
-		Runnable onEnd = new Runnable() {
-			@Override
-			public void run() {
-				mp.dispose();
-				mp = new MediaPlayer(m);
-				mp.play();
-				mp.setOnEndOfMedia(this);
-			}
-		};
-		mp.setOnEndOfMedia(onEnd);
-		mp.play();
-
 	}
 
 	public void next(int i) {
@@ -748,21 +777,6 @@ public class MainController extends GameReady implements Initializable {
 //		}
 //	}
 
-	public void Music2() {
-		AllBlank();
-		System.out.println("music2");
-		// musicNoteList.clear();
-		try {
-			txtRead("music2");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		// MusicDance("night_bug_thread");
-		MusicStart();
-
-	}
-
 	public void exit() {
 		life = 1;
 		hurt();
@@ -783,4 +797,5 @@ public class MainController extends GameReady implements Initializable {
 			gameOver();
 		}
 	}
+
 }
