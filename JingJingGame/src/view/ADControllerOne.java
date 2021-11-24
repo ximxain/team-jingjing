@@ -1,19 +1,19 @@
 package view;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 
-public class ADControllerOne implements Initializable{
+public class ADControllerOne extends ADpackegeController implements Initializable{
 	@FXML
-	private MediaView ads;
+	private MediaView ads1;
 	
 	
 	@Override
@@ -24,7 +24,7 @@ public class ADControllerOne implements Initializable{
         //Instantiating MediaPlayer class   
         MediaPlayer mediaPlayer = new MediaPlayer(media);  
           
-        ads.setMediaPlayer(mediaPlayer); 
+        ads1.setMediaPlayer(mediaPlayer); 
         
         //by setting this property to true, the Video will be played   
         

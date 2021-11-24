@@ -1,30 +1,28 @@
 package view;
 
-import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 
-public class ADControllerThree implements Initializable{
+public class ADControllerThree extends ADpackegeController implements Initializable{
 	@FXML
-	private MediaView ads;
+	private MediaView ads3;
 	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		//Instantiating Media class  
-        Media media = new Media(getClass().getResource("/resource/ddddd5.mp4").toString());  
+        Media media = new Media(getClass().getResource("/resource/dddd5.mp4").toString());  
           
         //Instantiating MediaPlayer class   
         MediaPlayer mediaPlayer = new MediaPlayer(media);  
           
-        ads.setMediaPlayer(mediaPlayer); 
+        ads3.setMediaPlayer(mediaPlayer); 
         
         //by setting this property to true, the Video will be played   
         

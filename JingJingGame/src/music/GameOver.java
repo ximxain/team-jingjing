@@ -41,7 +41,7 @@ public class GameOver extends MainController implements Initializable{
 		System.out.println(adder+", "+(musicNoteList.size()-9));
 		System.out.println((double)adder/(musicNoteList.size()-9));
 		musicProgressBar.setProgress((double)adder/(musicNoteList.size()-9));
-		musicProgressLabel.setText((double)adder/(musicNoteList.size()-9)*100+"%");
+		musicProgressLabel.setText((int)((double)adder/(musicNoteList.size()-9)*100)+"%");
 	}
 
 }

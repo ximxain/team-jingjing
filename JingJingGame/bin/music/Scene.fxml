@@ -50,9 +50,9 @@
       <ImageView fx:id="life4" fitHeight="50.0" fitWidth="50.0" layoutX="475.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="life5" fitHeight="50.0" fitWidth="50.0" layoutX="525.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="btn" layoutX="932.0" layoutY="562.0" mnemonicParsing="false" onAction="#showResultWindow" prefHeight="94.0" prefWidth="229.0" text="연주를 끝내고 내려오기" />
-      <Label fx:id="stateLabel" layoutX="498.0" layoutY="335.0" prefHeight="50.0" prefWidth="346.0" textFill="WHITE">
+      <Label fx:id="stateLabel" layoutX="498.0" layoutY="335.0" prefHeight="155.0" prefWidth="346.0" textFill="WHITE">
          <font>
-            <Font size="30.0" />
+            <Font size="21.0" />
          </font>
       </Label>
    </children>

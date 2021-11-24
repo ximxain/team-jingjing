@@ -12,7 +12,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("/view/MainView.fxml"));
+			loader.setLocation(getClass().getResource("/Login/login.fxml"));
 			AnchorPane AP = (AnchorPane)loader.load();
 			Scene scene = new Scene(AP);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

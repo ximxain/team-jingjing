@@ -290,7 +290,7 @@ public class MainController extends GameReady implements Initializable {
 				System.out.println(musicNoteList.size());
 				for (int i = 5; i <= musicNoteList.size() - 5; i++) {
 					if (exit == true) {
-						System.out.println("게임 오버");
+						System.out.println("조기종료");
 						break;
 					}
 
@@ -343,7 +343,7 @@ public class MainController extends GameReady implements Initializable {
 
 	public void aClick() {
 		if (clear == true) {
-			stateLabel.setText("연주를 성공적으로 마쳤습니다. 무대에서 내려갑시다.");
+			stateLabel.setText("연주를 성공적으로 마쳤습니다.\n무대에서 내려갑시다.");
 		} else {
 			System.out.println("D");
 			if (A == 1) {
@@ -360,7 +360,7 @@ public class MainController extends GameReady implements Initializable {
 
 	public void AClick() {
 		if (clear == true) {
-			stateLabel.setText("연주를 성공적으로 마쳤습니다. 무대에서 내려갑시다.");
+			stateLabel.setText("연주를 성공적으로 마쳤습니다.\n무대에서 내려갑시다.");
 		} else {
 			System.out.println("F");
 			if (B == 1) {
@@ -376,7 +376,7 @@ public class MainController extends GameReady implements Initializable {
 
 	public void BClick() {
 		if (clear == true) {
-			stateLabel.setText("연주를 성공적으로 마쳤습니다. 무대에서 내려갑시다.");
+			stateLabel.setText("연주를 성공적으로 마쳤습니다.\n무대에서 내려갑시다.");
 		} else {
 			System.out.println("J");
 			if (C == 1) {
@@ -392,7 +392,7 @@ public class MainController extends GameReady implements Initializable {
 
 	public void bClick() {
 		if (clear == true) {
-			stateLabel.setText("연주를 성공적으로 마쳤습니다. 무대에서 내려갑시다.");
+			stateLabel.setText("연주를 성공적으로 마쳤습니다.\n무대에서 내려갑시다.");
 		} else {
 			System.out.println("K");
 			if (D == 1) {
@@ -436,7 +436,7 @@ public class MainController extends GameReady implements Initializable {
 			GOW = true;
 			exit = true;
 			clear = false;
-			stateLabel.setText("당신은 지쳤습니다. 그만 무대에서 내려갑시다.");
+			stateLabel.setText("당신은 지쳤습니다.\n그만 무대에서 내려갑시다.");
 		}
 	}
 
@@ -770,7 +770,7 @@ public class MainController extends GameReady implements Initializable {
 
 	public void showResultWindow() {
 		exit = true;
-		if (clear = true) {
+		if (clear == true) {
 			try {
 				Parent login = FXMLLoader.load(getClass().getResource("/music/GameClear.fxml"));
 				Scene scene = new Scene(login);
@@ -780,8 +780,6 @@ public class MainController extends GameReady implements Initializable {
 				e.printStackTrace();
 			}
 		} else {
-			life = life - 4;
-			hurt();
 			gameOver();
 		}
 	}
