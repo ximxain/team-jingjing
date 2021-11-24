@@ -37,7 +37,7 @@ public class MainController extends GameReady implements Initializable {
 
 	@FXML
 	Button btn;
-	
+
 	@FXML
 	public Label scoreLabel;
 
@@ -105,12 +105,14 @@ public class MainController extends GameReady implements Initializable {
 
 	static boolean exit = false;
 	static boolean GOW = false;
+	static boolean Clear = false;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		System.out.println(musicNoteList.size());
 		exit = false;
 		GOW = false;
+		Clear = false;
 		String pathBlack = "src//resource/A,black.png";
 		String pathBlank = "src//resource/A,blank.png";
 		String pathLife = "src//resource/life.png";
@@ -285,13 +287,11 @@ public class MainController extends GameReady implements Initializable {
 				for (int i = 5; i <= musicNoteList.size() - 5; i++) {
 					if (exit == true) {
 						System.out.println("게임 오버");
-						exit();
 						break;
 					}
 
-					
-
-					System.out.println(i);
+					System.out.println(i - 4);
+					adder = i - 4;
 					try {
 						Thread.sleep(t);
 					} catch (InterruptedException e) {
@@ -327,8 +327,10 @@ public class MainController extends GameReady implements Initializable {
 					AllBlank();
 					next(i);
 				}
-				
-				stopwatch(0);
+				if (exit == false) {
+					System.out.println("clear");
+					Clear = true;
+				}
 			}
 		});
 
@@ -412,6 +414,7 @@ public class MainController extends GameReady implements Initializable {
 			fadeLife(life1);
 			GOW = true;
 			exit = true;
+			gameOver();
 		}
 	}
 
@@ -439,7 +442,14 @@ public class MainController extends GameReady implements Initializable {
 
 	public void gameOver() {
 		System.out.println("game over");
-		exit = true;
+		try {
+			Parent login = FXMLLoader.load(getClass().getResource("/music/GameOver.fxml"));
+			Scene scene = new Scene(login);
+			Stage primaryStage = (Stage) btn.getScene().getWindow();
+			primaryStage.setScene(scene);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void fadeLife(ImageView notes) {
@@ -731,40 +741,22 @@ public class MainController extends GameReady implements Initializable {
 	}
 
 	public void exit() {
-		exit = true;
-		try {
-			Parent login = FXMLLoader.load(getClass().getResource("/music/GameOver.fxml"));
-			Scene scene = new Scene(login);
-			Stage primaryStage = (Stage) btn.getScene().getWindow();
-			primaryStage.setScene(scene);
-		} catch (Exception e) {
-			e.printStackTrace();
+		life = 1;
+		hurt();
+	}
+
+	public void showResultWindow() {
+		if (Clear = true) {
+			try {
+				Parent login = FXMLLoader.load(getClass().getResource("/music/GameClear.fxml"));
+				Scene scene = new Scene(login);
+				Stage primaryStage = (Stage) btn.getScene().getWindow();
+				primaryStage.setScene(scene);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
+			gameOver();
 		}
 	}
-
-	// stop watch
-	public static String timerBuffer;
-	static int oldTime;
-	static int time = 0;
-
-	public static void stopwatch(int onOff) {
-		if (onOff == 1)
-			oldTime = (int) System.currentTimeMillis() / 1000;
-
-		if (onOff == 0)
-			secToHHMMSS(((int) System.currentTimeMillis() / 1000) - oldTime);
-	}
-
-	public static void secToHHMMSS(int secs) {
-		int hour, min, sec;
-		System.out.println(secs);
-		;
-		sec = secs % 60;
-		min = secs / 60 % 60;
-		hour = secs / 3600;
-
-		timerBuffer = String.format("%02d:%02d:%02d", hour, min, sec);
-		time = sec;
-	}
-
 }
