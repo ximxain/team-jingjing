@@ -52,6 +52,22 @@ public class controller implements Initializable {
 		}
 
 	}
+	@FXML
+	private Button Button;
+
+	public void clickButton() {
+		try {
+			Parent login = FXMLLoader.load(getClass().getResource("/appScene/GameView.fxml"));
+			Scene scene = new Scene(login);
+			Stage primaryStage = (Stage) Button.getScene().getWindow();
+			primaryStage.setScene(scene);
+			scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 	
 	int num = 0;
 	int number = 0;
