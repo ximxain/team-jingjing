@@ -17,6 +17,11 @@
          </image></ImageView>
       <Pane layoutY="-14.0" prefHeight="720.0" prefWidth="1280.0">
          <children>
+            <ImageView fitHeight="350.0" fitWidth="250.0" layoutX="492.0" layoutY="313.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../picture/기본.png" />
+               </image>
+            </ImageView>
             <Label layoutX="19.0" layoutY="34.0" text="성장 게이지">
                <font>
                   <Font size="25.0" />

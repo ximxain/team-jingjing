@@ -15,8 +15,8 @@
                   <Font size="60.0" />
                </font>
             </Label>
-            <Label layoutX="311.0" layoutY="250.0" text="게임설명" />
-            <Button fx:id="Start" layoutX="303.0" layoutY="385.0" mnemonicParsing="false" onAction="#changeMainView" prefHeight="38.0" prefWidth="76.0" text="START" />
+            <Label layoutX="191.0" layoutY="250.0" text="상대팀 속 숨어있는 최종보스 정예린을 이겨라 !" />
+            <Button fx:id="Start" layoutX="300.0" layoutY="362.0" mnemonicParsing="false" onAction="#changeMainView" prefHeight="54.0" prefWidth="101.0" text="START" />
          </children>
       </Pane>
    </children>

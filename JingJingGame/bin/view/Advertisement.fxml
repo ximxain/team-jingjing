@@ -19,17 +19,17 @@
                </font>
             </Label>
             <Button fx:id="closeAD" layoutX="1185.0" layoutY="26.0" mnemonicParsing="false" onAction="#changeToMainFromAD" prefHeight="23.0" prefWidth="58.0" text="닫기" />
-            <ImageView fitHeight="394.0" fitWidth="255.0" layoutX="105.0" layoutY="163.0" pickOnBounds="true">
+            <ImageView fx:id="adsView1" fitHeight="394.0" fitWidth="255.0" layoutX="105.0" layoutY="163.0" onMouseClicked="#AD1" pickOnBounds="true">
                <image>
                   <Image url="@../picture/gain.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="394.0" fitWidth="255.0" layoutX="500.0" layoutY="163.0" pickOnBounds="true">
+            <ImageView fx:id="adsView2" fitHeight="394.0" fitWidth="255.0" layoutX="500.0" layoutY="163.0" onMouseClicked="#AD2" pickOnBounds="true">
                <image>
                   <Image url="@../picture/coding.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="394.0" fitWidth="255.0" layoutX="899.0" layoutY="163.0" pickOnBounds="true">
+            <ImageView fx:id="adsView3" fitHeight="394.0" fitWidth="255.0" layoutX="899.0" layoutY="163.0" onMouseClicked="#AD3" pickOnBounds="true">
                <image>
                   <Image url="@../resource/shop.jpg" />
                </image>

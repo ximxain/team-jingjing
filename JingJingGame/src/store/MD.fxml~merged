@@ -17,11 +17,15 @@
       </ImageView>
       <Pane prefHeight="550.0" prefWidth="400.0">
          <children>
+<<<<<<< Updated upstream
+            <Label layoutX="180.0" layoutY="30.0" text="약">
+=======
 <<<<<<< Updated upstream:JingJingGame/bin/store/MD.fxml
             <Label layoutX="180.0" layoutY="30.0" text="약">
 =======
             <Label layoutX="184.0" layoutY="30.0" text="약">
 >>>>>>> Stashed changes:JingJingGame/src/store/MD.fxml
+>>>>>>> Stashed changes
                <font>
                   <Font size="34.0" />
                </font>

@@ -105,7 +105,7 @@ public class StoreController {
 
 		try {
 			// 새로운 스테이지에 custom 레이아웃 불러오기
-			Parent root = FXMLLoader.load(getClass().getResource("/store/MyItemPop-up.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/item/MyItemPop-up.fxml"));
 
 			// 씬에 추가
 			Scene sc = new Scene(root);

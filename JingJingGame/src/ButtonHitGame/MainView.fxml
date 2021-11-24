@@ -16,7 +16,6 @@
             <Label fx:id="timerLabel" layoutX="14.0" layoutY="438.0" prefHeight="19.0" prefWidth="98.0" />
          </children>
       </Pane>
-      <ImageView fx:id="lose" fitHeight="426.0" fitWidth="800.0" pickOnBounds="true" />
       <ImageView fx:id="win" fitHeight="426.0" fitWidth="800.0" pickOnBounds="true" />
    </children>
 </AnchorPane>

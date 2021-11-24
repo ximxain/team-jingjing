@@ -15,9 +15,9 @@ import javafx.stage.Popup;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class ADControllerTwo implements Initializable{
+public class ADControllerTwo extends ADpackegeController implements Initializable{
 	@FXML
-	private Stage ads;
+	private MediaView ads2;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -28,6 +28,8 @@ public class ADControllerTwo implements Initializable{
           
         //Instantiating MediaPlayer class   
         MediaPlayer mediaPlayer = new MediaPlayer(media);  
+        
+        ads2.setMediaPlayer(mediaPlayer); 
         
         //by setting this property to true, the Video will be played   
 
