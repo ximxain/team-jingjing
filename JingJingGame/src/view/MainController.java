@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -23,6 +24,8 @@ import util.JDBCUtil;
 public class MainController extends Login implements Initializable {
 	@FXML
 	private Button changeGameView;
+	@FXML
+	private Button btn;
 
 	@FXML
 	ProgressBar experienceBar;
@@ -98,6 +101,22 @@ public class MainController extends Login implements Initializable {
 			primaryStage.setScene(scene);
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+	
+	public void showEvent() {
+		if(presentLevel >= 2 && event1 == 0) {
+			try {
+			System.out.println("이벤트1 시청 시작");
+			Parent login = FXMLLoader.load(getClass().getResource("/event/Event1.fxml"));
+			Scene scene = new Scene(login);
+			Stage primaryStage = (Stage) btn.getScene().getWindow();
+			primaryStage.setScene(scene);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
+			AppUtil.alert("현재 예정된 이벤트가 없습니다.", "");
 		}
 	}
 	

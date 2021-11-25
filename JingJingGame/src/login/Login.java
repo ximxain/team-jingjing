@@ -22,11 +22,13 @@ public class Login {
 	
 	//징징이의 스텟
 	static public int grows;
-	static public int presentLevel;
+	static public int presentLevel = 2;
 	static public int presentExperience;
 	static public int money;
 	
-	
+	static public int event1;
+	static public int event2;
+	static public int event3;
 	
 	
 	@FXML
@@ -126,8 +128,17 @@ public class Login {
 					System.out.println("money: "+money);
 					
 					
+					event1 = rs.getInt("event1");
+					System.out.println("event1 : "+event1);
+					event2 = rs.getInt("event2");
+					System.out.println("event2 : "+event2);
+					event3 = rs.getInt("event3");
+					System.out.println("event3 : "+event3);
+					
+					
 					System.out.println("프롤로그 시청 여부 확인 중...");
 					Integer prolog = rs.getInt("prolog");
+					
 					
 					if(prolog == 0) {
 						System.out.println("프롤로그 시청 시작");
