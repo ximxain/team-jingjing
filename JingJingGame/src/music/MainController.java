@@ -235,9 +235,9 @@ public class MainController extends GameReady implements Initializable {
 		stateLabel.setText(null);
 
 //		//배경음악 
-//		m = new Media(getClass().getResource("/musicResource/" + musicLink + ".mp3").toString());
-//		mp = new MediaPlayer(m);
-//		mp.play();
+		m = new Media(getClass().getResource("/musicResource/" + musicLink + ".mp3").toString());
+		mp = new MediaPlayer(m);
+		mp.play();
 
 		Thread musicThread = new Thread(new Runnable() {
 
