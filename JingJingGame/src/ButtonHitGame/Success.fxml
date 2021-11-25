@@ -16,7 +16,7 @@
                   <Image url="@../picture/성공.png" />
                </image>
             </ImageView>
-            <Button layoutX="251.0" layoutY="35.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="176.0" text="돌아가기">
+            <Button fx:id="endBtn" layoutX="251.0" layoutY="35.0" mnemonicParsing="false" onAction="#changeToMain" prefHeight="69.0" prefWidth="176.0" style="-fx-background-color: white;" text="돌아가기">
                <font>
                   <Font size="33.0" />
                </font>
