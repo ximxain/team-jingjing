@@ -42,6 +42,7 @@ public class Login {
 	private TextField pw;
 
 	private JDBCUtil db;
+	private JDBCUtil db2;
 	
 	public static String user;
 	
@@ -54,9 +55,10 @@ public class Login {
 	public void clickButton() {
 		try {
 			db = new JDBCUtil();
+			db2 = new JDBCUtil();
 			
 			Connection con = db.getConnection();
-			Connection conStat = db.getConnection();
+			Connection conStat = db2.getConnection();
 			Statement stmt = null;
 			Statement stmtStat = null;
 			ResultSet rs = null;

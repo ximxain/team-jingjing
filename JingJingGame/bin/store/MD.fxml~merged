@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="store.StoreController">
+   <children>
+      <ImageView fitHeight="550.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resource/store.png" />
+         </image>
+      </ImageView>
+      <Pane prefHeight="550.0" prefWidth="400.0">
+         <children>
+<<<<<<< Updated upstream
+            <Label layoutX="180.0" layoutY="30.0" text="약">
+=======
+<<<<<<< Updated upstream:JingJingGame/bin/store/MD.fxml
+            <Label layoutX="180.0" layoutY="30.0" text="약">
+=======
+            <Label layoutX="184.0" layoutY="30.0" text="약">
+>>>>>>> Stashed changes:JingJingGame/src/store/MD.fxml
+>>>>>>> Stashed changes
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Label>
+            <Line endX="299.0" layoutX="101.0" layoutY="80.0" startX="-100.0" />
+            <ImageView fx:id="MDC1" fitHeight="106.0" fitWidth="124.0" layoutX="51.0" layoutY="118.0" onMouseClicked="#MDCName1" pickOnBounds="true">
+               <image>
+                  <Image url="@../resource/md2.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="MDC2" fitHeight="106.0" fitWidth="124.0" layoutX="218.0" layoutY="118.0" onMouseClicked="#MDCName2" pickOnBounds="true">
+               <image>
+                  <Image url="@../resource/md.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="MDC3" fitHeight="106.0" fitWidth="124.0" layoutX="51.0" layoutY="256.0" onMouseClicked="#MDCName3" pickOnBounds="true">
+               <image>
+                  <Image url="@../resource/MD3.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="MDC4" fitHeight="106.0" fitWidth="124.0" layoutX="218.0" layoutY="256.0" onMouseClicked="#MDCName4" pickOnBounds="true">
+               <image>
+                  <Image url="@../resource/MD4.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="MDC5" fitHeight="106.0" fitWidth="124.0" layoutX="51.0" layoutY="396.0" onMouseClicked="#MDCName5" pickOnBounds="true">
+               <image>
+                  <Image url="@../resource/MD5.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="MDC6" fitHeight="106.0" fitWidth="124.0" layoutX="226.0" layoutY="396.0" onMouseClicked="#MDCName6" pickOnBounds="true">
+               <image>
+                  <Image url="@../resource/MD6.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="98.0" layoutY="231.0" text="Label" />
+            <Label layoutX="265.0" layoutY="231.0" text="Label" />
+            <Label layoutX="98.0" layoutY="370.0" text="Label" />
+            <Label layoutX="265.0" layoutY="370.0" text="Label" />
+            <Label layoutX="98.0" layoutY="508.0" text="Label" />
+            <Label layoutX="265.0" layoutY="508.0" text="Label" />
+         </children></Pane>
+   </children>
+</AnchorPane>

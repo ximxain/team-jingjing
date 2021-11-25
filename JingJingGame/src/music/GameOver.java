@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
@@ -22,6 +23,8 @@ public class GameOver extends MainController implements Initializable{
 	ImageView albumArt;
 	@FXML
 	Label musicProgressLabel;
+	@FXML
+	Button btn;
 	
 	
 	public void retry(){
@@ -34,6 +37,16 @@ public class GameOver extends MainController implements Initializable{
 			e.printStackTrace();
 		}
 	}
+	public void quit() {
+		try {
+			Parent login = FXMLLoader.load(getClass().getResource("/appScene/GameView.fxml"));
+			Scene scene = new Scene(login);
+			Stage primaryStage = (Stage) btn.getScene().getWindow();
+			primaryStage.setScene(scene);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	
 	@Override
@@ -41,7 +54,9 @@ public class GameOver extends MainController implements Initializable{
 		System.out.println(adder+", "+(musicNoteList.size()-9));
 		System.out.println((double)adder/(musicNoteList.size()-9));
 		musicProgressBar.setProgress((double)adder/(musicNoteList.size()-9));
-		musicProgressLabel.setText((double)adder/(musicNoteList.size()-9)*100+"%");
+		musicProgressLabel.setText((int)((double)adder/(musicNoteList.size()-9)*100)+"%");
 	}
+	
+	
 
 }
