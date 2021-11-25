@@ -26,8 +26,12 @@ public class MainController implements Initializable {
 
 	@FXML
 	private Button ClickBtn; // 버튼 클릭
+	@FXML
+	private Button endBtn;
+	@FXML
+	private Button endBtn2;
 
-	private static String viewName; // fxml 구분
+	private static String viewName = "ButtonGame"; // fxml 구분
 
 	@FXML
 	private Button Start;
@@ -116,6 +120,16 @@ public class MainController implements Initializable {
 	public void timeUp() {
 		// fxml 이동
 		System.out.println("성공");
+	}
+	
+	public void changeToMain() {
+		Stage stage = (Stage) endBtn.getScene().getWindow(); // 팝업창 닫기
+		stage.close();
+	}
+	
+	public void changeToMain2() {
+		Stage stage = (Stage) endBtn2.getScene().getWindow(); // 팝업창 닫기
+		stage.close();
 	}
 
 	@Override
