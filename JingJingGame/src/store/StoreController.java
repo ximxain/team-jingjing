@@ -722,6 +722,8 @@ public class StoreController {
 	private Button clothesBtn5;
 	@FXML
 	private Button clothesBtn6;
+	
+	public static int Foodid = 0;
 
 	// 음식1 insert
 	public void clickFoodBtn1() {
@@ -733,12 +735,13 @@ public class StoreController {
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "insert into food values(?,?)";
+		String sql = "insert into food values(?,?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "음식1");
-			pstmt.setString(2, "코인 가격");
+			pstmt.setInt(1, Foodid++);
+			pstmt.setString(2, "퐁퐁케이크");
+			pstmt.setString(3, "가격");
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -756,12 +759,13 @@ public class StoreController {
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "insert into food values(?,?)";
+		String sql = "insert into food values(?,?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "음식2");
-			pstmt.setString(2, "코인 가격");
+			pstmt.setInt(1, Foodid++);
+			pstmt.setString(2, "플리즈핫도그WORLD");
+			pstmt.setString(3, "가격");
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -779,12 +783,13 @@ public class StoreController {
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "insert into food values(?,?)";
+		String sql = "insert into food values(?,?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "음식3");
-			pstmt.setString(2, "코인 가격");
+			pstmt.setInt(1, Foodid++);
+			pstmt.setString(2, "징징이정식");
+			pstmt.setString(3, "코인 가격");
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -802,12 +807,13 @@ public class StoreController {
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "insert into food values(?,?)";
+		String sql = "insert into food values(?,?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "음식4");
-			pstmt.setString(2, "코인 가격");
+			pstmt.setInt(1, Foodid++);
+			pstmt.setString(2, "핑핑이밥");
+			pstmt.setString(3, "코인 가격");
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -825,12 +831,13 @@ public class StoreController {
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "insert into food values(?,?)";
+		String sql = "insert into food values(?,?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "음식5");
-			pstmt.setString(2, "코인 가격");
+			pstmt.setInt(1, Foodid++);
+			pstmt.setString(2, "김건우");
+			pstmt.setString(3, "코인 가격");
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -848,12 +855,13 @@ public class StoreController {
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "insert into food values(?,?)";
+		String sql = "insert into food values(?,?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "음식6");
-			pstmt.setString(2, "코인 가격");
+			pstmt.setInt(1, Foodid++);
+			pstmt.setString(2, "게살버거");
+			pstmt.setString(3, "코인 가격");
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -861,6 +869,7 @@ public class StoreController {
 		}
 	}
 
+	public static int MDid = 0;
 	// 약1 insert
 	public void clickMDBtn1() {
 		JDBCUtil db = new JDBCUtil();
@@ -871,12 +880,13 @@ public class StoreController {
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "insert into MD values(?,?)";
+		String sql = "insert into MD values(?,?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "약1");
-			pstmt.setString(2, "코인 가격");
+			pstmt.setInt(1, MDid++);
+			pstmt.setString(2, "약1");
+			pstmt.setString(3, "코인 가격");
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -894,12 +904,13 @@ public class StoreController {
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "insert into MD values(?,?)";
+		String sql = "insert into MD values(?,?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "약2");
-			pstmt.setString(2, "코인 가격");
+			pstmt.setInt(1, MDid++);
+			pstmt.setString(2, "약2");
+			pstmt.setString(3, "코인 가격");
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -917,12 +928,13 @@ public class StoreController {
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "insert into MD values(?,?)";
+		String sql = "insert into MD values(?,?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "약3");
-			pstmt.setString(2, "코인 가격");
+			pstmt.setInt(1, MDid++);
+			pstmt.setString(2, "약3");
+			pstmt.setString(3, "코인 가격");
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -940,12 +952,13 @@ public class StoreController {
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "insert into MD values(?,?)";
+		String sql = "insert into MD values(?,?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "약4");
-			pstmt.setString(2, "코인 가격");
+			pstmt.setInt(1, MDid++);
+			pstmt.setString(2, "약4");
+			pstmt.setString(3, "코인 가격");
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -963,12 +976,13 @@ public class StoreController {
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "insert into MD values(?,?)";
+		String sql = "insert into MD values(?,?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "약5");
-			pstmt.setString(2, "코인 가격");
+			pstmt.setInt(1, MDid++);
+			pstmt.setString(2, "약5");
+			pstmt.setString(3, "코인 가격");
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -986,12 +1000,13 @@ public class StoreController {
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "insert into MD values(?,?)";
+		String sql = "insert into MD values(?,?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "약6");
-			pstmt.setString(2, "코인 가격");
+			pstmt.setInt(1, MDid++);
+			pstmt.setString(2, "약6");
+			pstmt.setString(3, "코인 가격");
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {

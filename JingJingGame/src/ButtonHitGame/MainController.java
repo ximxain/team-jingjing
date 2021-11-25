@@ -7,8 +7,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -27,7 +25,26 @@ public class MainController implements Initializable {
 	private ImageView win;
 
 	@FXML
-	private Button ClickBtn;
+	private Button ClickBtn; // 버튼 클릭
+
+	private static String viewName; // fxml 구분
+
+	@FXML
+	private Button Start;
+
+	// 게임화면이동
+	public void changeMainView() {
+		viewName = "Start";
+		try {
+			Parent login = FXMLLoader.load(getClass().getResource("/ButtonHitGame/MainView.fxml"));
+			Scene scene = new Scene(login);
+			Stage primaryStage = (Stage) Start.getScene().getWindow();
+			primaryStage.setScene(scene);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 
 	// 타이머(20초)
 	private Timer timer = null;
@@ -35,6 +52,45 @@ public class MainController implements Initializable {
 	private int count = 10;
 	@FXML
 	private Label timerLabel;
+
+	// 버튼 누름과 안누름에 따라 이미지뷰 변화
+	public void clickButtonWin() {
+		Image image = new Image("picture/win.png");
+		win.setImage(image);
+	}
+
+	public void clickButtonLose() {
+		Image image = new Image("picture/lose.png");
+		win.setImage(image);
+	}
+
+	public void clickButton() {
+		Image image = new Image("picture/jing.png");
+		win.setImage(image);
+	}
+
+	// 버튼클릭
+	public void IfClickBtn() {
+		viewName = "ClickBtn"; // fxml 위치
+		click += 1; // 클릭 횟수
+		System.out.println(click);
+		if (click == 2) {
+			clickButton();
+
+		} else if (click == 7) {
+			clickButtonWin();
+
+		} else if (click == SuccessClick) {
+			try {
+				Parent login = FXMLLoader.load(getClass().getResource("/ButtonHitGame/Success.fxml"));
+				Scene scene = new Scene(login);
+				Stage primaryStage = (Stage) ClickBtn.getScene().getWindow();
+				primaryStage.setScene(scene);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
 
 	// 타이머
 	public void timer() {
@@ -62,48 +118,10 @@ public class MainController implements Initializable {
 		System.out.println("성공");
 	}
 
-	// 버튼 누름과 안누름에 따라 이미지뷰 변화
-	public void clickButtonWin() {
-		Image image = new Image("picture/win.png");
-		win.setImage(image);
-	}
-
-	public void clickButtonLose() {
-		Image image = new Image("picture/lose.png");
-		win.setImage(image);
-	}
-
-	public void clickButton() {
-		Image image = new Image("picture/jing.png");
-		win.setImage(image);
-	}
-
-	// 버튼클릭
-	public void IfClickBtn() {
-		click += 1; // 클릭 횟수
-		System.out.println(click);
-		if (click <= 3) {
-			System.out.println(1);
-		}
-			else if(click <= 7) {
-				clickButton();
-				} else if (click == 7) {
-					clickButtonWin();
-					} else {
-						try {
-				Parent login = FXMLLoader.load(getClass().getResource("/ButtonHitGame/Success.fxml"));
-				Scene scene = new Scene(login);
-				Stage primaryStage = (Stage) ClickBtn.getScene().getWindow();
-				primaryStage.setScene(scene);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// clickButtonLose(); // 처음 게임 시작 이미지
-		timer();
+		if (viewName.equals("Start")) {
+			timer();
+		}
 	}
 }

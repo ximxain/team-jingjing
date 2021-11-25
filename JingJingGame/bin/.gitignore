@@ -1,7 +1,9 @@
+/resource/
 /ButtonHitGame/
 /appScene/
 /application/
 /cardgame/
+/item/
 /login/
 /math/
 /music/
@@ -9,6 +11,3 @@
 /store/
 /util/
 /view/
-/resource/
-/picture/
-/item/
