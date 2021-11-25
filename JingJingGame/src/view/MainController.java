@@ -29,6 +29,12 @@ public class MainController extends Login implements Initializable {
 
 	@FXML
 	ProgressBar experienceBar;
+	
+	@FXML
+	ProgressBar hungry;
+	
+	@FXML
+	ProgressBar sick;
 
 	@FXML
 	protected Label presentGrowth;
@@ -86,6 +92,8 @@ public class MainController extends Login implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		experienceBar.setProgress((double) presentExperience / limitExperience);
+		hungry.setProgress(0.5);
+		sick.setProgress(0.2);
 		presentGrowth.setText(currentStat[presentLevel]);
 		moneyLabel.setText(""+money);
 	}
