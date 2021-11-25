@@ -50,7 +50,7 @@ public class GameReady implements Initializable {
 
 	static public int life = 5;
 
-	ObservableList<String> list = FXCollections.observableArrayList("piano", "Twilight Express", "준비중", "준비중");
+	ObservableList<String> list = FXCollections.observableArrayList("piano", "Twilight Express", "둥근 바다", "준비중");
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -63,7 +63,7 @@ public class GameReady implements Initializable {
 			AppUtil.alert("음악을 선택하십시오.", "");
 		} else {
 			adder = 0;
-			life = 5;
+			life = 1000;
 			score = 0;
 			musicE = 0;
 			musicLink = combobox.getValue();

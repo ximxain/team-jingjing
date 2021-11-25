@@ -353,7 +353,7 @@ public class MainController extends GameReady implements Initializable {
 					B = 0;
 					C = 0;
 					D = 0;
-					AllBlank();
+					//AllBlank();
 					next(i);
 				}
 				mp.stop();
@@ -379,6 +379,8 @@ public class MainController extends GameReady implements Initializable {
 					A = 2;
 					scoreLabel.setText("Score: " + score);
 				} else if (A == 0) {
+					if(life <= 0)
+						stateLabel.setText("당신은 지쳤습니다.\n그만 무대에서 내려갑시다.");
 					hurt();
 				}
 			}
@@ -401,6 +403,8 @@ public class MainController extends GameReady implements Initializable {
 					B = 2;
 					scoreLabel.setText("Score: " + score);
 				} else if (B == 0) {
+					if(life <= 0)
+						stateLabel.setText("당신은 지쳤습니다.\n그만 무대에서 내려갑시다.");
 					hurt();
 				}
 			}
@@ -423,6 +427,8 @@ public class MainController extends GameReady implements Initializable {
 					C = 2;
 					scoreLabel.setText("Score: " + score);
 				} else if (C == 0) {
+					if(life <= 0)
+						stateLabel.setText("당신은 지쳤습니다.\n그만 무대에서 내려갑시다.");
 					hurt();
 				}
 			}
@@ -444,6 +450,8 @@ public class MainController extends GameReady implements Initializable {
 					D = 2;
 					scoreLabel.setText("Score: " + score);
 				} else if (D == 0) {
+					if(life <= 0)
+						stateLabel.setText("당신은 지쳤습니다.\n그만 무대에서 내려갑시다.");
 					hurt();
 				}
 			}
@@ -483,7 +491,6 @@ public class MainController extends GameReady implements Initializable {
 			GOW = true;
 			exit = true;
 			clear = false;
-			stateLabel.setText("당신은 지쳤습니다.\n그만 무대에서 내려갑시다.");
 		}
 	}
 
@@ -528,140 +535,333 @@ public class MainController extends GameReady implements Initializable {
 
 	public void next(int i) {
 		if (musicNoteList.get(i + 4).equals("0000")) {
-
+			notea1.setImage(imgBlank);
+			noteA1.setImage(imgBlank);
+			noteB1.setImage(imgBlank);
+			noteb1.setImage(imgBlank);
 		} else if (musicNoteList.get(i + 4).equals("0001")) {
-			noteFlow1(noteb1);
+			notea1.setImage(imgBlank);
+			noteA1.setImage(imgBlank);
+			noteB1.setImage(imgBlank);
+			noteb1.setImage(imgBlack);
 		} else if (musicNoteList.get(i + 4).equals("0010")) {
-			noteFlow1(noteB1);
+			notea1.setImage(imgBlank);
+			noteA1.setImage(imgBlank);
+			noteB1.setImage(imgBlack);
+			noteb1.setImage(imgBlank);
 		} else if (musicNoteList.get(i + 4).equals("0011")) {
-			noteFlow2(noteB1, noteb1);
+			notea1.setImage(imgBlank);
+			noteA1.setImage(imgBlank);
+			noteB1.setImage(imgBlack);
+			noteb1.setImage(imgBlack);
 		} else if (musicNoteList.get(i + 4).equals("0100")) {
-			noteFlow1(noteA1);
+			notea1.setImage(imgBlank);
+			noteA1.setImage(imgBlack);
+			noteB1.setImage(imgBlank);
+			noteb1.setImage(imgBlank);
 		} else if (musicNoteList.get(i + 4).equals("0101")) {
-			noteFlow2(noteA1, noteb1);
+			notea1.setImage(imgBlank);
+			noteA1.setImage(imgBlack);
+			noteB1.setImage(imgBlank);
+			noteb1.setImage(imgBlack);
 		} else if (musicNoteList.get(i + 4).equals("0110")) {
-			noteFlow2(noteA1, noteB1);
+			notea1.setImage(imgBlank);
+			noteA1.setImage(imgBlack);
+			noteB1.setImage(imgBlack);
+			noteb1.setImage(imgBlank);
 		} else if (musicNoteList.get(i + 4).equals("0111")) {
-			noteFlow3(noteA1, noteB1, noteb1);
+			notea1.setImage(imgBlank);
+			noteA1.setImage(imgBlack);
+			noteB1.setImage(imgBlack);
+			noteb1.setImage(imgBlack);
 		} else if (musicNoteList.get(i + 4).equals("1000")) {
-			noteFlow1(notea1);
+			notea1.setImage(imgBlack);
+			noteA1.setImage(imgBlank);
+			noteB1.setImage(imgBlank);
+			noteb1.setImage(imgBlank);
 		} else if (musicNoteList.get(i + 4).equals("1001")) {
-			noteFlow2(notea1, noteb1);
+			notea1.setImage(imgBlack);
+			noteA1.setImage(imgBlank);
+			noteB1.setImage(imgBlank);
+			noteb1.setImage(imgBlack);
 		} else if (musicNoteList.get(i + 4).equals("1010")) {
-			noteFlow2(notea1, noteB1);
+			notea1.setImage(imgBlack);
+			noteA1.setImage(imgBlank);
+			noteB1.setImage(imgBlack);
+			noteb1.setImage(imgBlank);
 		} else if (musicNoteList.get(i + 4).equals("1011")) {
-			noteFlow3(notea1, noteB1, noteb1);
+			notea1.setImage(imgBlack);
+			noteA1.setImage(imgBlank);
+			noteB1.setImage(imgBlack);
+			noteb1.setImage(imgBlack);
 		} else if (musicNoteList.get(i + 4).equals("1100")) {
-			noteFlow2(notea1, noteA1);
+			notea1.setImage(imgBlack);
+			noteA1.setImage(imgBlack);
+			noteB1.setImage(imgBlank);
+			noteb1.setImage(imgBlank);
 		} else if (musicNoteList.get(i + 4).equals("1101")) {
-			noteFlow3(notea1, noteA1, noteb1);
+			notea1.setImage(imgBlack);
+			noteA1.setImage(imgBlack);
+			noteB1.setImage(imgBlank);
+			noteb1.setImage(imgBlack);
 		} else if (musicNoteList.get(i + 4).equals("1110")) {
-			noteFlow3(notea1, noteA1, noteB1);
+			notea1.setImage(imgBlack);
+			noteA1.setImage(imgBlack);
+			noteB1.setImage(imgBlack);
+			noteb1.setImage(imgBlank);
 		} else if (musicNoteList.get(i + 4).equals("1111")) {
-			noteFlow4(notea1, noteA1, noteB1, noteb1);
+			notea1.setImage(imgBlack);
+			noteA1.setImage(imgBlack);
+			noteB1.setImage(imgBlack);
+			noteb1.setImage(imgBlack);
 		}
-
+//**************************************************
 		if (musicNoteList.get(i + 3).equals("0000")) {
-
+			notea2.setImage(imgBlank);
+			noteA2.setImage(imgBlank);
+			noteB2.setImage(imgBlank);
+			noteb2.setImage(imgBlank);
 		} else if (musicNoteList.get(i + 3).equals("0001")) {
-			noteFlow1(noteb2);
+			notea2.setImage(imgBlank);
+			noteA2.setImage(imgBlank);
+			noteB2.setImage(imgBlank);
+			noteb2.setImage(imgBlack);
 		} else if (musicNoteList.get(i + 3).equals("0010")) {
-			noteFlow1(noteB2);
+			notea2.setImage(imgBlank);
+			noteA2.setImage(imgBlank);
+			noteB2.setImage(imgBlack);
+			noteb2.setImage(imgBlank);
 		} else if (musicNoteList.get(i + 3).equals("0011")) {
-			noteFlow2(noteB2, noteb2);
+			notea2.setImage(imgBlank);
+			noteA2.setImage(imgBlank);
+			noteB2.setImage(imgBlack);
+			noteb2.setImage(imgBlack);
 		} else if (musicNoteList.get(i + 3).equals("0100")) {
-			noteFlow1(noteA2);
+			notea2.setImage(imgBlank);
+			noteA2.setImage(imgBlack);
+			noteB2.setImage(imgBlank);
+			noteb2.setImage(imgBlank);
 		} else if (musicNoteList.get(i + 3).equals("0101")) {
-			noteFlow2(noteA2, noteb2);
+			notea2.setImage(imgBlank);
+			noteA2.setImage(imgBlack);
+			noteB2.setImage(imgBlank);
+			noteb2.setImage(imgBlack);
 		} else if (musicNoteList.get(i + 3).equals("0110")) {
-			noteFlow2(noteA2, noteB2);
+			notea2.setImage(imgBlank);
+			noteA2.setImage(imgBlack);
+			noteB2.setImage(imgBlack);
+			noteb2.setImage(imgBlank);
 		} else if (musicNoteList.get(i + 3).equals("0111")) {
-			noteFlow3(noteA2, noteB2, noteb2);
+			notea2.setImage(imgBlank);
+			noteA2.setImage(imgBlack);
+			noteB2.setImage(imgBlack);
+			noteb2.setImage(imgBlack);
 		} else if (musicNoteList.get(i + 3).equals("1000")) {
-			noteFlow1(notea2);
+			notea2.setImage(imgBlack);
+			noteA2.setImage(imgBlank);
+			noteB2.setImage(imgBlank);
+			noteb2.setImage(imgBlank);
 		} else if (musicNoteList.get(i + 3).equals("1001")) {
-			noteFlow2(notea2, noteb2);
+			notea2.setImage(imgBlack);
+			noteA2.setImage(imgBlank);
+			noteB2.setImage(imgBlank);
+			noteb2.setImage(imgBlack);
 		} else if (musicNoteList.get(i + 3).equals("1010")) {
-			noteFlow2(notea2, noteB2);
+			notea2.setImage(imgBlack);
+			noteA2.setImage(imgBlank);
+			noteB2.setImage(imgBlack);
+			noteb2.setImage(imgBlank);
 		} else if (musicNoteList.get(i + 3).equals("1011")) {
-			noteFlow3(notea2, noteB2, noteb2);
+			notea2.setImage(imgBlack);
+			noteA2.setImage(imgBlank);
+			noteB2.setImage(imgBlack);
+			noteb2.setImage(imgBlack);
 		} else if (musicNoteList.get(i + 3).equals("1100")) {
-			noteFlow2(notea2, noteA2);
+			notea2.setImage(imgBlack);
+			noteA2.setImage(imgBlack);
+			noteB2.setImage(imgBlank);
+			noteb2.setImage(imgBlank);
 		} else if (musicNoteList.get(i + 3).equals("1101")) {
-			noteFlow3(notea2, noteA2, noteb2);
+			notea2.setImage(imgBlack);
+			noteA2.setImage(imgBlack);
+			noteB2.setImage(imgBlank);
+			noteb2.setImage(imgBlack);
 		} else if (musicNoteList.get(i + 3).equals("1110")) {
-			noteFlow3(notea2, noteA2, noteB2);
+			notea2.setImage(imgBlack);
+			noteA2.setImage(imgBlack);
+			noteB2.setImage(imgBlack);
+			noteb2.setImage(imgBlank);
 		} else if (musicNoteList.get(i + 3).equals("1111")) {
-			noteFlow4(notea2, noteA2, noteB2, noteb2);
+			notea2.setImage(imgBlack);
+			noteA2.setImage(imgBlack);
+			noteB2.setImage(imgBlack);
+			noteb2.setImage(imgBlack);
 		}
+		//**************************************************
+				if (musicNoteList.get(i + 2).equals("0000")) {
+					notea3.setImage(imgBlank);
+					noteA3.setImage(imgBlank);
+					noteB3.setImage(imgBlank);
+					noteb3.setImage(imgBlank);
+				} else if (musicNoteList.get(i + 2).equals("0001")) {
+					notea3.setImage(imgBlank);
+					noteA3.setImage(imgBlank);
+					noteB3.setImage(imgBlank);
+					noteb3.setImage(imgBlack);
+				} else if (musicNoteList.get(i + 2).equals("0010")) {
+					notea3.setImage(imgBlank);
+					noteA3.setImage(imgBlank);
+					noteB3.setImage(imgBlack);
+					noteb3.setImage(imgBlank);
+				} else if (musicNoteList.get(i + 2).equals("0011")) {
+					notea3.setImage(imgBlank);
+					noteA3.setImage(imgBlank);
+					noteB3.setImage(imgBlack);
+					noteb3.setImage(imgBlack);
+				} else if (musicNoteList.get(i + 2).equals("0100")) {
+					notea3.setImage(imgBlank);
+					noteA3.setImage(imgBlack);
+					noteB3.setImage(imgBlank);
+					noteb3.setImage(imgBlank);
+				} else if (musicNoteList.get(i + 2).equals("0101")) {
+					notea3.setImage(imgBlank);
+					noteA3.setImage(imgBlack);
+					noteB3.setImage(imgBlank);
+					noteb3.setImage(imgBlack);
+				} else if (musicNoteList.get(i + 2).equals("0110")) {
+					notea3.setImage(imgBlank);
+					noteA3.setImage(imgBlack);
+					noteB3.setImage(imgBlack);
+					noteb3.setImage(imgBlank);
+				} else if (musicNoteList.get(i + 2).equals("0111")) {
+					notea3.setImage(imgBlank);
+					noteA3.setImage(imgBlack);
+					noteB3.setImage(imgBlack);
+					noteb3.setImage(imgBlack);
+				} else if (musicNoteList.get(i + 2).equals("1000")) {
+					notea3.setImage(imgBlack);
+					noteA3.setImage(imgBlank);
+					noteB3.setImage(imgBlank);
+					noteb3.setImage(imgBlank);
+				} else if (musicNoteList.get(i + 2).equals("1001")) {
+					notea3.setImage(imgBlack);
+					noteA3.setImage(imgBlank);
+					noteB3.setImage(imgBlank);
+					noteb3.setImage(imgBlack);
+				} else if (musicNoteList.get(i + 2).equals("1010")) {
+					notea3.setImage(imgBlack);
+					noteA3.setImage(imgBlank);
+					noteB3.setImage(imgBlack);
+					noteb3.setImage(imgBlank);
+				} else if (musicNoteList.get(i + 2).equals("1011")) {
+					notea3.setImage(imgBlack);
+					noteA3.setImage(imgBlank);
+					noteB3.setImage(imgBlack);
+					noteb3.setImage(imgBlack);
+				} else if (musicNoteList.get(i + 2).equals("1100")) {
+					notea3.setImage(imgBlack);
+					noteA3.setImage(imgBlack);
+					noteB3.setImage(imgBlank);
+					noteb3.setImage(imgBlank);
+				} else if (musicNoteList.get(i + 2).equals("1101")) {
+					notea3.setImage(imgBlack);
+					noteA3.setImage(imgBlack);
+					noteB3.setImage(imgBlank);
+					noteb3.setImage(imgBlack);
+				} else if (musicNoteList.get(i + 2).equals("1110")) {
+					notea3.setImage(imgBlack);
+					noteA3.setImage(imgBlack);
+					noteB3.setImage(imgBlack);
+					noteb3.setImage(imgBlank);
+				} else if (musicNoteList.get(i + 2).equals("1111")) {
+					notea3.setImage(imgBlack);
+					noteA3.setImage(imgBlack);
+					noteB3.setImage(imgBlack);
+					noteb3.setImage(imgBlack);
+				}
 
-		if (musicNoteList.get(i + 2).equals("0000")) {
-
-		} else if (musicNoteList.get(i + 2).equals("0001")) {
-			noteFlow1(noteb3);
-		} else if (musicNoteList.get(i + 2).equals("0010")) {
-			noteFlow1(noteB3);
-		} else if (musicNoteList.get(i + 2).equals("0011")) {
-			noteFlow2(noteB3, noteb3);
-		} else if (musicNoteList.get(i + 2).equals("0100")) {
-			noteFlow1(noteA3);
-		} else if (musicNoteList.get(i + 2).equals("0101")) {
-			noteFlow2(noteA3, noteb3);
-		} else if (musicNoteList.get(i + 2).equals("0110")) {
-			noteFlow2(noteA3, noteB3);
-		} else if (musicNoteList.get(i + 2).equals("0111")) {
-			noteFlow3(noteA3, noteB3, noteb3);
-		} else if (musicNoteList.get(i + 2).equals("1000")) {
-			noteFlow1(notea3);
-		} else if (musicNoteList.get(i + 2).equals("1001")) {
-			noteFlow2(notea3, noteb3);
-		} else if (musicNoteList.get(i + 2).equals("1010")) {
-			noteFlow2(notea3, noteB3);
-		} else if (musicNoteList.get(i + 2).equals("1011")) {
-			noteFlow3(notea3, noteB3, noteb3);
-		} else if (musicNoteList.get(i + 2).equals("1100")) {
-			noteFlow2(notea3, noteA3);
-		} else if (musicNoteList.get(i + 2).equals("1101")) {
-			noteFlow3(notea3, noteA3, noteb3);
-		} else if (musicNoteList.get(i + 2).equals("1110")) {
-			noteFlow3(notea3, noteA3, noteB3);
-		} else if (musicNoteList.get(i + 2).equals("1111")) {
-			noteFlow4(notea3, noteA3, noteB3, noteb3);
-		}
-
-		if (musicNoteList.get(i + 1).equals("0000")) {
-
-		} else if (musicNoteList.get(i + 1).equals("0001")) {
-			noteFlow1(noteb4);
-		} else if (musicNoteList.get(i + 1).equals("0010")) {
-			noteFlow1(noteB4);
-		} else if (musicNoteList.get(i + 1).equals("0011")) {
-			noteFlow2(noteB4, noteb4);
-		} else if (musicNoteList.get(i + 1).equals("0100")) {
-			noteFlow1(noteA4);
-		} else if (musicNoteList.get(i + 1).equals("0101")) {
-			noteFlow2(noteA4, noteb4);
-		} else if (musicNoteList.get(i + 1).equals("0110")) {
-			noteFlow2(noteA4, noteB4);
-		} else if (musicNoteList.get(i + 1).equals("0111")) {
-			noteFlow3(noteA4, noteB4, noteb4);
-		} else if (musicNoteList.get(i + 1).equals("1000")) {
-			noteFlow1(notea4);
-		} else if (musicNoteList.get(i + 1).equals("1001")) {
-			noteFlow2(notea4, noteb4);
-		} else if (musicNoteList.get(i + 1).equals("1010")) {
-			noteFlow2(notea4, noteB4);
-		} else if (musicNoteList.get(i + 1).equals("1011")) {
-			noteFlow3(notea4, noteB4, noteb4);
-		} else if (musicNoteList.get(i + 1).equals("1100")) {
-			noteFlow2(notea4, noteA4);
-		} else if (musicNoteList.get(i + 1).equals("1101")) {
-			noteFlow3(notea4, noteA4, noteb4);
-		} else if (musicNoteList.get(i + 1).equals("1110")) {
-			noteFlow3(notea4, noteA4, noteB4);
-		} else if (musicNoteList.get(i + 1).equals("1111")) {
-			noteFlow4(notea4, noteA4, noteB4, noteb4);
-		}
+				//**************************************************
+				if (musicNoteList.get(i + 1).equals("0000")) {
+					notea4.setImage(imgBlank);
+					noteA4.setImage(imgBlank);
+					noteB4.setImage(imgBlank);
+					noteb4.setImage(imgBlank);
+				} else if (musicNoteList.get(i + 1).equals("0001")) {
+					notea4.setImage(imgBlank);
+					noteA4.setImage(imgBlank);
+					noteB4.setImage(imgBlank);
+					noteb4.setImage(imgBlack);
+				} else if (musicNoteList.get(i + 1).equals("0010")) {
+					notea4.setImage(imgBlank);
+					noteA4.setImage(imgBlank);
+					noteB4.setImage(imgBlack);
+					noteb4.setImage(imgBlank);
+				} else if (musicNoteList.get(i + 1).equals("0011")) {
+					notea4.setImage(imgBlank);
+					noteA4.setImage(imgBlank);
+					noteB4.setImage(imgBlack);
+					noteb4.setImage(imgBlack);
+				} else if (musicNoteList.get(i + 1).equals("0100")) {
+					notea4.setImage(imgBlank);
+					noteA4.setImage(imgBlack);
+					noteB4.setImage(imgBlank);
+					noteb4.setImage(imgBlank);
+				} else if (musicNoteList.get(i + 1).equals("0101")) {
+					notea4.setImage(imgBlank);
+					noteA4.setImage(imgBlack);
+					noteB4.setImage(imgBlank);
+					noteb4.setImage(imgBlack);
+				} else if (musicNoteList.get(i + 1).equals("0110")) {
+					notea4.setImage(imgBlank);
+					noteA4.setImage(imgBlack);
+					noteB4.setImage(imgBlack);
+					noteb4.setImage(imgBlank);
+				} else if (musicNoteList.get(i + 1).equals("0111")) {
+					notea4.setImage(imgBlank);
+					noteA4.setImage(imgBlack);
+					noteB4.setImage(imgBlack);
+					noteb4.setImage(imgBlack);
+				} else if (musicNoteList.get(i + 1).equals("1000")) {
+					notea4.setImage(imgBlack);
+					noteA4.setImage(imgBlank);
+					noteB4.setImage(imgBlank);
+					noteb4.setImage(imgBlank);
+				} else if (musicNoteList.get(i + 1).equals("1001")) {
+					notea4.setImage(imgBlack);
+					noteA4.setImage(imgBlank);
+					noteB4.setImage(imgBlank);
+					noteb4.setImage(imgBlack);
+				} else if (musicNoteList.get(i + 1).equals("1010")) {
+					notea4.setImage(imgBlack);
+					noteA4.setImage(imgBlank);
+					noteB4.setImage(imgBlack);
+					noteb4.setImage(imgBlank);
+				} else if (musicNoteList.get(i + 1).equals("1011")) {
+					notea4.setImage(imgBlack);
+					noteA4.setImage(imgBlank);
+					noteB4.setImage(imgBlack);
+					noteb4.setImage(imgBlack);
+				} else if (musicNoteList.get(i + 1).equals("1100")) {
+					notea4.setImage(imgBlack);
+					noteA4.setImage(imgBlack);
+					noteB4.setImage(imgBlank);
+					noteb4.setImage(imgBlank);
+				} else if (musicNoteList.get(i + 1).equals("1101")) {
+					notea4.setImage(imgBlack);
+					noteA4.setImage(imgBlack);
+					noteB4.setImage(imgBlank);
+					noteb4.setImage(imgBlack);
+				} else if (musicNoteList.get(i + 1).equals("1110")) {
+					notea4.setImage(imgBlack);
+					noteA4.setImage(imgBlack);
+					noteB4.setImage(imgBlack);
+					noteb4.setImage(imgBlank);
+				} else if (musicNoteList.get(i + 1).equals("1111")) {
+					notea4.setImage(imgBlack);
+					noteA4.setImage(imgBlack);
+					noteB4.setImage(imgBlack);
+					noteb4.setImage(imgBlack);
+				}
 
 		if (musicNoteList.get(i).equals("0000")) {
 
