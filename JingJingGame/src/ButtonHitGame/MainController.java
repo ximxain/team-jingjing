@@ -47,7 +47,6 @@ public class MainController implements Initializable {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	// 타이머(20초)
@@ -111,6 +110,7 @@ public class MainController implements Initializable {
 				if (count == 0) {
 					timer.cancel();
 					timeUp();
+					
 				}
 			}
 		};
@@ -126,7 +126,7 @@ public class MainController implements Initializable {
 		Stage stage = (Stage) endBtn.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
 	}
-	
+																																																																																																																																																																											
 	public void changeToMain2() {
 		Stage stage = (Stage) endBtn2.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
