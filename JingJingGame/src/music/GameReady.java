@@ -50,7 +50,7 @@ public class GameReady implements Initializable {
 
 	static public int life = 5;
 
-	ObservableList<String> list = FXCollections.observableArrayList("piano", "Twilight Express", "둥근 바다", "준비중");
+	ObservableList<String> list = FXCollections.observableArrayList("piano", "Twilight Express", "둥근 바다", "KING");
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
