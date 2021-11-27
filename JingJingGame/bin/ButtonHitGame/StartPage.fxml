@@ -2,21 +2,28 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ButtonHitGame.MainController">
    <children>
+      <ImageView fitHeight="500.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resource/줄다리기.png" />
+         </image>
+      </ImageView>
       <Pane prefHeight="500.0" prefWidth="700.0">
          <children>
-            <Label layoutX="161.0" layoutY="151.0" text="줄다리기 게임">
+            <Label layoutX="230.0" layoutY="155.0" text="줄다리기">
                <font>
                   <Font size="60.0" />
                </font>
             </Label>
-            <Label layoutX="191.0" layoutY="250.0" text="상대팀 속 숨어있는 최종보스 정예린을 이겨라 !" />
-            <Button fx:id="Start" layoutX="300.0" layoutY="362.0" mnemonicParsing="false" onAction="#changeMainView" prefHeight="54.0" prefWidth="101.0" text="START" />
+            <Label layoutX="191.0" layoutY="256.0" text="상대팀 속 숨어있는 최종보스 정예린을 이겨라 !" />
+            <Button fx:id="Start" layoutX="301.0" layoutY="388.0" mnemonicParsing="false" onAction="#changeMainView" prefHeight="34.0" prefWidth="79.0" style="-fx-background-color: white;" text="START" />
          </children>
       </Pane>
    </children>

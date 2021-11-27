@@ -1,7 +1,8 @@
 package ButtonHitGame;
 
 import java.net.URL;
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -17,6 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import util.JDBCUtil;
 
 public class MainController implements Initializable {
 	int click = 0; // 버튼클릭 횟수
@@ -55,46 +57,7 @@ public class MainController implements Initializable {
 	private int count = 10;
 	@FXML
 	private Label timerLabel;
-
-	// 버튼 누름과 안누름에 따라 이미지뷰 변화
-	public void clickButtonWin() {
-		Image image = new Image("picture/win.png");
-		win.setImage(image);
-	}
-
-	public void clickButtonLose() {
-		Image image = new Image("picture/lose.png");
-		win.setImage(image);
-	}
-
-	public void clickButton() {
-		Image image = new Image("picture/jing.png");
-		win.setImage(image);
-	}
-
-	// 버튼클릭
-	public void IfClickBtn() {
-		viewName = "ClickBtn"; // fxml 위치
-		click += 1; // 클릭 횟수
-		System.out.println(click);
-		if (click == 2) {
-			clickButton();
-
-		} else if (click == 7) {
-			clickButtonWin();
-
-		} else if (click == SuccessClick) {
-			try {
-				Parent login = FXMLLoader.load(getClass().getResource("/ButtonHitGame/Success.fxml"));
-				Scene scene = new Scene(login);
-				Stage primaryStage = (Stage) ClickBtn.getScene().getWindow();
-				primaryStage.setScene(scene);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
+ 
 	// 타이머
 	public void timer() {
 		timer = new Timer();
@@ -121,6 +84,67 @@ public class MainController implements Initializable {
 		// fxml 이동
 		System.out.println("성공");
 	}
+	
+	
+	// 버튼 누름과 안누름에 따라 이미지뷰 변화
+		public void clickButtonWin() {
+			Image image = new Image("picture/win.png");
+			win.setImage(image);
+		}
+
+		public void clickButtonLose() {
+			Image image = new Image("picture/lose.png");
+			win.setImage(image);
+		}
+
+		public void clickButton() {
+			Image image = new Image("picture/jing.png");
+			win.setImage(image);
+		}
+
+		// 버튼클릭
+		public void IfClickBtn() {
+			viewName = "ClickBtn"; // fxml 위치
+			click += 1; // 클릭 횟수
+			System.out.println(click);
+			if (click == 2) {
+				clickButton();
+
+			} else if (click == 7) {
+				clickButtonWin();
+
+			} else if (click == SuccessClick) {
+				try {
+					Parent login = FXMLLoader.load(getClass().getResource("/ButtonHitGame/Success.fxml"));
+					Scene scene = new Scene(login);
+					Stage primaryStage = (Stage) ClickBtn.getScene().getWindow();
+					primaryStage.setScene(scene);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				JDBCUtil db = new JDBCUtil();
+				Connection con = db.getConnection();
+
+				Stage stage = (Stage) ClickBtn.getScene().getWindow(); // 팝업창 닫기
+				stage.close();
+				util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
+
+				PreparedStatement pstmt = null;
+				String sql = "insert into jingjing_currentStat values(?,?,?,?)";
+
+				try {
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, "ButtonHitGame");
+					pstmt.setInt(2, 0);
+					pstmt.setInt(3, 0);
+					pstmt.setInt(3, 2);
+					pstmt.executeUpdate();
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
 	
 	public void changeToMain() {
 		Stage stage = (Stage) endBtn.getScene().getWindow(); // 팝업창 닫기
