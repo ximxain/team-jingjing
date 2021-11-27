@@ -22,7 +22,7 @@
                   <Image url="@../resource/MD5.jpg" />
                </image>
             </ImageView>
-            <Label layoutX="160.0" layoutY="22.0" text="MDC5">
+            <Label layoutX="100.0" layoutY="22.0" text="네모바지약">
                <font>
                   <Font size="40.0" />
                </font>

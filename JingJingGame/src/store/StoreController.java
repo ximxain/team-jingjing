@@ -885,8 +885,8 @@ public class StoreController {
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, MDid++);
-			pstmt.setString(2, "약1");
-			pstmt.setString(3, "코인 가격");
+			pstmt.setString(2, "그냥약");
+			pstmt.setString(3, "코인 2개");
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -909,8 +909,8 @@ public class StoreController {
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, MDid++);
-			pstmt.setString(2, "약2");
-			pstmt.setString(3, "코인 가격");
+			pstmt.setString(2, "징징이특효약");
+			pstmt.setString(3, "코인 2개");
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -933,8 +933,8 @@ public class StoreController {
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, MDid++);
-			pstmt.setString(2, "약3");
-			pstmt.setString(3, "코인 가격");
+			pstmt.setString(2, "뚱약");
+			pstmt.setString(3, "코인 4개");
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -957,8 +957,8 @@ public class StoreController {
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, MDid++);
-			pstmt.setString(2, "약4");
-			pstmt.setString(3, "코인 가격");
+			pstmt.setString(2, "오징어물약");
+			pstmt.setString(3, "코인 4개");
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -981,8 +981,8 @@ public class StoreController {
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, MDid++);
-			pstmt.setString(2, "약5");
-			pstmt.setString(3, "코인 가격");
+			pstmt.setString(2, "네모바지약");
+			pstmt.setString(3, "코인 4개");
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -1005,13 +1005,15 @@ public class StoreController {
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, MDid++);
-			pstmt.setString(2, "약6");
-			pstmt.setString(3, "코인 가격");
+			pstmt.setString(2, "인영이특효약");
+			pstmt.setString(3, "코인 6개");
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+	
+	
 
 }
