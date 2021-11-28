@@ -114,13 +114,22 @@ public class GameController extends Login {
 	}
 	
 	public void clickTickTacToe() {
-		System.out.println("changeToMainViewFromGame");
+		mainStage = (Stage) app.getScene().getWindow();
+		pop = new Stage(StageStyle.DECORATED);
+		pop.initModality(Modality.WINDOW_MODAL);
+		pop.initOwner(mainStage);
+
 		try {
-			Parent login = FXMLLoader.load(getClass().getResource("/tickTacToe/MainLayout.fxml"));
-			Scene scene = new Scene(login);
-			Stage primaryStage = (Stage) changeMainViewFromGame.getScene().getWindow();
-			primaryStage.setScene(scene);
-		} catch (Exception e) {
+			Parent root = FXMLLoader.load(getClass().getResource("/tickTacToe/MainLayout.fxml"));
+
+			Scene sc = new Scene(root);
+			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+			pop.setScene(sc);
+			pop.setTitle("운빨카드게임");
+			pop.setResizable(false);
+
+			pop.show();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
