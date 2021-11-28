@@ -59,13 +59,13 @@ public class GameOver extends MainController implements Initializable{
 
 			// 30%에 걸리면 호출
 			hungry = 1;
-			AppUtil.alert("징징이가 배고파졌습니다! 배고픔 상태일 때는 30% 점수가 삭감됩니다. 상점에서 해결할 수 있습니다.", "");
+			AppUtil.alert("징징이가 배고파졌습니다! 이 상태로는 게임에 불이익이 생깁니다. 상점에서 해결할 수 있습니다.", "");
 		}
 		if (rd.nextInt(10) < 3 && sick == 0) {
 
 			// 30%에 걸리면 호출
 			sick = 1;
-			AppUtil.alert("징징이가 병에 들었습니다! 아픔 상태일 때는 30% 점수가 삭감됩니다. 상점에서 해결할 수 있습니다.", "");
+			AppUtil.alert("징징이가 병에 들었습니다! 이 상태로는 게임에 불이익이 생깁니다. 상점에서 해결할 수 있습니다.", "");
 		}
 		
 		up();

@@ -16,6 +16,6 @@
             <Image url="@../resource/exit.png" />
          </image>
       </ImageView>
-      <Label fx:id="gameExplanation" layoutX="619.0" layoutY="220.0" prefHeight="262.0" prefWidth="275.0" />
+      <Label fx:id="gameExplanation" layoutX="595.0" layoutY="99.0" prefHeight="455.0" prefWidth="481.0" />
    </children>
 </AnchorPane>

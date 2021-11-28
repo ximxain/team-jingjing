@@ -51,12 +51,12 @@ public class GameReady extends Login implements Initializable {
 
 	static public int life = 5;
 
-	ObservableList<String> list = FXCollections.observableArrayList("piano", "Twilight Express", "둥근 바다", "KING");
+	ObservableList<String> list = FXCollections.observableArrayList("piano", "Twilight Express(준비중)", "둥근 바다(준비중)", "KING", "캉캉");
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		combobox.setItems(list);
-		gameExplanation.setText("무대로 올라가 연주를 합니다.\nD, F, J, K로 조종합니다.\n연주를 마치면 내려옵니다. \n중간에 미리 내려올 수도 있습니다.");
+		gameExplanation.setText("무대로 올라가 연주를 합니다.\nD, F, J, K로 조종합니다.\n연주를 마치면 내려옵니다. \n중간에 미리 내려올 수도 있습니다.\n아프거나 배고픈 상태일시\n얻은 경험치가 30% 줄어듭니다.");
 	}
 
 	public void gameStart() {

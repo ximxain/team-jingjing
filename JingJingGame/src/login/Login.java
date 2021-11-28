@@ -34,6 +34,8 @@ public class Login {
 	static public int endingWhether;
 
 	public int limitExperience = 1000;
+	
+	protected String[] currentStat = { "애기", "유딩", "학생", "성인" };
 
 	@FXML
 	private Button button;

@@ -13,10 +13,14 @@ import java.util.TimerTask;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.stage.Stage;
 import util.JDBCUtil;
 
 public class ADControllerOne extends ADpackegeController implements Initializable{
@@ -77,46 +81,23 @@ public class ADControllerOne extends ADpackegeController implements Initializabl
 	}
 	
 	public void give() {
-		
-		
-		System.out.println("광고비 지급");
-		db = new JDBCUtil();
-		
-		Connection con = db.getConnection();
-		
-		Statement stmt = null;
-		ResultSet rs = null;
-		String sql = "SELECT * FROM `jingjing_users` WHERE userId = " + "'" + user + "'";
-		try {
-			stmt = con.createStatement();
-			rs = stmt.executeQuery(sql);
-
-			while(rs.next()) {
-				Integer money = rs.getInt("money");
-				money = money+1;
+		money+=1;
+		up();
+		Platform.runLater(new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				try {
+					Parent login = FXMLLoader.load(getClass().getResource("/view/MainView.fxml"));
+					Scene scene = new Scene(login);
+					Stage primaryStage = (Stage) ads1.getScene().getWindow();
+					primaryStage.setScene(scene);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 			
-		}catch(Exception E) {
-			
-		}
-		
-		Connection con2 = db.getConnection();
-		PreparedStatement pstmt = null;
-		ResultSet rs2 = null;
-		String sql2 = "UPDATE `jingjing_currentStat` SET `money`="+money+" WHERE userId = '" +user+"'";
-		
-		try {
-			pstmt = con.prepareStatement(sql2);
-			pstmt.executeUpdate();
-			
-		}catch (Exception e) {
-			e.printStackTrace();
-			return;
-		}finally {
-			if(rs2 != null) try { rs2.close(); } catch (Exception e) {}
-			if(pstmt != null) try { pstmt.close(); } catch (Exception e) {}
-			if(con2 != null) try { con2.close(); } catch (Exception e) {}
-		}
+		});
 	}
 	
 }

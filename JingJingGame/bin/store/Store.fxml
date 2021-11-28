@@ -43,7 +43,7 @@
                   <Font size="30.0" />
                </font>
             </Label>
-            <ImageView fitHeight="411.0" fitWidth="313.0" layoutX="502.0" layoutY="256.0" pickOnBounds="true">
+            <ImageView fx:id="jingJingStore" fitHeight="400.0" fitWidth="400.0" layoutX="543.0" layoutY="287.0" pickOnBounds="true">
                <image>
                   <Image url="@../jingJingStat/애기.png" />
                </image>

@@ -1,5 +1,8 @@
 package store;
 
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -45,6 +48,10 @@ public class StoreController extends Login implements Initializable {
 
 	@FXML
 	private Button clothesBtn;
+
+	@FXML
+	private ImageView jingJingStore;
+
 	// 음식 종류
 	@FXML
 	private ImageView food1;
@@ -1070,7 +1077,21 @@ public class StoreController extends Login implements Initializable {
 			} else {
 				sickLabel.setText("X");
 			}
-		}catch(Exception E) {}
+		} catch (Exception E) {
+		}
+
+		try {
+			FileInputStream fis = new FileInputStream("src//jingJingStat/" + currentStat[presentLevel] + ".png");
+			BufferedInputStream bis = new BufferedInputStream(fis);
+
+			Image img = new Image(bis);
+
+			jingJingStore.setImage(img);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 }
