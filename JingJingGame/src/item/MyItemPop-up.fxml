@@ -18,7 +18,7 @@
       </ImageView>
       <Pane prefHeight="700.0" prefWidth="400.0">
          <children>
-            <Label layoutX="139.0" layoutY="36.0" text="STORE">
+            <Label layoutX="88.0" layoutY="14.0" text="INVENTORY">
                <font>
                   <Font size="40.0" />
                </font>

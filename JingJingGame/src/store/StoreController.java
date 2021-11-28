@@ -735,7 +735,7 @@ public class StoreController extends Login{
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES ([value-1],[value-2])";
+		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES (?,?)";
 		money-=2;
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -760,7 +760,7 @@ public class StoreController extends Login{
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES ([value-1],[value-2])";
+		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES (?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -786,7 +786,7 @@ public class StoreController extends Login{
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES ([value-1],[value-2])";
+		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES (?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -811,7 +811,7 @@ public class StoreController extends Login{
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES ([value-1],[value-2])";
+		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES (?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -835,7 +835,7 @@ public class StoreController extends Login{
 		money-=4;
 		up();
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES ([value-1],[value-2])";
+		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES (?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -860,7 +860,7 @@ public class StoreController extends Login{
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES ([value-1],[value-2])";
+		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES (?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -884,7 +884,7 @@ public class StoreController extends Login{
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES ([value-1],[value-2])";
+		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES (?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -907,7 +907,7 @@ public class StoreController extends Login{
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES ([value-1],[value-2])";
+		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES (?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -930,7 +930,7 @@ public class StoreController extends Login{
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES ([value-1],[value-2])";
+		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES (?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -953,7 +953,7 @@ public class StoreController extends Login{
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES ([value-1],[value-2])";
+		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES (?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -976,7 +976,7 @@ public class StoreController extends Login{
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES ([value-1],[value-2])";
+		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES (?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -999,7 +999,7 @@ public class StoreController extends Login{
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES ([value-1],[value-2])";
+		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES (?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
