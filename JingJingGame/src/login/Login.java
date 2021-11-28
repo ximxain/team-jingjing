@@ -79,34 +79,6 @@ public class Login {
 			String sql2 = "SELECT * FROM `jingjing_currentStat` WHERE userId = " + "'" + user + "'";
 			
 			
-			
-//			db = new JDBCUtil();
-//			
-//			Connection con = db.getConnection();
-//			Statement stmtStat = null;
-//			ResultSet rs = null;
-//			String user = "aaaa";
-//			String sql = "SELECT * FROM `jingjing_currentStat` WHERE userId = " + "'" + user + "'";
-//			
-//			try {
-//				stmt = con.createStatement();
-//				rs = stmt.executeQuery(sql);
-//				while(rs.next()) {
-//					Integer grows = rs.getInt("grows");
-//					Integer money = rs.getInt("money");
-//					presentLevel = rs.getInt("exp");
-//					
-//				}
-//			}catch (Exception e) {
-//				e.printStackTrace();
-//				AppUtil.alert("데이터 삽입 실패", null);
-//				return;
-//			}finally {
-//				if(rs != null) try { rs.close(); } catch (Exception e) {}
-//				if(stmt != null) try { stmt.close(); } catch (Exception e) {}
-//				if(con != null) try { con.close(); } catch (Exception e) {}
-//			}
-			
 			try {
 				
 				stmt = con.createStatement();
@@ -216,7 +188,7 @@ public class Login {
 			presentLevel ++;
 		}
 		
-		String sql = "UPDATE jingjing_currentStat SET exp =" + presentExperience +" , money =" + money + ", grows = "+presentLevel+" where userId ='"+user+"'";
+		String sql = "UPDATE jingjing_currentStat SET grows =" + presentExperience +" , money =" + money + ", grows = "+presentLevel+" where userId ='"+user+"'";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.executeUpdate();
