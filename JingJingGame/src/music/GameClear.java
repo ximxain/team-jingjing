@@ -16,7 +16,7 @@ public class GameClear extends Login{
 	
 	
 	public void replay(){
-		presentExperience+=200;
+		presentExperience+=sickAndHungry(200);
 		money+=2;
 		up();
 		try {
@@ -30,7 +30,7 @@ public class GameClear extends Login{
 	}
 	
 	public void quit() {
-		presentExperience+=200;
+		presentExperience+=sickAndHungry(200);
 		money+=2;
 		up();
 		try {
@@ -42,5 +42,4 @@ public class GameClear extends Login{
 			e.printStackTrace();
 		}
 	}
-
 }

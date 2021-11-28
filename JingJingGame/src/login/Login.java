@@ -222,7 +222,15 @@ public class Login {
 		}
 	}
 	
-	
-	
+	public int sickAndHungry(int Score) {
+		if(sick == 1) {
+			Score = Score - 1/3*Score;
+		}
+		if(hungry == 1) {
+			Score = Score - 1/3*Score;
+		}
+		
+		return Score;
+	}
 	
 }

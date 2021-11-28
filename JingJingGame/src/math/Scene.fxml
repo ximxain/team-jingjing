@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="math.MainApplication">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="math.MainApplication">
    <children>
       <ImageView fx:id="backGround" fitHeight="720.0" fitWidth="1280.0">
          <image>
@@ -116,6 +116,7 @@
             <Font size="55.0" />
          </font>
       </Label>
+      <Label layoutX="457.0" layoutY="213.0" prefHeight="82.0" prefWidth="466.0" text="정답률이 70% 이상이고 걸린 시간이 90초 이하라면 추가 점수를 휙득!" textFill="#fff600" />
       <ImageView fx:id="correctAnswer" fitHeight="200.0" fitWidth="200.0" layoutX="623.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="step" layoutX="1103.0" layoutY="14.0" prefHeight="82.0" prefWidth="162.0" text="0/10">
          <font>

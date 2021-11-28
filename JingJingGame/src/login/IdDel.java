@@ -62,9 +62,8 @@ public class IdDel {
 				System.out.println("삭제 실패!!");
 			}
 		} else {
-			AppUtil.alert(addId + "가 없습니다.", "네에네에");
+			AppUtil.alert("입력된 정보를 찾을 수 없습니다", "오류");
 		}
-
 	}
 	
 	public void goLogin() {
