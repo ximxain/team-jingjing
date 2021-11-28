@@ -103,7 +103,10 @@ public class MainApplication extends Stopwatch{
 			answer.setText(""+3939);
 			
 			
-			presentExperience += valueAnswer*10;
+			presentExperience += valueAnswer*25;
+			if((int)((double) valueAnswer / (double) stepLimit * 100.0) <= 70 && time >= 90) {
+				money += 2;
+			}
 			
 		} else {
 			presentStep++;

@@ -34,8 +34,6 @@ public class MainController extends Login implements Initializable {
 	protected Label presentGrowth;
 	@FXML
 	Label moneyLabel;
-
-	int limitExperience = 1000;
 	
 	protected String[] currentStat = { "애기", "유딩", "학생", "성인" };
 	private JDBCUtil db;
