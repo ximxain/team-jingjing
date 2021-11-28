@@ -78,25 +78,17 @@ public class ADControllerOne extends ADpackegeController implements Initializabl
 					timer.cancel();
 					give();
 				}
-				
 				AD1.setOnCloseRequest(event -> {
 					timer.cancel();
 				});
-
 			}
+			
 			
 		};
 		timer.schedule(timerTask, 1000l, 1000l);
 		
 	}
 
-	public void showClosingPopup(String closingTitle) {
-		Alert alert = new Alert(AlertType.NONE);
-		alert.setTitle(closingTitle);
-		alert.setHeaderText(null);
-		alert.setContentText("Terminating services");
-		alert.show();
-	}
 
 	public void give() {
 		money += 1;

@@ -76,6 +76,11 @@ public class ADControllerTwo extends ADpackegeController implements Initializabl
 					timer.cancel();
 					give();
 				}
+				AD2.setOnCloseRequest( e -> {
+		            
+					e.consume(); // 여기서 부터 사용자가 직접 관리한다고 JVM에 알려준다
+		            
+				});
 			}
 		};
 		timer.schedule(timerTask, 1000l, 1000l);

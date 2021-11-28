@@ -62,7 +62,7 @@ public class ADpackegeController extends MainController{
 		}
 	}
 	
-	private Stage AD2;
+	public Stage AD2;
 
 	public void AD2() {
 		Stage mainStage = (Stage) adsView2.getScene().getWindow();
