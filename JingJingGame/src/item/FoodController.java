@@ -9,9 +9,13 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import login.Login;
 import util.AppUtil;
 import util.JDBCUtil;
@@ -100,6 +104,16 @@ public class FoodController extends Login{
 		
 		hungry = 0;
 		up();
+		
+		try {
+			Parent login = FXMLLoader.load(getClass().getResource("/view/MainView.fxml"));
+			Scene scene = new Scene(login);
+			Stage primaryStage = (Stage) lists.getScene().getWindow();
+			primaryStage.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 }
