@@ -135,6 +135,7 @@ public class MainController extends Login implements Initializable {
 	}
 
 	public void showEvent() {
+		
 		if (presentLevel >= 1 && event1 == 0) {
 			try {
 				System.out.println("이벤트1 시청 시작");

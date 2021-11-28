@@ -85,7 +85,9 @@ public class Event2happy extends Login implements Initializable{
 		next();
 		event2 = 1;
 		PreparedStatement pstmt = null;
-		String sql = "UPDATE `jingjing_users` SET `event2`= 1 and `endingWhether`= 1 WHERE userId = " + "'" + user + "'";
+		PreparedStatement pstmt2 = null;
+		String sql = "UPDATE `jingjing_users` SET `event2`= 1 WHERE userId = " + "'" + user + "'";
+		String sql2 = "UPDATE `jingjing_users` SET `endingWhether`= 1 WHERE userId = " + "'" + user + "'";
 		System.out.println(sql);
 		db = new JDBCUtil();
 
@@ -93,6 +95,8 @@ public class Event2happy extends Login implements Initializable{
 
 		try {
 			pstmt = con.prepareStatement(sql);
+			pstmt2 = con.prepareStatement(sql2);
+			pstmt2.executeUpdate();
 			int cnt = pstmt.executeUpdate();
 			if (cnt == 0) {
 				System.out.println("데이터 삽입 실패");
