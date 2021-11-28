@@ -834,7 +834,7 @@ public class StoreController extends Login implements Initializable {
 			try {
 				pstmt = con.prepareStatement(sql);
 
-				pstmt.setString(1, "	\r\n" + "징징이정식");
+				pstmt.setString(1, "징징이정식");
 				pstmt.setString(2, user);
 				pstmt.executeUpdate();
 				util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
