@@ -985,9 +985,9 @@ public class StoreController extends Login implements Initializable {
 		Stage stage = (Stage) MDCBtn1.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
 		PreparedStatement pstmt = null;
-		if (money >= 6) {
+		if (money >= 2) {
 			String sql = "INSERT INTO `MD`(`MD`, `userId`) VALUES (?,?)";
-			money -= 6;
+			money -= 2;
 			up();
 			try {
 				pstmt = con.prepareStatement(sql);
@@ -1024,9 +1024,9 @@ public class StoreController extends Login implements Initializable {
 		Stage stage = (Stage) MDCBtn2.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
 		PreparedStatement pstmt = null;
-		if (money >= 6) {
+		if (money >= 2) {
 			String sql = "INSERT INTO `MD`(`MD`, `userId`) VALUES (?,?)";
-			money -= 6;
+			money -= 2;
 			up();
 			try {
 				pstmt = con.prepareStatement(sql);
@@ -1066,9 +1066,9 @@ public class StoreController extends Login implements Initializable {
 		Stage stage = (Stage) MDCBtn3.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
 		PreparedStatement pstmt = null;
-		if (money >= 6) {
+		if (money >= 4) {
 			String sql = "INSERT INTO `MD`(`MD`, `userId`) VALUES (?,?)";
-			money -= 6;
+			money -= 4;
 			up();
 			try {
 				pstmt = con.prepareStatement(sql);
