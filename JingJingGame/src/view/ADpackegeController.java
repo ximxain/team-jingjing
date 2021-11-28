@@ -22,6 +22,7 @@ public class ADpackegeController extends MainController{
 	@FXML
 	public ImageView adsView3;
 	
+	
 
 	public void changeToMainFromAD() {
 		try {
@@ -34,7 +35,7 @@ public class ADpackegeController extends MainController{
 		}
 	}
 	
-	private Stage AD1;
+	public Stage AD1;
 
 	public void AD1() { //광고로 넘기기
 		Stage mainStage = (Stage) adsView1.getScene().getWindow();
@@ -51,13 +52,17 @@ public class ADpackegeController extends MainController{
 			AD1.setScene(sc);
 			AD1.setResizable(false);
 			AD1.show();
+			
+			
+
+			
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	private Stage AD2;
+	public Stage AD2;
 
 	public void AD2() {
 		Stage mainStage = (Stage) adsView2.getScene().getWindow();
