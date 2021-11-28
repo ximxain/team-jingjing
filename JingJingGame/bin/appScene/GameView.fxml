@@ -24,7 +24,7 @@
 				</Label>
 				<ImageView fitHeight="145.0" fitWidth="147.0" layoutX="147.0" layoutY="163.0" onMouseClicked="#clickButtonGame" pickOnBounds="true">
 					<image>
-						<Image url="@../picture/기본.png" />
+						<Image url="@../resource/a.jpg" />
 					</image>
 				</ImageView>
 				<ImageView fitHeight="145.0" fitWidth="147.0" layoutX="370.0" layoutY="163.0" pickOnBounds="true">
@@ -58,7 +58,7 @@
 					</image>
 				</ImageView>
 				<Label layoutX="161.0" layoutY="329.0" text="정예린을 이겨라 !" />
-				<Label layoutX="401.0" layoutY="329.0" text="테트리스" />
+				<Label layoutX="414.0" layoutY="329.0" text="테트리스" />
 				<Label layoutX="608.0" layoutY="329.0" text="환이와 몰래 춤 추기" />
 				<Label layoutX="542.0" layoutY="584.0" text="운빨카드게임" />
 				<Label layoutX="173.0" layoutY="584.0" text="TIKTAKTOK !" />
