@@ -11,7 +11,7 @@ public class itemController {
 	
 	@FXML
 	public void initialize() {
-		lists.add("ssss");
+		lists.getItems().add("ssss");
 	}
 	
 	public void get() {
