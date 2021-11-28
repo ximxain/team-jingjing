@@ -1070,9 +1070,7 @@ public class StoreController extends Login implements Initializable {
 			} else {
 				sickLabel.setText("X");
 			}
-		}catch(Exception E) {
-			
-		}
+		}catch(Exception E) {}
 	}
 
 }

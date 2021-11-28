@@ -11,40 +11,43 @@ import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.sun.glass.ui.Window;
+import com.sun.javafx.stage.WindowHelper;
+
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import util.JDBCUtil;
 
-public class ADControllerOne extends ADpackegeController implements Initializable{
+public class ADControllerOne extends ADpackegeController implements Initializable {
 	@FXML
 	private MediaView ads1;
-	
+
 	private Timer timer = null;
 	private TimerTask timerTask = null;
 	private int count = 0;
 	int second = 0;
 	private JDBCUtil db;
-	
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		System.out.println("test");
-		//Instantiating Media class  
-        Media media = new Media(getClass().getResource("/resource/ddddd.mp4").toString());  
-          
-        //Instantiating MediaPlayer class   
-        MediaPlayer mediaPlayer = new MediaPlayer(media);  
-          
-        ads1.setMediaPlayer(mediaPlayer); 
-        
-        //by setting this property to true, the Video will be played   
-        
-        
-        
-        mediaPlayer.setOnReady(new Runnable() {
+		// Instantiating Media class
+		Media media = new Media(getClass().getResource("/resource/ddddd.mp4").toString());
+
+		// Instantiating MediaPlayer class
+		MediaPlayer mediaPlayer = new MediaPlayer(media);
+
+		ads1.setMediaPlayer(mediaPlayer);
+
+		// by setting this property to true, the Video will be played
+
+		mediaPlayer.setOnReady(new Runnable() {
 
 			// 화면이 동영상이 실행 되는 쓰레드 사용
 			@Override
@@ -52,12 +55,12 @@ public class ADControllerOne extends ADpackegeController implements Initializabl
 
 				// 시작시 플레이 버튼만 활성화
 				// 나머지는 비활성화
-				mediaPlayer.setAutoPlay(true);  
+				mediaPlayer.setAutoPlay(true);
 				timer();
 			}
 		});
 	}
-	
+
 	public void timer() {
 		timer = new Timer();
 		timerTask = new TimerTask() {
@@ -66,7 +69,7 @@ public class ADControllerOne extends ADpackegeController implements Initializabl
 				count++;
 				System.out.println("타이머 : " + count); // 콘솔 출력 테스트
 				second = 25 - count;
-				
+
 				if (second <= 0) {
 					timer.cancel();
 					give();
@@ -75,10 +78,24 @@ public class ADControllerOne extends ADpackegeController implements Initializabl
 		};
 		timer.schedule(timerTask, 1000l, 1000l);
 	}
-	
+
+	stage.setOnCloseRequest(event->
+	{ 
+		WindowHelper.showClosingPopup("Exit"); 
+		terminate(); 
+	});
+
+	public void showClosingPopup(String closingTitle) {
+		Alert alert = new Alert(AlertType.NONE);
+		alert.setTitle(closingTitle);
+		alert.setHeaderText(null);
+		alert.setContentText("Terminating services");
+		alert.show();
+	}
+
 	public void give() {
-		money+=1;
+		money += 1;
 		up();
 	}
-	
+
 }
