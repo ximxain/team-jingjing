@@ -14,7 +14,7 @@
          <children>
             <ImageView fitHeight="175.0" fitWidth="229.0" layoutX="14.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resource/md.jpg" />
+                  <Image url="@../resource/MD2.jpg" />
                </image>
             </ImageView>
             <Label layoutX="100.0" layoutY="24.0" text="징징특효약">

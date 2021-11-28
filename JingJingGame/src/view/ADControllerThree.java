@@ -9,11 +9,16 @@ import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.stage.Stage;
 import util.JDBCUtil;
 
 public class ADControllerThree extends ADpackegeController implements Initializable{
@@ -76,6 +81,21 @@ public class ADControllerThree extends ADpackegeController implements Initializa
 	public void give() {
 		money+=1;
 		up();
+		Platform.runLater(new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				try {
+					Parent login = FXMLLoader.load(getClass().getResource("/view/MainView.fxml"));
+					Scene scene = new Scene(login);
+					Stage primaryStage = (Stage) ads3.getScene().getWindow();
+					primaryStage.setScene(scene);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			
+		});
 	}
 	
 }
