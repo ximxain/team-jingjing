@@ -347,9 +347,9 @@ public class MainController {
 		if(win == "human") {
 			popup();
 		}else if(win == "AI"){
-			popup();
+			popup2();
 		}else {
-			popup();
+			popup3();
 		}
 		
 	}
@@ -368,6 +368,64 @@ public class MainController {
 		try {
 			// ���ο� ���������� custom ���̾ƿ� �ҷ�����
 			Parent root = FXMLLoader.load(getClass().getResource("/tickTacToe/Win.fxml"));
+
+			// ���� �߰�
+			Scene sc = new Scene(root);
+			// ���� ��Ÿ�� �߰�
+			sc.getStylesheets().add(getClass().getResource("/tickTacToe/application.css").toExternalForm());
+			pop.setScene(sc);
+			pop.setTitle("");
+			pop.setResizable(false); // â ������ ���� ����
+
+			// �����ֱ�
+			pop.show();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void popup2() {
+		// ���� �������� ���, ���� �ΰ��� ��� �� �ι�° ���
+		Stage mainStage = (Stage) board1.getScene().getWindow();
+		
+		// ���ο� �������� ���� (�ɼ� �߰�, ��Ÿ��)
+		pop = new Stage(StageStyle.DECORATED); // �������� �ɼ�
+		pop.initModality(Modality.WINDOW_MODAL); // �� ���� �ߴ� ����� �ɼ�
+		pop.initOwner(mainStage); // ���� �������� �ο�
+
+		try {
+			// ���ο� ���������� custom ���̾ƿ� �ҷ�����
+			Parent root = FXMLLoader.load(getClass().getResource("/tickTacToe/Win2.fxml"));
+
+			// ���� �߰�
+			Scene sc = new Scene(root);
+			// ���� ��Ÿ�� �߰�
+			sc.getStylesheets().add(getClass().getResource("/tickTacToe/application.css").toExternalForm());
+			pop.setScene(sc);
+			pop.setTitle("");
+			pop.setResizable(false); // â ������ ���� ����
+
+			// �����ֱ�
+			pop.show();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void popup3() {
+		// ���� �������� ���, ���� �ΰ��� ��� �� �ι�° ���
+		Stage mainStage = (Stage) board1.getScene().getWindow();
+		
+		// ���ο� �������� ���� (�ɼ� �߰�, ��Ÿ��)
+		pop = new Stage(StageStyle.DECORATED); // �������� �ɼ�
+		pop.initModality(Modality.WINDOW_MODAL); // �� ���� �ߴ� ����� �ɼ�
+		pop.initOwner(mainStage); // ���� �������� �ο�
+
+		try {
+			// ���ο� ���������� custom ���̾ƿ� �ҷ�����
+			Parent root = FXMLLoader.load(getClass().getResource("/tickTacToe/Win3.fxml"));
 
 			// ���� �߰�
 			Scene sc = new Scene(root);
