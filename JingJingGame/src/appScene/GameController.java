@@ -71,7 +71,7 @@ public class GameController extends Login {
 			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 			pop.setScene(sc);
 			pop.setTitle("수학퀴즈게임");
-			pop.setResizable(false); // â ������ ���� ����
+			pop.setResizable(false);
 
 			pop.show();
 		} catch (IOException e) {
@@ -80,65 +80,77 @@ public class GameController extends Login {
 	}
 
 	public void clickButtonGame() {
-		mainStage = (Stage) app.getScene().getWindow();
-		pop = new Stage(StageStyle.DECORATED);
-		pop.initModality(Modality.WINDOW_MODAL);
-		pop.initOwner(mainStage);
+		if (hungry == 0 && sick == 0) {
+			mainStage = (Stage) app.getScene().getWindow();
+			pop = new Stage(StageStyle.DECORATED);
+			pop.initModality(Modality.WINDOW_MODAL);
+			pop.initOwner(mainStage);
 
-		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/ButtonHitGame/StartPage.fxml"));
+			try {
+				Parent root = FXMLLoader.load(getClass().getResource("/ButtonHitGame/StartPage.fxml"));
 
-			Scene sc = new Scene(root);
-			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
-			pop.setScene(sc);
-			pop.setTitle("정예린을 이겨라 !");
-			pop.setResizable(false);
+				Scene sc = new Scene(root);
+				sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+				pop.setScene(sc);
+				pop.setTitle("정예린을 이겨라 !");
+				pop.setResizable(false);
 
-			pop.show();
-		} catch (IOException e) {
-			e.printStackTrace();
+				pop.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else {
+			util.AppUtil.alert("징징이 상태가 안좋아요 ㅜ", null);
 		}
 	}
 
 	public void clickCardGame() {
-		mainStage = (Stage) app.getScene().getWindow();
-		pop = new Stage(StageStyle.DECORATED);
-		pop.initModality(Modality.WINDOW_MODAL);
-		pop.initOwner(mainStage);
+		if (hungry == 0 && sick == 0) {
+			mainStage = (Stage) app.getScene().getWindow();
+			pop = new Stage(StageStyle.DECORATED);
+			pop.initModality(Modality.WINDOW_MODAL);
+			pop.initOwner(mainStage);
 
-		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/cardgame/layout.fxml"));
+			try {
+				Parent root = FXMLLoader.load(getClass().getResource("/cardgame/layout.fxml"));
 
-			Scene sc = new Scene(root);
-			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
-			pop.setScene(sc);
-			pop.setTitle("운빨카드게임");
-			pop.setResizable(false);
+				Scene sc = new Scene(root);
+				sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+				pop.setScene(sc);
+				pop.setTitle("운빨카드게임");
+				pop.setResizable(false);
 
-			pop.show();
-		} catch (IOException e) {
-			e.printStackTrace();
+				pop.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else {
+			util.AppUtil.alert("징징이 상태가 안좋아요 ㅜ", null);
 		}
 	}
-	
+
 	public void clickTickTacToe() {
-		mainStage = (Stage) app.getScene().getWindow();
-		pop = new Stage(StageStyle.DECORATED);
-		pop.initModality(Modality.WINDOW_MODAL);
-		pop.initOwner(mainStage);
+		if (hungry == 0 && sick == 0) {
+			mainStage = (Stage) app.getScene().getWindow();
+			pop = new Stage(StageStyle.DECORATED);
+			pop.initModality(Modality.WINDOW_MODAL);
+			pop.initOwner(mainStage);
 
-		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/cardgame/layout.fxml"));
+			try {
+				Parent root = FXMLLoader.load(getClass().getResource("/cardgame/layout.fxml"));
 
-			Scene sc = new Scene(root);
-			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
-			pop.setScene(sc);
-			pop.setTitle("운빨카드게임");
-			pop.setResizable(false);
+				Scene sc = new Scene(root);
+				sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+				pop.setScene(sc);
+				pop.setTitle("운빨카드게임");
+				pop.setResizable(false);
 
-			pop.show();
-		} catch (IOException e) {
-			e.printStackTrace();
+				pop.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else {
+			util.AppUtil.alert("징징이 상태가 안좋아요 ㅜ", null);
 		}
 	}
 
@@ -153,9 +165,5 @@ public class GameController extends Login {
 			e.printStackTrace();
 		}
 	}
-
-
-	
-	
 
 }
