@@ -25,6 +25,8 @@ public class Login {
 	static public int presentLevel = 0;
 	static public int presentExperience = 0;
 	static public int money = 0;
+	static public int hungry = 0;
+	static public int sick = 0;
 	
 	static public int event1;
 	static public int event2;
@@ -122,6 +124,8 @@ public class Login {
 					presentLevel = rsStat.getInt("grows");
 					presentExperience = rsStat.getInt("exp");
 					money = rsStat.getInt("money");
+					hungry = rsStat.getInt("hungry");
+					sick = rsStat.getInt("sick");
 					}
 					
 					System.out.println("User: "+user);
