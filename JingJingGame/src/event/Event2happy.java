@@ -83,6 +83,7 @@ public class Event2happy extends Login implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		next();
+		event2 = 1;
 		PreparedStatement pstmt = null;
 		String sql = "UPDATE `jingjing_users` SET `event2`= 1 and `endingWhether`= 1 WHERE userId = " + "'" + user + "'";
 		System.out.println(sql);

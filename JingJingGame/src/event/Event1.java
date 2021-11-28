@@ -120,7 +120,7 @@ public class Event1 extends Login implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		next();
-		
+		event1 = 1;
 		PreparedStatement pstmt = null;
 		String sql = "UPDATE `jingjing_users` SET `event1`= 1 WHERE userId = " + "'" + user + "'";
 		System.out.println(sql);
