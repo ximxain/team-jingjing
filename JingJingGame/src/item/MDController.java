@@ -30,7 +30,7 @@ public class MDController extends Login{
 		Connection con = db.getConnection();
 		Statement stmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM `food` WHERE userId = " + "'" + user + "'";
+		String sql = "SELECT * FROM `MD` WHERE userId = " + "'" + user + "'";
 		System.out.println(user);
 		try {
 			stmt = con.createStatement();

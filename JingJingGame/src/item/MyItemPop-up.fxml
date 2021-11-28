@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="store.StoreController">
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="item.StoreController">
    <children>
       <ImageView fitHeight="700.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -28,7 +28,7 @@
                <font>
                   <Font size="20.0" />
                </font></Button>
-            <Button fx:id="MDCBtn" layoutX="138.0" layoutY="431.0" mnemonicParsing="false" onAction="#MDCpop" prefHeight="157.0" prefWidth="124.0" style="-fx-background-color: pink;" text="약">
+            <Button fx:id="MDCBtn" layoutX="138.0" layoutY="431.0" mnemonicParsing="false" onAction="#MDpop" prefHeight="157.0" prefWidth="124.0" style="-fx-background-color: pink;" text="약">
                <font>
                   <Font size="20.0" />
                </font></Button>
