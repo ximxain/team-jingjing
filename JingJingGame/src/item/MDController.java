@@ -80,6 +80,9 @@ public class MDController extends Login{
 	
 	
 	public void btn() {
+		int idx = lists.getSelectionModel().getSelectedIndex();
+		String idxs = images.get(idx);
+		
 		sick = 0;
 		up();
 	}
