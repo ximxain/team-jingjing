@@ -20,7 +20,12 @@
             <Image url="@../resource/event1-1.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="textBuffer" layoutX="14.0" layoutY="546.0" onMouseClicked="#next" prefHeight="135.0" prefWidth="1261.0" text="Label" textFill="WHITE">
+      <ImageView fitHeight="150.0" fitWidth="128.0" layoutX="578.0" layoutY="503.0" pickOnBounds="true" preserveRatio="true" scaleX="9.0" scaleY="0.8">
+         <image>
+            <Image url="@../resource/흰배경.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="textBuffer" layoutX="86.0" layoutY="518.0" onMouseClicked="#next" prefHeight="120.0" prefWidth="1109.0" text="Label">
          <font>
             <Font size="34.0" />
          </font></Label>

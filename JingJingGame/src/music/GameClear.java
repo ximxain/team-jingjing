@@ -49,7 +49,7 @@ public class GameClear extends Login implements Initializable{
 
 		Random rd = new Random();
 		
-		if (rd.nextInt(10) < 3) {
+		if (rd.nextInt(10) < 3 && hungry == 0) {
 
 			// 30%에 걸리면 호출
 			hungry = 1;

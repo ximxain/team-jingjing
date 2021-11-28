@@ -1,5 +1,7 @@
 package view;
 
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,6 +18,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import login.Login;
 import util.AppUtil;
@@ -34,6 +38,9 @@ public class MainController extends Login implements Initializable {
 	protected Label presentGrowth;
 	@FXML
 	Label moneyLabel;
+	
+	@FXML
+	public ImageView jingJingMain;
 	
 	protected String[] currentStat = { "애기", "유딩", "학생", "성인" };
 	private JDBCUtil db;
@@ -88,6 +95,7 @@ public class MainController extends Login implements Initializable {
 			experienceBar.setProgress((double) presentExperience / limitExperience);
 			String statLabel = "";
 			statLabel += currentStat[presentLevel] + "/";
+			
 			if(sick == 1) {
 				statLabel += "아픔"+"/";
 			} else {
@@ -99,8 +107,17 @@ public class MainController extends Login implements Initializable {
 			} else {
 				statLabel += "배부름";
 			}
+			
 			presentGrowth.setText(statLabel);
 			moneyLabel.setText(""+money);
+			
+			
+			FileInputStream fis = new FileInputStream("src//jingJingStat/"+currentStat[presentLevel]+".png");
+			BufferedInputStream bis = new BufferedInputStream(fis);
+
+			Image img = new Image(bis);
+			
+			jingJingMain.setImage(img);
 		}catch(Exception E){
 			
 		}
@@ -119,7 +136,7 @@ public class MainController extends Login implements Initializable {
 	}
 	
 	public void showEvent() {
-		if(presentLevel >= 2 && event1 == 0) {
+		if(presentLevel >= 1 && event1 == 1) {
 			try {
 			System.out.println("이벤트1 시청 시작");
 			Parent login = FXMLLoader.load(getClass().getResource("/event/Event1.fxml"));

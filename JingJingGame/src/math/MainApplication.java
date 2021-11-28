@@ -103,7 +103,7 @@ public class MainApplication extends Stopwatch {
 				presentExperience += sickAndHungry(valueAnswer * 10);
 			}
 			
-			if (rd.nextInt(10) < 3) {
+			if (rd.nextInt(10) < 3 && hungry == 0) {
 
 				// 30%에 걸리면 호출
 				hungry = 1;
@@ -111,7 +111,7 @@ public class MainApplication extends Stopwatch {
 			}
 
 			if ((int) ((double) valueAnswer / (double) stepLimit * 100.0) <= 50 && time >= 120) {
-				if (rd.nextInt(10) < 8) {
+				if (rd.nextInt(10) < 8 && sick == 0) {
 
 					// 30%에 걸리면 호출
 					sick = 1;
