@@ -2,6 +2,7 @@ package item;
 
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -89,40 +90,15 @@ public class MDController extends Login{
 		
 		db = new JDBCUtil();
 		Connection con = db.getConnection();
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql3 = "DELETE FROM `MD` WHERE `id` = 1";
 		System.out.println(user);
+		String sql2 = "DELETE FROM `MD` WHERE `id` = " + "'" + id + "'";
 		try {
-			stmt = con.createStatement();
-			rs = stmt.executeQuery(sql);
+			pstmt = con.prepareStatement(sql2);
+			pstmt.executeUpdate();
 			
-			while(rs.next()) {
-				String a = rs.getString("MD");
-				id = rs.getInt("id");
-				
-				set(a);
-				System.out.println(a);
-				Connection con2 = db.getConnection();
-				Statement stmt2 = null;
-				ResultSet rs2 = null;
-				
-				String sql2 = "SELECT * FROM `mdDB` WHERE `MD` = " + "'" + a + "'";
-				try {
-					
-					stmt2 = con2.createStatement();
-					rs2 = stmt2.executeQuery(sql2);
-					
-					while(rs2.next()) {
-						
-						String s = rs2.getString("image");
-						System.out.println(s);
-						images.add(s);
-					}
-				}catch(Exception E) {}
-				
-				
-			}
+			
 		}catch(Exception E) {
 			
 		}

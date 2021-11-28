@@ -75,7 +75,7 @@ public class Main extends Application {
 
 							Alert alert = new Alert(AlertType.INFORMATION);
 
-							alert.setContentText("Level " + Integer.toString(level + 1) + " Å¬¸®¾î ("
+							alert.setContentText("Level " + Integer.toString(level + 1) + " Å¬ï¿½ï¿½ï¿½ï¿½ ("
 									+ Integer.toString(3 - rectLists.size()) + "/3)");
 
 							alert.showAndWait();
@@ -83,7 +83,7 @@ public class Main extends Application {
 							if (rectLists.size() == 0) {
 								Alert finishAlert = new Alert(AlertType.INFORMATION);
 
-								finishAlert.setContentText("°ÔÀÓ Å¬¸®¾î ¤»¤»¤©¤³¤³");
+								finishAlert.setContentText("ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 
 								finishAlert.showAndWait();
 
