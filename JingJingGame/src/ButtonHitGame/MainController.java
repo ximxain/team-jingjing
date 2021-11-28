@@ -82,7 +82,9 @@ public class MainController implements Initializable {
 
 	public void timeUp() {
 		// fxml 이동
-		System.out.println("성공");
+		util.AppUtil.alert("타임오버 게임 끝 ㅋㅋㄹㅃㅃ", null);
+		Stage stage = (Stage) endBtn.getScene().getWindow(); // 팝업창 닫기
+		stage.close();
 	}
 	
 	
@@ -119,27 +121,6 @@ public class MainController implements Initializable {
 					Scene scene = new Scene(login);
 					Stage primaryStage = (Stage) ClickBtn.getScene().getWindow();
 					primaryStage.setScene(scene);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				JDBCUtil db = new JDBCUtil();
-				Connection con = db.getConnection();
-
-				Stage stage = (Stage) ClickBtn.getScene().getWindow(); // 팝업창 닫기
-				stage.close();
-				util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
-
-				PreparedStatement pstmt = null;
-				String sql = "insert into jingjing_currentStat values(?,?,?,?)";
-
-				try {
-					pstmt = con.prepareStatement(sql);
-					pstmt.setString(1, "ButtonHitGame");
-					pstmt.setInt(2, 0);
-					pstmt.setInt(3, 0);
-					pstmt.setInt(3, 2);
-					pstmt.executeUpdate();
-
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
