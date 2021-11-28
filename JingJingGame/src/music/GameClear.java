@@ -54,7 +54,7 @@ public class GameClear extends Login implements Initializable{
 
 			// 30%에 걸리면 호출
 			hungry = 1;
-			AppUtil.alert("당신은 배고파졌습니다! 배고픔 상태일 때는 30% 점수가 삭감됩니다. 상점에서 해결할 수 있습니다.", "");
+			AppUtil.alert("징징이가 배고파졌습니다! 배고픔 상태일 때는 30% 점수가 삭감됩니다. 상점에서 해결할 수 있습니다.", "");
 		}
 	}
 }
