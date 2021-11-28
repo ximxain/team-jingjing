@@ -1,6 +1,10 @@
 package cardgame;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Random;
 import java.util.ResourceBundle;
 
@@ -15,8 +19,11 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import login.Login;
+import util.AppUtil;
+import util.JDBCUtil;
 
-public class controller implements Initializable {
+public class controller extends Login implements Initializable {
 	
 	@FXML
 	private Button close;
@@ -80,7 +87,8 @@ public class controller implements Initializable {
 
 	int save2 = 0;
 
-	public void computerCard1_1(ImageView iv) {
+	public void computerCard1_1(ImageView iv) { //이김
+		give();
 		Random rd = new Random();
 		int i = rd.nextInt(3);
 		if (i == 0) {
@@ -101,8 +109,9 @@ public class controller implements Initializable {
 		}
 	}
 
-	public void result(ImageView iv, ImageView iv2) {
+	public void result(ImageView iv, ImageView iv2) { //짐
 		if (num == number) {
+			lose();
 			try {
 				Parent login = FXMLLoader.load(getClass().getResource("/cardgame/EndOne.fxml"));
 				Scene scene = new Scene(login);
@@ -114,6 +123,7 @@ public class controller implements Initializable {
 				e.printStackTrace();
 			}
 		} else {
+			lose();
 			try {
 				Parent login = FXMLLoader.load(getClass().getResource("/cardgame/EndTwo.fxml"));
 				Scene scene = new Scene(login);
@@ -124,6 +134,92 @@ public class controller implements Initializable {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}
+	}
+	
+	public void lose() {
+		presentExperience += sickAndHungry(200);
+		Random rd = new Random();
+
+		if (rd.nextInt(10) < 10 && hungry == 0) {
+
+			// 30%에 걸리면 호출
+			hungry = 1;
+			AppUtil.alert("징징이가 배고파졌습니다! 상점에서 해결할 수 있습니다.", "");
+		}
+		if (rd.nextInt(10) < 10 && sick == 0) {
+
+			// 30%에 걸리면 호출
+			sick = 1;
+			AppUtil.alert("징징이가 병에 들었습니다! 상점에서 해결할 수 있습니다.", "");
+		}
+	}
+	
+
+	public void give() {
+		presentExperience += sickAndHungry(200); // 성장게이지 상승
+
+		Random rd = new Random();
+
+		if (rd.nextInt(10) < 3 && hungry == 0) {
+
+			// 30%에 걸리면 호출
+			hungry = 1;
+			AppUtil.alert("징징이가 배고파졌습니다! 상점에서 해결할 수 있습니다.", "");
+		}
+
+		money += 2; // 소지금 지급
+		up();
+
+		System.out.println("코인 2개 지급");
+		JDBCUtil db = new JDBCUtil();
+		Connection con = db.getConnection();
+
+		Statement stmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM `jingjing_users` WHERE userId = " + "'" + user + "'";
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+
+			while (rs.next()) {
+				Integer money = rs.getInt("money");
+				money = money + 2;
+			}
+
+		} catch (Exception E) {
+
+		}
+
+		Connection con2 = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs2 = null;
+		// DB에 돈 지급
+		String sql2 = "UPDATE `jingjing_currentStat` SET `money`=" + money + 2 + " WHERE userId = '" + user + "'";
+
+		try {
+			pstmt = con.prepareStatement(sql2);
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return;
+		} finally {
+			if (rs2 != null)
+				try {
+					rs2.close();
+				} catch (Exception e) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (Exception e) {
+				}
+			if (con2 != null)
+				try {
+					con2.close();
+				} catch (Exception e) {
+				}
 		}
 	}
 

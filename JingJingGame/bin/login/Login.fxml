@@ -34,7 +34,7 @@
       <TextField fx:id="pw" layoutX="422.0" layoutY="367.0" prefHeight="68.0" prefWidth="436.0" />
       <Button fx:id="button" layoutX="368.0" layoutY="585.0" mnemonicParsing="false" onAction="#clickButton" prefHeight="52.0" prefWidth="108.0" style="-fx-background-color: white; -fx-border-color: black;" text="로그인" />
       <Button fx:id="signUp" layoutX="804.0" layoutY="585.0" mnemonicParsing="false" onAction="#toSignUp" prefHeight="52.0" prefWidth="108.0" style="-fx-background-color: white; -fx-border-color: black;" text="회원가입" />
-      <Button layoutX="930.0" layoutY="585.0" mnemonicParsing="false" onAction="#toDel" prefHeight="52.0" prefWidth="108.0" text="아이디 삭제" />
+      <Button layoutX="930.0" layoutY="585.0" mnemonicParsing="false" onAction="#toDel" prefHeight="52.0" prefWidth="108.0" style="-fx-background-color: white; -fx-border-color: black;" text="아이디 삭제" />
       <ImageView fitHeight="200.0" fitWidth="178.0" layoutX="823.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../jingJingStat/애기.png" />

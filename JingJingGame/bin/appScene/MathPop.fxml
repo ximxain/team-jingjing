@@ -7,8 +7,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appScene.MathPop">
+<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appScene.MathPop">
    <children>
+      <ImageView fitHeight="600.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resource/흰배경.png" />
+         </image>
+      </ImageView>
       <ImageView fx:id="nomal" fitHeight="100.0" fitWidth="150.0" layoutX="179.0" layoutY="270.0" onMouseClicked="#clickNomal" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resource/nonChoose.png" />
@@ -35,7 +40,7 @@
             <Image url="@../resource/math%20icon.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="138.0" layoutY="21.0" prefHeight="79.0" prefWidth="231.0" text="문어라도 할 수 있다. 간단한 산수 게임!" />
+      <Label layoutX="150.0" layoutY="21.0" prefHeight="51.0" prefWidth="184.0" text="문어라도 할 수 있다. " />
       <ImageView fitHeight="100.0" fitWidth="376.0" layoutX="14.0" layoutY="488.0" onMouseClicked="#gameStart">
          <image>
             <Image url="@../resource/게임시작.png" />
@@ -76,6 +81,7 @@
             <Font size="21.0" />
          </font>
       </Label>
-      <Label layoutX="138.0" layoutY="86.0" prefHeight="14.0" prefWidth="261.0" text="배고프거나 아픈 상태일때 경험치 패널티 30% " />
+      <Label layoutX="42.0" layoutY="159.0" prefHeight="19.0" prefWidth="327.0" text="배고프거나 아픈 상태일때 경험치 패널티 30% " textFill="#ff0606" />
+      <Label layoutX="150.0" layoutY="72.0" text="간단한 산수 게임!" />
    </children>
 </AnchorPane>
