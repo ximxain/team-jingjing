@@ -85,9 +85,13 @@ public class MainController extends Login implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		experienceBar.setProgress((double) presentExperience / limitExperience);
-		presentGrowth.setText(currentStat[presentLevel]);
-		moneyLabel.setText(""+money);
+		try {
+			experienceBar.setProgress((double) presentExperience / limitExperience);
+			presentGrowth.setText(currentStat[presentLevel]);
+			moneyLabel.setText(""+money);
+		}catch(Exception E){
+			
+		}
 	}
 
 	// 버튼 클릭 하면 음성나오기(징징이)
