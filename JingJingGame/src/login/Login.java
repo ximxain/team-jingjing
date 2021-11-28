@@ -176,6 +176,21 @@ public class Login {
 		
 	}
 	
+	public void toDel() {
+		Parent login;
+		try {
+			login = FXMLLoader.load(getClass().getResource("/login/idDel.fxml"));
+			Scene scene = new Scene(login);
+			Stage primaryStage = (Stage) button.getScene().getWindow();
+			primaryStage.setScene(scene);
+			scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
 	public void up() {
 		util.JDBCUtil db = new util.JDBCUtil();
 		Connection con = db.getConnection();
@@ -183,7 +198,7 @@ public class Login {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		//check grows
-		if(presentExperience <= limitExperience && presentLevel <= 3) {
+		if(presentExperience >= limitExperience && presentLevel <= 3) {
 			System.out.println("레벨 업!");
 			presentLevel ++;
 			presentExperience -= limitExperience;

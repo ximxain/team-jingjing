@@ -57,7 +57,6 @@ public class SignUp {
 					if (logins == true) {
 						AppUtil.alert("이미 있는 아이디입니다.", null);
 					}
-
 					if (logins == false) {
 						PreparedStatement pstmt = null;
 						PreparedStatement pstmt2 = null;
