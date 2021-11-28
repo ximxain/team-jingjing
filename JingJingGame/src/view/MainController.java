@@ -147,7 +147,7 @@ public class MainController extends Login implements Initializable {
 			}
 		} else if (presentLevel >= 2 && event2 == 0) {
 			try {
-				System.out.println("이벤트1 시청 시작");
+				System.out.println("이벤트2 시청 시작");
 				Parent login = FXMLLoader.load(getClass().getResource("/event/Event2.fxml"));
 				Scene scene = new Scene(login);
 				Stage primaryStage = (Stage) btn.getScene().getWindow();

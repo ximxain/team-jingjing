@@ -15,6 +15,7 @@ public class Main extends Application {
 			
 //			loader.setLocation(getClass().getResource("/Login/login.fxml"));
 			loader.setLocation(getClass().getResource("/login/FirstScreen.fxml"));
+//			loader.setLocation(getClass().getResource("/event/Event2.fxml"));
 			primaryStage.setResizable(false);
 			AnchorPane AP = (AnchorPane)loader.load();
 			Scene scene = new Scene(AP);
