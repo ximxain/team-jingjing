@@ -92,6 +92,8 @@ public class MainController extends Login implements Initializable {
 	}
 
 	public void timeUp() { // 실패
+		viewName = "lose";
+		lose();
 		if (count == 0) {
 			try {
 				Parent login = FXMLLoader.load(getClass().getResource("/ButtonHitGame/Fail.fxml"));
@@ -148,6 +150,25 @@ public class MainController extends Login implements Initializable {
 		}
 	}
 
+	public void lose() {
+		presentExperience += sickAndHungry(200);
+		Random rd = new Random();
+
+		if (rd.nextInt(10) < 10 && hungry == 0) {
+
+			// 30%에 걸리면 호출
+			hungry = 1;
+			AppUtil.alert("징징이가 배고파졌습니다! 상점에서 해결할 수 있습니다.", "");
+		}
+		if (rd.nextInt(10) < 10 && sick == 0) {
+
+			// 30%에 걸리면 호출
+			sick = 1;
+			AppUtil.alert("징징이가 병에 들었습니다! 상점에서 해결할 수 있습니다.", "");
+		}
+	}
+	
+
 	public void give() {
 		presentExperience += sickAndHungry(200); // 성장게이지 상승
 
@@ -159,7 +180,7 @@ public class MainController extends Login implements Initializable {
 			hungry = 1;
 			AppUtil.alert("징징이가 배고파졌습니다! 상점에서 해결할 수 있습니다.", "");
 		}
-		
+
 		money += 2; // 소지금 지급
 		up();
 
