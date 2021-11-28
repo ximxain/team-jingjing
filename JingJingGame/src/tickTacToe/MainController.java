@@ -73,6 +73,7 @@ public class MainController {
 			drawone(1);
 			try {
 				auto();
+				System.out.println(1);
 			}catch(Exception E) {
 				
 			}
@@ -273,7 +274,7 @@ public class MainController {
 	}
 
 	public int sum = 0;
-	public boolean res = true;
+	public boolean res = false;
 	Integer rand = 0;
 	public void rands() {
 		res = true;
@@ -283,19 +284,14 @@ public class MainController {
 	}
 	
 	public void auto() {
+		int counts = 0;
 		while(res == false) {
 			rands();
+			counts+=1;
+			if(counts>=9) {
+				checker();
+			}
 		}
-		
-		
-		for(int i = 0; i>=9; i++) {
-			sum += i;
-		}
-		
-		if(sum >= 9) {
-			checker();
-		}
-	
 		
 		try {
 			switch (rand) {
