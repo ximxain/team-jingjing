@@ -112,5 +112,17 @@ public class GameController extends Login {
 			e.printStackTrace();
 		}
 	}
+	
+	public void clickTickTacToe() {
+		System.out.println("changeToMainViewFromGame");
+		try {
+			Parent login = FXMLLoader.load(getClass().getResource("/tickTacToe/MainLayout.fxml"));
+			Scene scene = new Scene(login);
+			Stage primaryStage = (Stage) changeMainViewFromGame.getScene().getWindow();
+			primaryStage.setScene(scene);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }
