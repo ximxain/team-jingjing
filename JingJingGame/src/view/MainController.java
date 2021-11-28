@@ -135,7 +135,7 @@ public class MainController extends Login implements Initializable {
 	}
 
 	public void showEvent() {
-		if (presentLevel == 1 && event1 == 0) {
+		if (presentLevel >= 1 && event1 == 0) {
 			try {
 				System.out.println("이벤트1 시청 시작");
 				Parent login = FXMLLoader.load(getClass().getResource("/event/Event1.fxml"));
@@ -145,7 +145,7 @@ public class MainController extends Login implements Initializable {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (presentLevel == 2 && event2 == 0) {
+		} else if (presentLevel >= 2 && event2 == 0) {
 			try {
 				System.out.println("이벤트2 시청 시작");
 				Parent login = FXMLLoader.load(getClass().getResource("/event/Event2.fxml"));
@@ -155,7 +155,7 @@ public class MainController extends Login implements Initializable {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (presentLevel == 3 && event3 == 0) {
+		} else if (presentLevel >= 3 && event3 == 0) {
 			// 엔딩 여부
 			if (endingWhether == 0) {
 				try {
