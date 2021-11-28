@@ -907,9 +907,9 @@ public class StoreController extends Login{
 		Stage stage = (Stage) MDCBtn1.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
 		PreparedStatement pstmt = null;
-		if(money>=6) {
+		if(money>=2) {
 			String sql = "INSERT INTO `MD`(`MD`, `userId`) VALUES (?,?)";
-			money-=6;
+			money-=2;
 			up();
 			try {
 				pstmt = con.prepareStatement(sql);
@@ -935,9 +935,9 @@ public class StoreController extends Login{
 		Stage stage = (Stage) MDCBtn2.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
 		PreparedStatement pstmt = null;
-		if(money>=6) {
+		if(money>=2) {
 			String sql = "INSERT INTO `MD`(`MD`, `userId`) VALUES (?,?)";
-			money-=6;
+			money-=2;
 			up();
 			try {
 				pstmt = con.prepareStatement(sql);
@@ -963,9 +963,9 @@ public class StoreController extends Login{
 		Stage stage = (Stage) MDCBtn3.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
 		PreparedStatement pstmt = null;
-		if(money>=6) {
+		if(money>=4) {
 			String sql = "INSERT INTO `MD`(`MD`, `userId`) VALUES (?,?)";
-			money-=6;
+			money-=4;
 			up();
 			try {
 				pstmt = con.prepareStatement(sql);
@@ -990,19 +990,24 @@ public class StoreController extends Login{
 
 		Stage stage = (Stage) MDCBtn4.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
-		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
-
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES (?,?)";
+		if(money>=4) {
+			String sql = "INSERT INTO `MD`(`MD`, `userId`) VALUES (?,?)";
+			money-=4;
+			up();
+			try {
+				pstmt = con.prepareStatement(sql);
+				
+				pstmt.setString(1, "오징어물약");
+				pstmt.setString(2, user);
+				pstmt.executeUpdate();
+				util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "오징어물약");
-			pstmt.setString(2, user);
-			pstmt.executeUpdate();
-
-		} catch (Exception e) {
-			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else {
+			AppUtil.alert("돈이 부족합니다!", "구입하지 못했습니다");
 		}
 	}
 
