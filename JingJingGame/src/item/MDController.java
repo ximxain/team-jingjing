@@ -78,4 +78,9 @@ public class MDController extends Login{
 		lists.getItems().add(res);
 	}
 	
+	
+	public void btn() {
+		sick = 0;
+		up();
+	}
 }

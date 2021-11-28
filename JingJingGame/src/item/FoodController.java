@@ -75,4 +75,9 @@ public class FoodController extends Login{
 		lists.getItems().add(res);
 	}
 	
+	public void btn() {
+		hungry = 0;
+		up();
+	}
+	
 }
