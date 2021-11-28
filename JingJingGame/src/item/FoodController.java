@@ -2,6 +2,7 @@ package item;
 
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -77,6 +78,26 @@ public class FoodController extends Login{
 	}
 	
 	public void btn() {
+		int idx = lists.getSelectionModel().getSelectedIndex();
+		String idxs = images.get(idx);
+		
+		
+		db = new JDBCUtil();
+		Connection con = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		System.out.println(user);
+		String sql2 = "DELETE FROM `food` WHERE `id` = " + "'" + id + "'";
+		try {
+			pstmt = con.prepareStatement(sql2);
+			pstmt.executeUpdate();
+			
+			
+		}catch(Exception E) {
+			
+		}
+		
+		
 		hungry = 0;
 		up();
 	}
