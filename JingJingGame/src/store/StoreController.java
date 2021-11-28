@@ -916,6 +916,34 @@ public class StoreController extends Login implements Initializable {
 		JDBCUtil db = new JDBCUtil();
 		Connection con = db.getConnection();
 
+		Stage stage = (Stage) MDCBtn2.getScene().getWindow(); // 팝업창 닫기
+		stage.close();
+		PreparedStatement pstmt = null;
+		if (money >= 6) {
+			String sql = "INSERT INTO `MD`(`MD`, `userId`) VALUES (?,?)";
+			money -= 6;
+			up();
+			try {
+				pstmt = con.prepareStatement(sql);
+
+				pstmt.setString(1, "그냥약");
+				pstmt.setString(2, user);
+				pstmt.executeUpdate();
+				util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
+			AppUtil.alert("돈이 부족합니다!", "구입하지 못했습니다");
+		}
+	}
+	
+	// 약2 insert
+	public void clickMDBtn2() {
+		JDBCUtil db = new JDBCUtil();
+		Connection con = db.getConnection();
+
 		Stage stage = (Stage) MDCBtn1.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
 		PreparedStatement pstmt = null;
@@ -939,33 +967,8 @@ public class StoreController extends Login implements Initializable {
 		}
 	}
 
-	// 약2 insert
-	public void clickMDBtn2() {
-		JDBCUtil db = new JDBCUtil();
-		Connection con = db.getConnection();
-
-		Stage stage = (Stage) MDCBtn2.getScene().getWindow(); // 팝업창 닫기
-		stage.close();
-		PreparedStatement pstmt = null;
-		if (money >= 6) {
-			String sql = "INSERT INTO `MD`(`MD`, `userId`) VALUES (?,?)";
-			money -= 6;
-			up();
-			try {
-				pstmt = con.prepareStatement(sql);
-
-				pstmt.setString(1, "그냥약");
-				pstmt.setString(2, user);
-				pstmt.executeUpdate();
-				util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else {
-			AppUtil.alert("돈이 부족합니다!", "구입하지 못했습니다");
-		}
-	}
+	
+	
 
 	// 약3 insert
 	public void clickMDBtn3() {

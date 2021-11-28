@@ -183,6 +183,8 @@ public class MainController extends Login implements Initializable {
 				}
 			}
 
+		} else {
+			AppUtil.alert("현재 대기중인 이벤트가 없습니다.", "");
 		}
 
 	}
