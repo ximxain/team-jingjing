@@ -137,12 +137,12 @@ public class GameController extends Login {
 			pop.initOwner(mainStage);
 
 			try {
-				Parent root = FXMLLoader.load(getClass().getResource("/cardgame/layout.fxml"));
+				Parent root = FXMLLoader.load(getClass().getResource("/tickTacToe/MainLayout.fxml"));
 
 				Scene sc = new Scene(root);
 				sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 				pop.setScene(sc);
-				pop.setTitle("운빨카드게임");
+				pop.setTitle("틱택토");
 				pop.setResizable(false);
 
 				pop.show();
