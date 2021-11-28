@@ -63,7 +63,7 @@ public class GameReady implements Initializable {
 			AppUtil.alert("음악을 선택하십시오.", "");
 		} else {
 			adder = 0;
-			life = 1000;
+			life = 5;
 			score = 0;
 			musicE = 0;
 			musicLink = combobox.getValue();
