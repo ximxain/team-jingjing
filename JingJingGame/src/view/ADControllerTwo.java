@@ -74,7 +74,7 @@ public class ADControllerTwo extends ADpackegeController implements Initializabl
 			public void run() {
 				count++;
 				System.out.println("타이머 : " + count); // 콘솔 출력 테스트
-				second = 25 - count;
+				second = 17 - count;
 				
 				if (second <= 0) {
 					timer.cancel();

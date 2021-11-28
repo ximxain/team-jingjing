@@ -67,7 +67,7 @@ public class ADControllerThree extends ADpackegeController implements Initializa
 			public void run() {
 				count++;
 				System.out.println("타이머 : " + count); // 콘솔 출력 테스트
-				second = 25 - count;
+				second = 20 - count;
 				
 				if (second <= 0) {
 					timer.cancel();

@@ -36,13 +36,13 @@ public class Event4 extends Login implements Initializable{
 	static String[] textArr = { "흑... 흑... 하고 누군가의 흐느낌이 들려온다.", "그는 결혼 시기를 놓쳐 40대가 되어도 홀몸이었다.",
 			"그런 때 묻은 슬픔을 지울려고 했을까, 마구 술을 마시고 있었다.", "술을 마시고 흥이 난듯 몸을 시계방향으로 돌리다가",
 			"이내 쿵, 하고 머리가 테이블로 떨어졌다.", "징징이는 곧장 이런 식으로 잠들고는 했다.",
-			"엔딩2 깡소주", "베드엔딩"};
+			"엔딩2 깡소주", "베드엔딩","안타깝게도 징징이는 배드엔딩을 맞이했군요", "당신이 조금만 더 노력했더라면,", "뚱이에 대해서 조금만 더 진심을 다해서 알려주셨다면","이런 불상사는 일어나지 않았을거에요","다시 한번 해보시는게 어떨까요?","어찌되었든간에, 플레이해주셔서 감사해요","다음에는 조금만 더 노력해 주시기를..","Team JingJing일동"};
 
 	// true는 화면이 넘어감. false는 넘어가지 않고 화면이 정체되어 있음. 첫 배열은 무조건 true로.
 	// textArr 배열과 booleanArr 배열의 크기가 서로 같아야함
 	static boolean[] booleanArr = {
 			true, false, false, false, true,
-			true, false, false};
+			true, false, false,false,false,false,false,false,false,false};
 
 	public void start() {
 
