@@ -260,7 +260,6 @@ public class MainController {
 	}
 
 	public boolean check(Integer num, Integer human) {
-		checker();
 		if (tictactoe[num - 1] == 0 && human ==1) {
 			tictactoe[num - 1] = 1;
 			return true;
@@ -302,7 +301,7 @@ public class MainController {
 				if (res == true) {
 					drawone(2);
 					res = false;
-					
+					checker();
 				} 
 
 				break;
@@ -310,48 +309,56 @@ public class MainController {
 				if (res == true) {
 					drawtwo(2);
 					res = false;
+					checker();
 				} 
 				break;
 			case 3:
 				if (res == true) {
 					drawthree(2);
 					res = false;
+					checker();
 				} 
 				break;
 			case 4:
 				if (res == true) {
 					drawfour(2);
 					res = false;
+					checker();
 				} 
 				break;
 			case 5:
 				if (res == true) {
 					drawfive(2);
 					res = false;
+					checker();
 				} 
 				break;
 			case 6:
 				if (res == true) {
 					drawsix(2);
 					res = false;
+					checker();
 				} 
 				break;
 			case 7:
 				if (res == true) {
 					drawseven(2);
 					res = false;
+					checker();
 				} 
 				break;
 			case 8:
 				if (res == true) {
 					draweight(2);
 					res = false;
+					checker();
 				} 
 				break;
 			case 9:
 				if (res == true) {
 					drawnine(2);
 					res = false;
+					checker();
 				} 
 				break;
 			}
@@ -441,7 +448,7 @@ public class MainController {
 	
 	public void popup2() {
 		// ���� �������� ���, ���� �ΰ��� ��� �� �ι�° ���
-		Stage mainStage = (Stage) board1.getScene().getWindow();
+		Stage mainStage = (Stage) board2.getScene().getWindow();
 		
 		// ���ο� �������� ���� (�ɼ� �߰�, ��Ÿ��)
 		pop = new Stage(StageStyle.DECORATED); // �������� �ɼ�
@@ -470,7 +477,7 @@ public class MainController {
 	
 	public void popup3() {
 		// ���� �������� ���, ���� �ΰ��� ��� �� �ι�° ���
-		Stage mainStage = (Stage) board1.getScene().getWindow();
+		Stage mainStage = (Stage) board3.getScene().getWindow();
 		
 		// ���ο� �������� ���� (�ɼ� �߰�, ��Ÿ��)
 		pop = new Stage(StageStyle.DECORATED); // �������� �ɼ�
