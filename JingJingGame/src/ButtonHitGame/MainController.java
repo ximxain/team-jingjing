@@ -70,10 +70,9 @@ public class MainController implements Initializable {
 				// label에 출력
 				Platform.runLater(() -> timerLabel.setText("남은 시간 : " + (Integer.toString(count))));
 
-				if (count == 0) {
+				if (count <= 0) {
 					timer.cancel();
 					timeUp();
-					
 				}
 			}
 		};
@@ -82,9 +81,14 @@ public class MainController implements Initializable {
 
 	public void timeUp() {
 		// fxml 이동
-		util.AppUtil.alert("타임오버 게임 끝 ㅋㅋㄹㅃㅃ", null);
-		Stage stage = (Stage) endBtn.getScene().getWindow(); // 팝업창 닫기
-		stage.close();
+		try {
+			Parent login = FXMLLoader.load(getClass().getResource("/ButtonHitGame/Fail.fxml"));
+			Scene scene = new Scene(login);
+			Stage primaryStage = (Stage) ClickBtn.getScene().getWindow();
+			primaryStage.setScene(scene);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	
