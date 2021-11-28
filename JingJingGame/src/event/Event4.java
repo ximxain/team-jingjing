@@ -42,7 +42,7 @@ public class Event4 extends Login implements Initializable{
 	// textArr 배열과 booleanArr 배열의 크기가 서로 같아야함
 	static boolean[] booleanArr = {
 			true, false, false, false, true,
-			true, false, false,false,false,false,false,false,false,false};
+			true, false, false,false,false,false,false,false,false,false,false};
 
 	public void start() {
 
