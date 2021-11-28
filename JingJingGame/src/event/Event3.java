@@ -1,4 +1,4 @@
-package prolog;
+package event;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
@@ -9,8 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.ResourceBundle;
 
-import login.Login;
 import javafx.animation.Animation;
+import javafx.animation.Transition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,14 +19,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import javafx.animation.Transition;
 import javafx.util.Duration;
+import login.Login;
 import util.JDBCUtil;
 
-public class prolog extends Login implements Initializable {
+public class Event3 extends Login implements Initializable{
 	@FXML
 	Label textBuffer;
 	@FXML
@@ -35,18 +33,16 @@ public class prolog extends Login implements Initializable {
 	private JDBCUtil db;
 	static int a = 0;
 	static int b = 0;
-	static String[] textArr = { "밤바닷가에 홀로 몇시간이고 앉아 낚시를 하고 있으면,", "던져놓은 찌만을 멍하게 바라보고 있다가 문득 한숨을 내쉬면",
-	         "갑자기 서글픈 인간의 자기성철 같은 것이 별과 함께 떠오른다", "'하아, 나는 40대가 다 되어가는데 결혼은 커녕\n여자친구 한번 사귀어 본 적 없구나",
-	         "내 주변 친구들은 이미 다 결혼해서 아이를 가진 녀석도 있어", "이제부터는 더 기회가 없을거야 \n...기회가 적었던 없었던 여태것보다도 더 말이야'",
-	         "바람이 추워졌다. 남자는 밤낚시를 계속할까 고민하다가 돌아가기로 결정했다.", "낚싯대를 치울려고 마구 릴을 감았다. 뭔가가 걸려있다는걸 눈치채고 끌어 올려보니",
-	         "징징이었다. 외계에서 온듯한 징징이가 찌에 걸려 몸을 축 늘어트리고 있었다.", "사내는 징징이를 잠시 지긋이 바라보고는 소리쳤다.",
-	         "\"내가 정말로 미쳤군. 오징어 따위에게 연민을 느끼다니!\"", "사내는 징징이를 품에 넣었다가 곧 숨 쉬기가 불편할거라고 깨닿고는",
-	         "통에 들은 생선을 버리고 그 안에 징징이를 물 조금과 함께 넣었다.", "집으로 달려가면서도 통이 흔들리지 않게 조심하는 것을 잊지 않았다." };
+	static String[] textArr = { "당신을 만난 건 정말이지 행운이었어요.", "오, 동감이에요.",
+			"징징이는 뚱이에게 자신의 거짓말을 고백했다.", "그런데 뚱이는 이미 사실 알고 있었다고 했다. 그 정도로 어린애는 아니라고 했다.",
+			"자신도 당돌한 마음이 좋았다고, 반했다고.", "하얀 빛이 결혼식 음악이 울려퍼트린다.",
+			"엔딩1 결혼식", "해피엔딩"};
 
 	// true는 화면이 넘어감. false는 넘어가지 않고 화면이 정체되어 있음. 첫 배열은 무조건 true로.
 	// textArr 배열과 booleanArr 배열의 크기가 서로 같아야함
-	static boolean[] booleanArr = { true, false, false, false, false, false, false, false, true, false, false, false,
-			false, true };
+	static boolean[] booleanArr = {
+			true, false, false, false, false,
+			true, false, false};
 
 	public void start() {
 
@@ -57,7 +53,7 @@ public class prolog extends Login implements Initializable {
 				text(textArr[a]);
 				if (booleanArr[a] == true) {
 					b++;
-					String path = "src//resource/prolog" + b + ".png";
+					String path = "src//resource/event3-" + b + ".png";
 
 					try {
 						FileInputStream fis = new FileInputStream(path);
@@ -79,7 +75,7 @@ public class prolog extends Login implements Initializable {
 				}
 				a++;
 		} else {
-			System.out.println("prolog end");
+			System.out.println("event3 end");
 			// 임시
 			try {
 				Parent login = FXMLLoader.load(getClass().getResource("/view/MainView.fxml"));
@@ -113,9 +109,9 @@ public class prolog extends Login implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		next();
-
+		
 		PreparedStatement pstmt = null;
-		String sql = "UPDATE `jingjing_users` SET `prolog`= 1 WHERE userId = " + "'" + user + "'";
+		String sql = "UPDATE `jingjing_users` SET `event3`= 1 WHERE userId = " + "'" + user + "'";
 		System.out.println(sql);
 		db = new JDBCUtil();
 
@@ -145,5 +141,6 @@ public class prolog extends Login implements Initializable {
 				}
 		}
 	}
+
 
 }

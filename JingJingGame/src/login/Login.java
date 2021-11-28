@@ -31,6 +31,7 @@ public class Login {
 	static public int event1;
 	static public int event2;
 	static public int event3;
+	static public int endingWhether;
 
 	public int limitExperience = 1000;
 
@@ -103,6 +104,8 @@ public class Login {
 					System.out.println("event2 : " + event2);
 					event3 = rs.getInt("event3");
 					System.out.println("event3 : " + event3);
+					endingWhether = rs.getInt("endingWhether");
+					System.out.println("endingWhether : " + endingWhether);
 
 					System.out.println("프롤로그 시청 여부 확인 중...");
 					Integer prolog = rs.getInt("prolog");

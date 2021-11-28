@@ -38,10 +38,10 @@ public class MainController extends Login implements Initializable {
 	protected Label presentGrowth;
 	@FXML
 	Label moneyLabel;
-	
+
 	@FXML
 	public ImageView jingJingMain;
-	
+
 	protected String[] currentStat = { "애기", "유딩", "학생", "성인" };
 	private JDBCUtil db;
 
@@ -95,31 +95,30 @@ public class MainController extends Login implements Initializable {
 			experienceBar.setProgress((double) presentExperience / limitExperience);
 			String statLabel = "";
 			statLabel += currentStat[presentLevel] + "/";
-			
-			if(sick == 1) {
-				statLabel += "아픔"+"/";
+
+			if (sick == 1) {
+				statLabel += "아픔" + "/";
 			} else {
-				statLabel += "건강함"+"/";
+				statLabel += "건강함" + "/";
 			}
-			
-			if(hungry == 1) {
+
+			if (hungry == 1) {
 				statLabel += "배고픔";
 			} else {
 				statLabel += "배부름";
 			}
-			
+
 			presentGrowth.setText(statLabel);
-			moneyLabel.setText(""+money);
-			
-			
-			FileInputStream fis = new FileInputStream("src//jingJingStat/"+currentStat[presentLevel]+".png");
+			moneyLabel.setText("" + money);
+
+			FileInputStream fis = new FileInputStream("src//jingJingStat/" + currentStat[presentLevel] + ".png");
 			BufferedInputStream bis = new BufferedInputStream(fis);
 
 			Image img = new Image(bis);
-			
+
 			jingJingMain.setImage(img);
-		}catch(Exception E){
-			
+		} catch (Exception E) {
+
 		}
 	}
 
@@ -134,21 +133,53 @@ public class MainController extends Login implements Initializable {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void showEvent() {
-		if(presentLevel >= 1 && event1 == 1) {
+		if (presentLevel >= 1 && event1 == 0) {
 			try {
-			System.out.println("이벤트1 시청 시작");
-			Parent login = FXMLLoader.load(getClass().getResource("/event/Event1.fxml"));
-			Scene scene = new Scene(login);
-			Stage primaryStage = (Stage) btn.getScene().getWindow();
-			primaryStage.setScene(scene);
+				System.out.println("이벤트1 시청 시작");
+				Parent login = FXMLLoader.load(getClass().getResource("/event/Event1.fxml"));
+				Scene scene = new Scene(login);
+				Stage primaryStage = (Stage) btn.getScene().getWindow();
+				primaryStage.setScene(scene);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else {
-			AppUtil.alert("현재 예정된 이벤트가 없습니다.", "");
-		}
-	}
+		} else if (presentLevel >= 2 && event2 == 0) {
+			try {
+				System.out.println("이벤트1 시청 시작");
+				Parent login = FXMLLoader.load(getClass().getResource("/event/Event2.fxml"));
+				Scene scene = new Scene(login);
+				Stage primaryStage = (Stage) btn.getScene().getWindow();
+				primaryStage.setScene(scene);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (presentLevel >= 3 && event3 == 0) {
+			// 엔딩 여부
+			if (endingWhether == 0) {
+				try {
+					System.out.println("배드엔딩 시청 시작");
+					Parent login = FXMLLoader.load(getClass().getResource("/event/Event4.fxml"));
+					Scene scene = new Scene(login);
+					Stage primaryStage = (Stage) btn.getScene().getWindow();
+					primaryStage.setScene(scene);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			} else if (endingWhether == 1) {
+				try {
+					System.out.println("해피엔딩 시청 시작");
+					Parent login = FXMLLoader.load(getClass().getResource("/event/Event3.fxml"));
+					Scene scene = new Scene(login);
+					Stage primaryStage = (Stage) btn.getScene().getWindow();
+					primaryStage.setScene(scene);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
 
+		}
+
+	}
 }
