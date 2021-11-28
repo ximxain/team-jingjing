@@ -2,6 +2,7 @@ package music;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -51,6 +52,18 @@ public class GameOver extends MainController implements Initializable{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		Random rd = new Random();
+		
+		if (rd.nextInt(10) < 3) {
+
+			// 30%에 걸리면 호출
+			hungry = 1;
+		}
+		if (rd.nextInt(10) < 3) {
+
+			// 30%에 걸리면 호출
+			sick = 1;
+		}
 		System.out.println(adder+", "+(musicNoteList.size()-9));
 		System.out.println((double)adder/(musicNoteList.size()-9));
 		musicProgressBar.setProgress((double)adder/(musicNoteList.size()-9));
