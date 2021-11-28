@@ -87,7 +87,7 @@ public class MainController implements Initializable {
 	public void timeUp() { // 실패
 		if (count == 0) {
 			try {
-				Parent login = FXMLLoader.load(getClass().getResource("/buttonHitGame/Fail.fxml"));
+				Parent login = FXMLLoader.load(getClass().getResource("/ButtonHitGame/Fail.fxml"));
 				Scene scene = new Scene(login);
 				Stage primaryStage = (Stage) fail.getScene().getWindow();
 				primaryStage.setScene(scene);
