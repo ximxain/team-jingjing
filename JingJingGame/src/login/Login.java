@@ -188,7 +188,7 @@ public class Login {
 			presentLevel ++;
 		}
 		
-		String sql = "UPDATE jingjing_currentStat SET grows = "+grows+" exp =" + presentExperience +" , money =" + money + ", grows = "+presentLevel+", hungry = " +hungry+ " , sick = "+sick+"where userId ='"+user+"'";
+		String sql = "UPDATE jingjing_currentStat SET grows = "+grows+", exp =" + presentExperience +" , money =" + money + ", grows = "+presentLevel+", hungry = " +hungry+ " , sick = "+sick+" where userId ='"+user+"'";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.executeUpdate();

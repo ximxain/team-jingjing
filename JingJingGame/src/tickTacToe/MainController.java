@@ -63,8 +63,7 @@ public class MainController {
 		gc7 = board7.getGraphicsContext2D();
 		gc8 = board8.getGraphicsContext2D();
 		gc9 = board9.getGraphicsContext2D();
-//		gc1.strokeOval(10, 10, 180, 180);
-//		gc2.strokeRect(10, 10, 180, 180);
+
 
 	}
 
@@ -342,14 +341,23 @@ public class MainController {
 			win = "AI";
 		}else if(tictactoe[2] == 2 && tictactoe[4] == 2 && tictactoe[6] == 2 ) {
 			win = "AI";
+		}else{
+			for(int i = 0; i>=9; i++) {
+				if(tictactoe[i]==0) {
+					break;
+				}else {
+					win = "NO";
+				}
+			}
 		}
 		
 		if(win == "human") {
 			popup();
 		}else if(win == "AI"){
 			popup2();
-		}else {
+		}else if(win == "NO"){
 			popup3();
+			System.out.println("NO");
 		}
 		
 	}
