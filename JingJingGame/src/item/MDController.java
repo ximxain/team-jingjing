@@ -23,6 +23,7 @@ public class MDController extends Login{
 	
 	private JDBCUtil db;
 	public ArrayList<String> images = new ArrayList<String>();
+	public Integer id;
 	
 	@FXML
 	public void initialize() {
@@ -38,6 +39,8 @@ public class MDController extends Login{
 			
 			while(rs.next()) {
 				String a = rs.getString("MD");
+				id = rs.getInt("id");
+				
 				set(a);
 				System.out.println(a);
 				Connection con2 = db.getConnection();

@@ -23,7 +23,7 @@ public class FoodController extends Login{
 	
 	private JDBCUtil db;
 	public ArrayList<String> images = new ArrayList<String>();
-	
+	public Integer id;
 	@FXML
 	public void initialize() {
 		db = new JDBCUtil();
@@ -38,6 +38,7 @@ public class FoodController extends Login{
 			
 			while(rs.next()) {
 				String a = rs.getString("food");
+				id = rs.getInt("id");
 				set(a);
 				
 				Connection con2 = db.getConnection();
