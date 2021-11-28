@@ -14,6 +14,7 @@ import util.AppUtil;
 import util.JDBCUtil;
 
 public class itemController extends Login{
+	@FXML
 	private ListView<String> lists;
 	private JDBCUtil db;
 	public ArrayList<String> pitches = new ArrayList<String>();
@@ -44,6 +45,7 @@ public class itemController extends Login{
 	
 	public void get() {
 		int idx = lists.getSelectionModel().getSelectedIndex();
+		System.out.println(idx);
 	}
 	
 	public void set(String res) {
