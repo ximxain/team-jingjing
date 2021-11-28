@@ -43,8 +43,7 @@ public class MainController extends Login implements Initializable {
 
 	@FXML
 	public ImageView jingJingMain;
-
-	protected String[] currentStat = { "애기", "유딩", "학생", "성인" };
+	
 	private JDBCUtil db;
 
 	public void jingJingStat() {
