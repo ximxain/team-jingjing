@@ -3,6 +3,8 @@ package ButtonHitGame;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -18,11 +20,12 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import login.Login;
 import util.JDBCUtil;
 
-public class MainController implements Initializable {
+public class MainController extends Login implements Initializable {
 	int click = 0; // 버튼클릭 횟수
-	int SuccessClick = 100; // 버튼클릭 성공횟수
+	int SuccessClick = 10; // 버튼클릭 성공횟수
 	int FailCount = 0;
 
 	@FXML
@@ -37,6 +40,8 @@ public class MainController implements Initializable {
 	@FXML
 	private Button fail;
 
+	private JDBCUtil db;
+	
 	private static String viewName = "ButtonGame"; // fxml 구분
 
 	@FXML
@@ -136,7 +141,60 @@ public class MainController implements Initializable {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+				give();
 			}
+		}
+	}
+
+	public void give() {
+		System.out.println("코인 2개 지급");
+		JDBCUtil db = new JDBCUtil();
+		Connection con = db.getConnection();
+
+		Statement stmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM `jingjing_users` WHERE userId = " + "'" + user + "'";
+		try {
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+
+			while (rs.next()) {
+				Integer money = rs.getInt("money");
+				money = money + 2;
+			}
+
+		} catch (Exception E) {
+
+		}
+
+		Connection con2 = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs2 = null;
+		String sql2 = "UPDATE `jingjing_currentStat` SET `money`=" + money+2 + " WHERE userId = '" + user + "'";
+
+		try {
+			pstmt = con.prepareStatement(sql2);
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return;
+		} finally {
+			if (rs2 != null)
+				try {
+					rs2.close();
+				} catch (Exception e) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (Exception e) {
+				}
+			if (con2 != null)
+				try {
+					con2.close();
+				} catch (Exception e) {
+				}
 		}
 	}
 
