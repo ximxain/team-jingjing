@@ -30,6 +30,8 @@ public class Login {
 	static public int event2;
 	static public int event3;
 	
+	public int limitExperience = 1000;
+	
 	
 	@FXML
 	private Button button;
@@ -204,6 +206,15 @@ public class Login {
 		// PreparedStatement 날릴 것을 저장해두는 곳
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		//check grows
+		if(presentExperience <= limitExperience && presentLevel <= 3) {
+			System.out.println("레벨 업!");
+			presentLevel ++;
+		}
+		
+		
+		
+		
 		String sql = "UPDATE jingjing_currentStat SET exp =" + presentExperience +" , money =" + money + ", grows = "+presentLevel+" where userId ='"+user+"'";
 		try {
 			pstmt = con.prepareStatement(sql);
