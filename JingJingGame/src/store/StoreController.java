@@ -782,6 +782,7 @@ public class StoreController extends Login{
 		Stage stage = (Stage) foodBtn3.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
 		money-=2;
+		up();
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
@@ -805,6 +806,8 @@ public class StoreController extends Login{
 
 		Stage stage = (Stage) foodBtn4.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
+		money-=4;
+		up();
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
@@ -829,7 +832,8 @@ public class StoreController extends Login{
 		Stage stage = (Stage) foodBtn5.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
-
+		money-=4;
+		up();
 		PreparedStatement pstmt = null;
 		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES ([value-1],[value-2])";
 
@@ -851,6 +855,8 @@ public class StoreController extends Login{
 
 		Stage stage = (Stage) foodBtn6.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
+		money-=2;
+		up();
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
