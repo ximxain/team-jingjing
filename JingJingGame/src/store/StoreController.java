@@ -1087,9 +1087,9 @@ public class StoreController extends Login implements Initializable {
 			Image img = new Image(bis);
 
 			jingJingStore.setImage(img);
-		} catch (FileNotFoundException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
 		}
 
 	}
