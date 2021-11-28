@@ -46,8 +46,7 @@ public class GameClear extends Login implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		presentExperience+=sickAndHungry(200);
 		money+=2;
-		up();
-		
+
 		Random rd = new Random();
 		
 		if (rd.nextInt(10) < 3) {
@@ -56,5 +55,6 @@ public class GameClear extends Login implements Initializable{
 			hungry = 1;
 			AppUtil.alert("징징이가 배고파졌습니다! 배고픔 상태일 때는 30% 점수가 삭감됩니다. 상점에서 해결할 수 있습니다.", "");
 		}
+		up();
 	}
 }

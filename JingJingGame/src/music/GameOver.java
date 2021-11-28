@@ -67,6 +67,9 @@ public class GameOver extends MainController implements Initializable{
 			sick = 1;
 			AppUtil.alert("징징이가 병에 들었습니다! 아픔 상태일 때는 30% 점수가 삭감됩니다. 상점에서 해결할 수 있습니다.", "");
 		}
+		
+		up();
+		
 		System.out.println(adder+", "+(musicNoteList.size()-9));
 		System.out.println((double)adder/(musicNoteList.size()-9));
 		musicProgressBar.setProgress((double)adder/(musicNoteList.size()-9));
