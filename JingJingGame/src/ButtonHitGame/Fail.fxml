@@ -12,18 +12,18 @@
    <children>
       <ImageView fitHeight="500.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../resource/퀴즈메인.png" />
+            <Image url="@../resource/timeover.png" />
          </image></ImageView>
       <Pane prefHeight="500.0" prefWidth="700.0">
          <children>
-            <Label layoutX="188.0" layoutY="159.0" text="TIME OVER">
+            <Label layoutX="188.0" layoutY="223.0" text="TIME OVER">
                <font>
                   <Font size="58.0" />
                </font>
             </Label>
-            <Button fx:id="endBtn2" layoutX="262.0" layoutY="277.0" mnemonicParsing="false" onAction="#changeToMain2" style="-fx-background-color: white; -fx-border-color: black;" text="돌아가기">
+            <Button fx:id="endBtn2" layoutX="279.0" layoutY="321.0" mnemonicParsing="false" onAction="#changeToMain2" prefHeight="40.0" prefWidth="143.0" style="-fx-background-color: white; -fx-border-color: black;" text="돌아가기">
                <font>
-                  <Font size="29.0" />
+                  <Font size="25.0" />
                </font>
             </Button>
          </children>
