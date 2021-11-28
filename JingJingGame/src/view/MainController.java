@@ -9,6 +9,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
+import com.sun.javafx.stage.WindowHelper;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -55,6 +57,8 @@ public class MainController extends Login implements Initializable {
 			Scene scene = new Scene(login);
 			Stage primaryStage = (Stage) changeGameView.getScene().getWindow();
 			primaryStage.setScene(scene);
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

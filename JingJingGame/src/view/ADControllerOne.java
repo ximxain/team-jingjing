@@ -22,6 +22,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.stage.Stage;
 import util.JDBCUtil;
 
 public class ADControllerOne extends ADpackegeController implements Initializable {
@@ -34,7 +35,13 @@ public class ADControllerOne extends ADpackegeController implements Initializabl
 	int second = 0;
 	private JDBCUtil db;
 
+	
+
+	
+	
+	
 	@Override
+	
 	public void initialize(URL location, ResourceBundle resources) {
 		System.out.println("test");
 		// Instantiating Media class
@@ -74,16 +81,15 @@ public class ADControllerOne extends ADpackegeController implements Initializabl
 					timer.cancel();
 					give();
 				}
+				
+				
+				
 			}
 		};
 		timer.schedule(timerTask, 1000l, 1000l);
 	}
 
-	stage.setOnCloseRequest(event->
-	{ 
-		WindowHelper.showClosingPopup("Exit"); 
-		terminate(); 
-	});
+	
 
 	public void showClosingPopup(String closingTitle) {
 		Alert alert = new Alert(AlertType.NONE);
