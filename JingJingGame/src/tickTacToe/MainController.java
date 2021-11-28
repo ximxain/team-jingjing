@@ -348,6 +348,8 @@ public class MainController {
 			popup();
 		}else if(win == "AI"){
 			popup();
+		}else {
+			popup();
 		}
 		
 	}
@@ -355,27 +357,27 @@ public class MainController {
 	private Stage pop;
 
 	public void popup() {
-		// ¸ÞÀÎ ½ºÅ×ÀÌÁö Ãëµæ, ÀüÀÇ µÎ°¡Áö ¹æ¹ý Áß µÎ¹øÂ° ¹æ¹ý
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Î¹ï¿½Â° ï¿½ï¿½ï¿½
 		Stage mainStage = (Stage) board1.getScene().getWindow();
 		
-		// »õ·Î¿î ½ºÅ×ÀÌÁö »ý¼º (¿É¼Ç Ãß°¡, ½ºÅ¸ÀÏ)
-		pop = new Stage(StageStyle.DECORATED); // ½ºÅ×ÀÌÁö ¿É¼Ç
-		pop.initModality(Modality.WINDOW_MODAL); // ±× À§¿¡ ¶ß´Â ¸ð´ÞÀÇ ¿É¼Ç
-		pop.initOwner(mainStage); // ¸ÞÀÎ ½ºÅ×ÀÌÁö ºÎ¿©
+		// ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½É¼ï¿½ ï¿½ß°ï¿½, ï¿½ï¿½Å¸ï¿½ï¿½)
+		pop = new Stage(StageStyle.DECORATED); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½
+		pop.initModality(Modality.WINDOW_MODAL); // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½
+		pop.initOwner(mainStage); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î¿ï¿½
 
 		try {
-			// »õ·Î¿î ½ºÅ×ÀÌÁö¿¡ custom ·¹ÀÌ¾Æ¿ô ºÒ·¯¿À±â
+			// ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ custom ï¿½ï¿½ï¿½Ì¾Æ¿ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
 			Parent root = FXMLLoader.load(getClass().getResource("/tickTacToe/Win.fxml"));
 
-			// ¾À¿¡ Ãß°¡
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 			Scene sc = new Scene(root);
-			// ¾À¿¡ ½ºÅ¸ÀÏ Ãß°¡
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ß°ï¿½
 			sc.getStylesheets().add(getClass().getResource("/tickTacToe/application.css").toExternalForm());
 			pop.setScene(sc);
 			pop.setTitle("");
-			pop.setResizable(false); // Ã¢ »çÀÌÁî Á¶Àý Â÷´Ü
+			pop.setResizable(false); // Ã¢ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-			// º¸¿©ÁÖ±â
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
 			pop.show();
 
 		} catch (IOException e) {
