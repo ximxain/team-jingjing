@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.MainController">
+<AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tickTacToe.MainController">
    <children>
       <Canvas fx:id="board1" height="200.0" layoutX="98.0" layoutY="99.0" onMouseClicked="#clickone" width="200.0" />
       <Canvas fx:id="board2" height="200.0" layoutX="298.0" layoutY="99.0" onMouseClicked="#clicktwo" width="200.0" />

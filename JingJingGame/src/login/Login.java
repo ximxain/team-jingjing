@@ -212,9 +212,6 @@ public class Login {
 			presentLevel ++;
 		}
 		
-		
-		
-		
 		String sql = "UPDATE jingjing_currentStat SET exp =" + presentExperience +" , money =" + money + ", grows = "+presentLevel+" where userId ='"+user+"'";
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -232,6 +229,7 @@ public class Login {
 			System.out.println("정보가 데이터 베이스로 못감 ㅋㅋ");
 		}
 	}
+	
 	
 	
 	
