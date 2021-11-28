@@ -77,6 +77,8 @@ public class ADControllerOne extends ADpackegeController implements Initializabl
 	}
 	
 	public void give() {
+		
+		
 		System.out.println("광고비 지급");
 		db = new JDBCUtil();
 		
