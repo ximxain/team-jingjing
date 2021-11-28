@@ -95,7 +95,7 @@ public class MainController extends Login implements Initializable {
 			}
 			
 			if(hungry == 1) {
-				statLabel += "배고품";
+				statLabel += "배고픔";
 			} else {
 				statLabel += "배부름";
 			}
