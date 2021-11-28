@@ -50,7 +50,6 @@ public class controller implements Initializable {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 	
 	int num = 0;

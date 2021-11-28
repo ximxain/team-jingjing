@@ -1,25 +1,33 @@
 package store;
 
 import java.io.IOException;
-
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import login.Login;
+import util.AppUtil;
 import util.JDBCUtil;
 
-public class StoreController extends Login{
+public class StoreController extends Login implements Initializable {
 
+	@FXML
+	public Label hungryLabel;
+	@FXML
+	public Label sickLabel;
 	@FXML
 	private Button changeMainView;
 
@@ -723,7 +731,6 @@ public class StoreController extends Login{
 	private Button clothesBtn5;
 	@FXML
 	private Button clothesBtn6;
-	
 
 	// 음식1 insert
 	public void clickFoodBtn1() {
@@ -732,20 +739,25 @@ public class StoreController extends Login{
 
 		Stage stage = (Stage) foodBtn1.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
-		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES ([value-1],[value-2])";
-		money-=2;
-		try {
-			pstmt = con.prepareStatement(sql);
-			
-			pstmt.setString(1, "퐁퐁케이크");
-			pstmt.setString(2, user);
-			pstmt.executeUpdate();
+		if (money >= 2) {
+			String sql = "INSERT INTO `food`(`food`, `userId`) VALUES (?,?)";
+			money -= 2;
+			up();
+			try {
+				pstmt = con.prepareStatement(sql);
 
-		} catch (Exception e) {
-			e.printStackTrace();
+				pstmt.setString(1, "퐁퐁케이크");
+				pstmt.setString(2, user);
+				pstmt.executeUpdate();
+				util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
+			AppUtil.alert("돈이 부족합니다!", "구입하지 못했습니다");
 		}
 	}
 
@@ -756,21 +768,24 @@ public class StoreController extends Login{
 
 		Stage stage = (Stage) foodBtn2.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
-		money-=4;
-		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
-
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES ([value-1],[value-2])";
+		if (money >= 4) {
+			String sql = "INSERT INTO `food`(`food`, `userId`) VALUES (?,?)";
+			money -= 4;
+			up();
+			try {
+				pstmt = con.prepareStatement(sql);
 
-		try {
-			pstmt = con.prepareStatement(sql);
-			
-			pstmt.setString(1, "플리즈핫도그WORLD");
-			pstmt.setString(2, user);
-			pstmt.executeUpdate();
+				pstmt.setString(1, "플리즈핫도그WORLD");
+				pstmt.setString(2, user);
+				pstmt.executeUpdate();
+				util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
-		} catch (Exception e) {
-			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
+			AppUtil.alert("돈이 부족합니다!", "구입하지 못했습니다");
 		}
 	}
 
@@ -781,20 +796,25 @@ public class StoreController extends Login{
 
 		Stage stage = (Stage) foodBtn3.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
-		money-=2;
-		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES ([value-1],[value-2])";
+		if (money >= 4) {
+			String sql = "INSERT INTO `food`(`food`, `userId`) VALUES (?,?)";
+			money -= 4;
+			up();
+			try {
+				pstmt = con.prepareStatement(sql);
 
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "징징이정식");
-			pstmt.setString(2, user);
-			pstmt.executeUpdate();
+				pstmt.setString(1, "	\r\n" + "징징이정식");
+				pstmt.setString(2, user);
+				pstmt.executeUpdate();
+				util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
-		} catch (Exception e) {
-			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
+			AppUtil.alert("돈이 부족합니다!", "구입하지 못했습니다");
 		}
 	}
 
@@ -805,19 +825,24 @@ public class StoreController extends Login{
 
 		Stage stage = (Stage) foodBtn4.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
-		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
-
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES ([value-1],[value-2])";
+		if (money >= 4) {
+			String sql = "INSERT INTO `food`(`food`, `userId`) VALUES (?,?)";
+			money -= 4;
+			up();
+			try {
+				pstmt = con.prepareStatement(sql);
 
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "핑핑이밥");
-			pstmt.setString(2, user);
-			pstmt.executeUpdate();
+				pstmt.setString(1, "핑핑이밥");
+				pstmt.setString(2, user);
+				pstmt.executeUpdate();
+				util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
-		} catch (Exception e) {
-			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
+			AppUtil.alert("돈이 부족합니다!", "구입하지 못했습니다");
 		}
 	}
 
@@ -828,19 +853,24 @@ public class StoreController extends Login{
 
 		Stage stage = (Stage) foodBtn5.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
-		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
-
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES ([value-1],[value-2])";
+		if (money >= 4) {
+			String sql = "INSERT INTO `food`(`food`, `userId`) VALUES (?,?)";
+			money -= 4;
+			up();
+			try {
+				pstmt = con.prepareStatement(sql);
 
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "김건우");
-			pstmt.setString(2, user);
-			pstmt.executeUpdate();
+				pstmt.setString(1, "김건우");
+				pstmt.setString(2, user);
+				pstmt.executeUpdate();
+				util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
-		} catch (Exception e) {
-			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
+			AppUtil.alert("돈이 부족합니다!", "구입하지 못했습니다");
 		}
 	}
 
@@ -851,23 +881,29 @@ public class StoreController extends Login{
 
 		Stage stage = (Stage) foodBtn6.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
-		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
-
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES ([value-1],[value-2])";
+		if (money >= 6) {
+			String sql = "INSERT INTO `food`(`food`, `userId`) VALUES (?,?)";
+			money -= 6;
+			up();
+			try {
+				pstmt = con.prepareStatement(sql);
 
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "게살버거");
-			pstmt.setString(2, user);
-			pstmt.executeUpdate();
+				pstmt.setString(1, "게살버거");
+				pstmt.setString(2, user);
+				pstmt.executeUpdate();
+				util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
-		} catch (Exception e) {
-			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
+			AppUtil.alert("돈이 부족합니다!", "구입하지 못했습니다");
 		}
 	}
 
 	public static int MDid = 0;
+
 	// 약1 insert
 	public void clickMDBtn1() {
 		JDBCUtil db = new JDBCUtil();
@@ -875,19 +911,24 @@ public class StoreController extends Login{
 
 		Stage stage = (Stage) MDCBtn1.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
-		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
-
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES ([value-1],[value-2])";
+		if (money >= 6) {
+			String sql = "INSERT INTO `MD`(`MD`, `userId`) VALUES (?,?)";
+			money -= 6;
+			up();
+			try {
+				pstmt = con.prepareStatement(sql);
 
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "그냥약");
-			pstmt.setString(2, user);
-			pstmt.executeUpdate();
+				pstmt.setString(1, "징징이특효약");
+				pstmt.setString(2, user);
+				pstmt.executeUpdate();
+				util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
-		} catch (Exception e) {
-			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
+			AppUtil.alert("돈이 부족합니다!", "구입하지 못했습니다");
 		}
 	}
 
@@ -898,19 +939,24 @@ public class StoreController extends Login{
 
 		Stage stage = (Stage) MDCBtn2.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
-		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
-
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES ([value-1],[value-2])";
+		if (money >= 6) {
+			String sql = "INSERT INTO `MD`(`MD`, `userId`) VALUES (?,?)";
+			money -= 6;
+			up();
+			try {
+				pstmt = con.prepareStatement(sql);
 
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "징징이특효약");
-			pstmt.setString(2, user);
-			pstmt.executeUpdate();
+				pstmt.setString(1, "그냥약");
+				pstmt.setString(2, user);
+				pstmt.executeUpdate();
+				util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
-		} catch (Exception e) {
-			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
+			AppUtil.alert("돈이 부족합니다!", "구입하지 못했습니다");
 		}
 	}
 
@@ -921,19 +967,24 @@ public class StoreController extends Login{
 
 		Stage stage = (Stage) MDCBtn3.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
-		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
-
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES ([value-1],[value-2])";
+		if (money >= 6) {
+			String sql = "INSERT INTO `MD`(`MD`, `userId`) VALUES (?,?)";
+			money -= 6;
+			up();
+			try {
+				pstmt = con.prepareStatement(sql);
 
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "뚱약");
-			pstmt.setString(2, user);
-			pstmt.executeUpdate();
+				pstmt.setString(1, "징징이특효약");
+				pstmt.setString(2, user);
+				pstmt.executeUpdate();
+				util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
-		} catch (Exception e) {
-			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
+			AppUtil.alert("돈이 부족합니다!", "구입하지 못했습니다");
 		}
 	}
 
@@ -947,7 +998,7 @@ public class StoreController extends Login{
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES ([value-1],[value-2])";
+		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES (?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -970,7 +1021,7 @@ public class StoreController extends Login{
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES ([value-1],[value-2])";
+		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES (?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -993,7 +1044,7 @@ public class StoreController extends Login{
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES ([value-1],[value-2])";
+		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES (?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -1005,7 +1056,21 @@ public class StoreController extends Login{
 			e.printStackTrace();
 		}
 	}
-	
-	
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		try {
+			if (hungry == 1) {
+				hungryLabel.setText("O");
+			} else {
+				hungryLabel.setText("X");
+			}
+			if (sick == 1) {
+				sickLabel.setText("O");
+			} else {
+				sickLabel.setText("X");
+			}
+		}catch(Exception E) {}
+	}
 
 }

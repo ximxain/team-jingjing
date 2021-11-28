@@ -74,44 +74,8 @@ public class ADControllerThree extends ADpackegeController implements Initializa
 	}
 	
 	public void give() {
-		System.out.println("광고비 지급");
-		db = new JDBCUtil();
-		
-		Connection con = db.getConnection();
-		
-		Statement stmt = null;
-		ResultSet rs = null;
-		String sql = "SELECT * FROM `jingjing_users` WHERE userId = " + "'" + user + "'";
-		try {
-			stmt = con.createStatement();
-			rs = stmt.executeQuery(sql);
-
-			while(rs.next()) {
-				Integer money = rs.getInt("money");
-				money = money+1;
-			}
-			
-		}catch(Exception E) {
-			
-		}
-		
-		Connection con2 = db.getConnection();
-		PreparedStatement pstmt = null;
-		ResultSet rs2 = null;
-		String sql2 = "UPDATE `jingjing_currentStat` SET `money`="+money+" WHERE userId = '" +user+"'";
-		
-		try {
-			pstmt = con.prepareStatement(sql2);
-			pstmt.executeUpdate();
-			
-		}catch (Exception e) {
-			e.printStackTrace();
-			return;
-		}finally {
-			if(rs2 != null) try { rs2.close(); } catch (Exception e) {}
-			if(pstmt != null) try { pstmt.close(); } catch (Exception e) {}
-			if(con2 != null) try { con2.close(); } catch (Exception e) {}
-		}
+		money+=1;
+		up();
 	}
 	
 }

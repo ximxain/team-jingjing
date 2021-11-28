@@ -27,7 +27,7 @@
       </ImageView>
       <Label fx:id="textBuffer" layoutX="96.0" layoutY="528.0" onMouseClicked="#next" prefHeight="120.0" prefWidth="1109.0" text="Label">
          <font>
-            <Font size="34.0" />
+            <Font size="28.0" />
          </font>
       </Label>
    </children>
