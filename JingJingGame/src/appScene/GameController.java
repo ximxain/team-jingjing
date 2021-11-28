@@ -1,12 +1,22 @@
 package appScene;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -25,6 +35,16 @@ public class GameController extends Login {
 	@FXML
 	public Button closebtn;
 	public static Stage mainStage;
+
+	int level = 0;
+	Label image;
+
+	ArrayList<int[]> rectLists;
+
+	Stage primaryState;
+	Stage gameStage;
+
+	Label levelLabel;
 
 	public void clickMusic() {
 		try {
@@ -100,18 +120,6 @@ public class GameController extends Login {
 			e.printStackTrace();
 		}
 	}
-
-	public void changeToMainViewFromGame() { // 메인이동
-		System.out.println("changeToMainViewFromGame");
-		try {
-			Parent login = FXMLLoader.load(getClass().getResource("/view/MainView.fxml"));
-			Scene scene = new Scene(login);
-			Stage primaryStage = (Stage) changeMainViewFromGame.getScene().getWindow();
-			primaryStage.setScene(scene);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 	
 	public void clickTickTacToe() {
 		mainStage = (Stage) app.getScene().getWindow();
@@ -120,7 +128,7 @@ public class GameController extends Login {
 		pop.initOwner(mainStage);
 
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/tickTacToe/MainLayout.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/cardgame/layout.fxml"));
 
 			Scene sc = new Scene(root);
 			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
@@ -133,5 +141,21 @@ public class GameController extends Login {
 			e.printStackTrace();
 		}
 	}
+
+	public void changeToMainViewFromGame() { // 메인이동
+		System.out.println("changeToMainViewFromGame");
+		try {
+			Parent login = FXMLLoader.load(getClass().getResource("/view/MainView.fxml"));
+			Scene scene = new Scene(login);
+			Stage primaryStage = (Stage) changeMainViewFromGame.getScene().getWindow();
+			primaryStage.setScene(scene);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+
+	
+	
 
 }

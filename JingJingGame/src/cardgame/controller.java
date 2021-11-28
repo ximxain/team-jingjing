@@ -36,7 +36,7 @@ public class controller implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
+		
 	}
 
 	public void clickclose() {
@@ -104,23 +104,27 @@ public class controller implements Initializable {
 
 	public void result(ImageView iv, ImageView iv2) {
 		if (num == number) {
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("승리");
-			alert.setContentText("이걸 이기네 국그릇핑크퐁 ㅋ");
-			alert.setHeaderText("승리");
-			alert.showAndWait();
-			iv.setLayoutY(save2);
-			iv2.setLayoutY(save);
-			reset();
+			try {
+				Parent login = FXMLLoader.load(getClass().getResource("/cardgame/EndOne.fxml"));
+				Scene scene = new Scene(login);
+				Stage primaryStage = (Stage) card1.getScene().getWindow();
+				primaryStage.setScene(scene);
+				scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		} else {
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("패배");
-			alert.setContentText("이걸 지네 국그릇핑크퐁 ㅋ");
-			alert.setHeaderText("패배");
-			alert.showAndWait();
-			iv.setLayoutY(save2);
-			iv2.setLayoutY(save);
-			reset();
+			try {
+				Parent login = FXMLLoader.load(getClass().getResource("/cardgame/EndTwo.fxml"));
+				Scene scene = new Scene(login);
+				Stage primaryStage = (Stage) card1.getScene().getWindow();
+				primaryStage.setScene(scene);
+				scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 

@@ -724,7 +724,6 @@ public class StoreController extends Login{
 	@FXML
 	private Button clothesBtn6;
 	
-	public static int Foodid = 0;
 
 	// 음식1 insert
 	public void clickFoodBtn1() {
@@ -736,13 +735,13 @@ public class StoreController extends Login{
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "insert into food values(?,?,?)";
+		String sql = "insert into food values(?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, Foodid++);
-			pstmt.setString(2, "퐁퐁케이크");
-			pstmt.setString(3, user);
+			
+			pstmt.setString(1, "퐁퐁케이크");
+			pstmt.setString(2, user);
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -760,13 +759,13 @@ public class StoreController extends Login{
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "insert into food values(?,?,?)";
+		String sql = "insert into food values(?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, Foodid++);
-			pstmt.setString(2, "플리즈핫도그WORLD");
-			pstmt.setString(3, user);
+			
+			pstmt.setString(1, "플리즈핫도그WORLD");
+			pstmt.setString(2, user);
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -784,13 +783,12 @@ public class StoreController extends Login{
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "insert into food values(?,?,?)";
+		String sql = "insert into food values(?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, Foodid++);
-			pstmt.setString(2, "징징이정식");
-			pstmt.setString(3, user);
+			pstmt.setString(1, "징징이정식");
+			pstmt.setString(2, user);
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -808,13 +806,12 @@ public class StoreController extends Login{
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "insert into food values(?,?,?)";
+		String sql = "insert into food values(?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, Foodid++);
-			pstmt.setString(2, "핑핑이밥");
-			pstmt.setString(3, user);
+			pstmt.setString(1, "핑핑이밥");
+			pstmt.setString(2, user);
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -832,13 +829,12 @@ public class StoreController extends Login{
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "insert into food values(?,?,?)";
+		String sql = "insert into food values(?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, Foodid++);
-			pstmt.setString(2, "김건우");
-			pstmt.setString(3, user);
+			pstmt.setString(1, "김건우");
+			pstmt.setString(2, user);
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -856,13 +852,12 @@ public class StoreController extends Login{
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "insert into food values(?,?,?)";
+		String sql = "insert into food values(?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, Foodid++);
-			pstmt.setString(2, "게살버거");
-			pstmt.setString(3, user);
+			pstmt.setString(1, "게살버거");
+			pstmt.setString(2, user);
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -881,13 +876,12 @@ public class StoreController extends Login{
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "insert into MD values(?,?,?)";
+		String sql = "insert into MD values(?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, MDid++);
-			pstmt.setString(2, "그냥약");
-			pstmt.setString(3, user);
+			pstmt.setString(1, "그냥약");
+			pstmt.setString(2, user);
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -905,13 +899,12 @@ public class StoreController extends Login{
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "insert into MD values(?,?,?)";
+		String sql = "insert into MD values(?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, MDid++);
-			pstmt.setString(2, "징징이특효약");
-			pstmt.setString(3, user);
+			pstmt.setString(1, "징징이특효약");
+			pstmt.setString(2, user);
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -929,13 +922,12 @@ public class StoreController extends Login{
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "insert into MD values(?,?,?)";
+		String sql = "insert into MD values(?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, MDid++);
-			pstmt.setString(2, "뚱약");
-			pstmt.setString(3, user);
+			pstmt.setString(1, "뚱약");
+			pstmt.setString(2, user);
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -953,13 +945,12 @@ public class StoreController extends Login{
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "insert into MD values(?,?,?)";
+		String sql = "insert into MD values(?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, MDid++);
-			pstmt.setString(2, "오징어물약");
-			pstmt.setString(3, user);
+			pstmt.setString(1, "오징어물약");
+			pstmt.setString(2, user);
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -977,13 +968,12 @@ public class StoreController extends Login{
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "insert into MD values(?,?,?)";
+		String sql = "insert into MD values(?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, MDid++);
-			pstmt.setString(2, "네모바지약");
-			pstmt.setString(3, user);
+			pstmt.setString(1, "네모바지약");
+			pstmt.setString(2, user);
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -1001,13 +991,12 @@ public class StoreController extends Login{
 		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 		PreparedStatement pstmt = null;
-		String sql = "insert into MD values(?,?,?)";
+		String sql = "insert into MD values(?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, MDid++);
-			pstmt.setString(2, "인영이특효약");
-			pstmt.setString(3, user);
+			pstmt.setString(1, "인영이특효약");
+			pstmt.setString(2, user);
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {

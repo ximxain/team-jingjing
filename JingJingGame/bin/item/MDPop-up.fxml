@@ -20,7 +20,7 @@
                </font>
             </Label>
             <Line endX="249.0" layoutX="101.0" layoutY="80.0" startX="-100.0" />
-            <Button layoutX="256.0" layoutY="15.0" mnemonicParsing="false" text="사용하기" />
+            <Button layoutX="256.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#btn" text="사용하기" />
             <ListView fx:id="lists" layoutX="14.0" layoutY="310.0" onMouseClicked="#get" prefHeight="284.0" prefWidth="325.0" />
             <ImageView fx:id="img" fitHeight="203.0" fitWidth="325.0" layoutX="14.0" layoutY="95.0" pickOnBounds="true">
                <image>
