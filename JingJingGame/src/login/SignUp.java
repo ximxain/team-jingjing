@@ -1,5 +1,6 @@
 package login;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,6 +19,9 @@ import util.JDBCUtil;
 public class SignUp {
 	@FXML
 	private Button button;
+
+	@FXML
+	public Button goLogin;
 
 	@FXML
 	private TextField id;
@@ -123,5 +127,17 @@ public class SignUp {
 			e.printStackTrace();
 		}
 
+	}
+	
+	public void goLogin() {
+		try {
+			Parent login = FXMLLoader.load(getClass().getResource("/login/Login.fxml"));
+			Scene scene = new Scene(login);
+			Stage primaryStage = (Stage) goLogin.getScene().getWindow();
+			primaryStage.setScene(scene);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

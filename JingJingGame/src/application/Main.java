@@ -14,7 +14,7 @@ public class Main extends Application {
 			FXMLLoader loader = new FXMLLoader();
 			
 //			loader.setLocation(getClass().getResource("/Login/login.fxml"));
-			loader.setLocation(getClass().getResource("/login/Login.fxml"));
+			loader.setLocation(getClass().getResource("/login/FirstScreen.fxml"));
 			
 			AnchorPane AP = (AnchorPane)loader.load();
 			Scene scene = new Scene(AP);
