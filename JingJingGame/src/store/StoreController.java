@@ -762,6 +762,17 @@ public class StoreController extends Login implements Initializable {
 
 			} catch (Exception e) {
 				e.printStackTrace();
+			}finally {
+				if (pstmt != null)
+					try {
+						pstmt.close();
+					} catch (Exception e) {
+					}
+				if (con != null)
+					try {
+						con.close();
+					} catch (Exception e) {
+					}
 			}
 		} else {
 			AppUtil.alert("돈이 부족합니다!", "구입하지 못했습니다");
@@ -790,6 +801,17 @@ public class StoreController extends Login implements Initializable {
 
 			} catch (Exception e) {
 				e.printStackTrace();
+			}finally {
+				if (pstmt != null)
+					try {
+						pstmt.close();
+					} catch (Exception e) {
+					}
+				if (con != null)
+					try {
+						con.close();
+					} catch (Exception e) {
+					}
 			}
 		} else {
 			AppUtil.alert("돈이 부족합니다!", "구입하지 못했습니다");
@@ -819,6 +841,17 @@ public class StoreController extends Login implements Initializable {
 
 			} catch (Exception e) {
 				e.printStackTrace();
+			}finally {
+				if (pstmt != null)
+					try {
+						pstmt.close();
+					} catch (Exception e) {
+					}
+				if (con != null)
+					try {
+						con.close();
+					} catch (Exception e) {
+					}
 			}
 		} else {
 			AppUtil.alert("돈이 부족합니다!", "구입하지 못했습니다");
@@ -847,6 +880,17 @@ public class StoreController extends Login implements Initializable {
 
 			} catch (Exception e) {
 				e.printStackTrace();
+			}finally {
+				if (pstmt != null)
+					try {
+						pstmt.close();
+					} catch (Exception e) {
+					}
+				if (con != null)
+					try {
+						con.close();
+					} catch (Exception e) {
+					}
 			}
 		} else {
 			AppUtil.alert("돈이 부족합니다!", "구입하지 못했습니다");
@@ -875,6 +919,17 @@ public class StoreController extends Login implements Initializable {
 
 			} catch (Exception e) {
 				e.printStackTrace();
+			}finally {
+				if (pstmt != null)
+					try {
+						pstmt.close();
+					} catch (Exception e) {
+					}
+				if (con != null)
+					try {
+						con.close();
+					} catch (Exception e) {
+					}
 			}
 		} else {
 			AppUtil.alert("돈이 부족합니다!", "구입하지 못했습니다");
@@ -903,6 +958,17 @@ public class StoreController extends Login implements Initializable {
 
 			} catch (Exception e) {
 				e.printStackTrace();
+			}finally {
+				if (pstmt != null)
+					try {
+						pstmt.close();
+					} catch (Exception e) {
+					}
+				if (con != null)
+					try {
+						con.close();
+					} catch (Exception e) {
+					}
 			}
 		} else {
 			AppUtil.alert("돈이 부족합니다!", "구입하지 못했습니다");
@@ -916,7 +982,7 @@ public class StoreController extends Login implements Initializable {
 		JDBCUtil db = new JDBCUtil();
 		Connection con = db.getConnection();
 
-		Stage stage = (Stage) MDCBtn2.getScene().getWindow(); // 팝업창 닫기
+		Stage stage = (Stage) MDCBtn1.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
 		PreparedStatement pstmt = null;
 		if (money >= 6) {
@@ -933,6 +999,17 @@ public class StoreController extends Login implements Initializable {
 
 			} catch (Exception e) {
 				e.printStackTrace();
+			}finally {
+				if (pstmt != null)
+					try {
+						pstmt.close();
+					} catch (Exception e) {
+					}
+				if (con != null)
+					try {
+						con.close();
+					} catch (Exception e) {
+					}
 			}
 		} else {
 			AppUtil.alert("돈이 부족합니다!", "구입하지 못했습니다");
@@ -944,7 +1021,7 @@ public class StoreController extends Login implements Initializable {
 		JDBCUtil db = new JDBCUtil();
 		Connection con = db.getConnection();
 
-		Stage stage = (Stage) MDCBtn1.getScene().getWindow(); // 팝업창 닫기
+		Stage stage = (Stage) MDCBtn2.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
 		PreparedStatement pstmt = null;
 		if (money >= 6) {
@@ -961,6 +1038,17 @@ public class StoreController extends Login implements Initializable {
 
 			} catch (Exception e) {
 				e.printStackTrace();
+			}finally {
+				if (pstmt != null)
+					try {
+						pstmt.close();
+					} catch (Exception e) {
+					}
+				if (con != null)
+					try {
+						con.close();
+					} catch (Exception e) {
+					}
 			}
 		} else {
 			AppUtil.alert("돈이 부족합니다!", "구입하지 못했습니다");
@@ -985,13 +1073,24 @@ public class StoreController extends Login implements Initializable {
 			try {
 				pstmt = con.prepareStatement(sql);
 
-				pstmt.setString(1, "징징이특효약");
+				pstmt.setString(1, "뚱약");
 				pstmt.setString(2, user);
 				pstmt.executeUpdate();
 				util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
 			} catch (Exception e) {
 				e.printStackTrace();
+			}finally {
+				if (pstmt != null)
+					try {
+						pstmt.close();
+					} catch (Exception e) {
+					}
+				if (con != null)
+					try {
+						con.close();
+					} catch (Exception e) {
+					}
 			}
 		} else {
 			AppUtil.alert("돈이 부족합니다!", "구입하지 못했습니다");
@@ -1005,20 +1104,37 @@ public class StoreController extends Login implements Initializable {
 
 		Stage stage = (Stage) MDCBtn4.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
-		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
-
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES (?,?)";
+		if (money >= 4) {
+			String sql = "INSERT INTO `MD`(`MD`, `userId`) VALUES (?,?)";
+			money -= 4;
+			up();
+			try {
+				pstmt = con.prepareStatement(sql);
 
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "오징어물약");
-			pstmt.setString(2, user);
-			pstmt.executeUpdate();
+				pstmt.setString(1, "오징어물약");
+				pstmt.setString(2, user);
+				pstmt.executeUpdate();
+				util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
-		} catch (Exception e) {
-			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				if (pstmt != null)
+					try {
+						pstmt.close();
+					} catch (Exception e) {
+					}
+				if (con != null)
+					try {
+						con.close();
+					} catch (Exception e) {
+					}
+			}
+		} else {
+			AppUtil.alert("돈이 부족합니다!", "구입하지 못했습니다");
 		}
+		
 	}
 
 	// 약5 insert
@@ -1028,20 +1144,38 @@ public class StoreController extends Login implements Initializable {
 
 		Stage stage = (Stage) MDCBtn5.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
-		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
-
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES (?,?)";
+		if (money >= 4) {
+			String sql = "INSERT INTO `MD`(`MD`, `userId`) VALUES (?,?)";
+			money -= 4;
+			up();
+			try {
+				pstmt = con.prepareStatement(sql);
 
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "네모바지약");
-			pstmt.setString(2, user);
-			pstmt.executeUpdate();
+				pstmt.setString(1, "네모바지약");
+				pstmt.setString(2, user);
+				pstmt.executeUpdate();
+				util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
-		} catch (Exception e) {
-			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				if (pstmt != null)
+					try {
+						pstmt.close();
+					} catch (Exception e) {
+					}
+				if (con != null)
+					try {
+						con.close();
+					} catch (Exception e) {
+					}
+			}
+		} else {
+			AppUtil.alert("돈이 부족합니다!", "구입하지 못했습니다");
 		}
+		
+		
 	}
 
 	// 약6 insert
@@ -1051,19 +1185,35 @@ public class StoreController extends Login implements Initializable {
 
 		Stage stage = (Stage) MDCBtn6.getScene().getWindow(); // 팝업창 닫기
 		stage.close();
-		util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
-
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO `food`(`food`, `userId`) VALUES (?,?)";
+		if (money >= 6) {
+			String sql = "INSERT INTO `MD`(`MD`, `userId`) VALUES (?,?)";
+			money -= 6;
+			up();
+			try {
+				pstmt = con.prepareStatement(sql);
 
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "인영이특효약");
-			pstmt.setString(2, user);
-			pstmt.executeUpdate();
+				pstmt.setString(1, "인영이특효약");
+				pstmt.setString(2, user);
+				pstmt.executeUpdate();
+				util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
 
-		} catch (Exception e) {
-			e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				if (pstmt != null)
+					try {
+						pstmt.close();
+					} catch (Exception e) {
+					}
+				if (con != null)
+					try {
+						con.close();
+					} catch (Exception e) {
+					}
+			}
+		} else {
+			AppUtil.alert("돈이 부족합니다!", "구입하지 못했습니다");
 		}
 	}
 
