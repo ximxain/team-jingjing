@@ -37,19 +37,16 @@ public class ADControllerOne extends ADpackegeController implements Initializabl
 
 	
 
-	
-	
-	
 	@Override
-	
+
 	public void initialize(URL location, ResourceBundle resources) {
-		System.out.println("test");
+
 		// Instantiating Media class
 		Media media = new Media(getClass().getResource("/resource/ddddd.mp4").toString());
 
 		// Instantiating MediaPlayer class
 		MediaPlayer mediaPlayer = new MediaPlayer(media);
-
+		
 		ads1.setMediaPlayer(mediaPlayer);
 
 		// by setting this property to true, the Video will be played
@@ -82,14 +79,16 @@ public class ADControllerOne extends ADpackegeController implements Initializabl
 					give();
 				}
 				
-				
-				
+				AD1.setOnCloseRequest(event -> {
+					timer.cancel();
+				});
+
 			}
+			
 		};
 		timer.schedule(timerTask, 1000l, 1000l);
+		
 	}
-
-	
 
 	public void showClosingPopup(String closingTitle) {
 		Alert alert = new Alert(AlertType.NONE);
