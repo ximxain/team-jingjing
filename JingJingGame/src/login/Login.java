@@ -217,8 +217,7 @@ public class Login {
 			System.out.println("정보가 데이터 베이스로 못감 ㅋㅋ");
 		}
 	}
-<<<<<<< HEAD
-	
+
 	public int sickAndHungry(int Score) {
 		if(sick == 1) {
 			Score = Score - 1/3*Score;
@@ -229,8 +228,5 @@ public class Login {
 		
 		return Score;
 	}
-	
-=======
 
->>>>>>> cb49a55cb29e0ef8c6d6e01f030360b6e90607f3
 }
