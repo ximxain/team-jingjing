@@ -23,9 +23,7 @@ public class JDBCUtil {
 					.getConnection(connectionString, userId, password);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-			
+		}	
 		return con;
-		
 	}
 }

@@ -21,14 +21,18 @@ import util.JDBCUtil;
 public class Login {
 	
 	//징징이의 스텟
-	static public int grows ;
+	static public int grows = 0;
 	static public int presentLevel = 0;
 	static public int presentExperience = 0;
 	static public int money = 0;
+	static public int hungry = 0;
+	static public int sick = 0;
 	
 	static public int event1;
 	static public int event2;
 	static public int event3;
+	
+	public int limitExperience = 1000;
 	
 	
 	@FXML
@@ -75,34 +79,6 @@ public class Login {
 			String sql2 = "SELECT * FROM `jingjing_currentStat` WHERE userId = " + "'" + user + "'";
 			
 			
-			
-//			db = new JDBCUtil();
-//			
-//			Connection con = db.getConnection();
-//			Statement stmtStat = null;
-//			ResultSet rs = null;
-//			String user = "aaaa";
-//			String sql = "SELECT * FROM `jingjing_currentStat` WHERE userId = " + "'" + user + "'";
-//			
-//			try {
-//				stmt = con.createStatement();
-//				rs = stmt.executeQuery(sql);
-//				while(rs.next()) {
-//					Integer grows = rs.getInt("grows");
-//					Integer money = rs.getInt("money");
-//					presentLevel = rs.getInt("exp");
-//					
-//				}
-//			}catch (Exception e) {
-//				e.printStackTrace();
-//				AppUtil.alert("데이터 삽입 실패", null);
-//				return;
-//			}finally {
-//				if(rs != null) try { rs.close(); } catch (Exception e) {}
-//				if(stmt != null) try { stmt.close(); } catch (Exception e) {}
-//				if(con != null) try { con.close(); } catch (Exception e) {}
-//			}
-			
 			try {
 				
 				stmt = con.createStatement();
@@ -120,6 +96,8 @@ public class Login {
 					presentLevel = rsStat.getInt("grows");
 					presentExperience = rsStat.getInt("exp");
 					money = rsStat.getInt("money");
+					hungry = rsStat.getInt("hungry");
+					sick = rsStat.getInt("sick");
 					}
 					
 					System.out.println("User: "+user);
@@ -204,7 +182,13 @@ public class Login {
 		// PreparedStatement 날릴 것을 저장해두는 곳
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "UPDATE jingjing_currentStat SET exp =" + presentExperience +" , money =" + money + ", grows = "+presentLevel+" where userId ='"+user+"'";
+		//check grows
+		if(presentExperience <= limitExperience && presentLevel <= 3) {
+			System.out.println("레벨 업!");
+			presentLevel ++;
+		}
+		
+		String sql = "UPDATE jingjing_currentStat SET grows = "+grows+" exp =" + presentExperience +" , money =" + money + ", grows = "+presentLevel+", hungry = " +hungry+ " , sick = "+sick+"where userId ='"+user+"'";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.executeUpdate();
@@ -221,6 +205,7 @@ public class Login {
 			System.out.println("정보가 데이터 베이스로 못감 ㅋㅋ");
 		}
 	}
+	
 	
 	
 	

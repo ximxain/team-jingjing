@@ -112,5 +112,26 @@ public class GameController extends Login {
 			e.printStackTrace();
 		}
 	}
+	
+	public void clickTickTacToe() {
+		mainStage = (Stage) app.getScene().getWindow();
+		pop = new Stage(StageStyle.DECORATED);
+		pop.initModality(Modality.WINDOW_MODAL);
+		pop.initOwner(mainStage);
+
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("/tickTacToe/MainLayout.fxml"));
+
+			Scene sc = new Scene(root);
+			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+			pop.setScene(sc);
+			pop.setTitle("운빨카드게임");
+			pop.setResizable(false);
+
+			pop.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 }
