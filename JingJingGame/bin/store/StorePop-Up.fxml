@@ -24,15 +24,11 @@
                </font>
             </Label>
             <Line endX="299.0" layoutX="100.0" layoutY="102.0" startX="-100.0" />
-            <Button fx:id="foodBtn" layoutX="139.0" layoutY="187.0" mnemonicParsing="false" onAction="#foodpop" prefHeight="85.0" prefWidth="124.0" style="-fx-background-color: pink;" text="음식">
+            <Button fx:id="foodBtn" layoutX="139.0" layoutY="182.0" mnemonicParsing="false" onAction="#foodpop" prefHeight="157.0" prefWidth="124.0" style="-fx-background-color: pink;" text="음식">
                <font>
                   <Font size="20.0" />
                </font></Button>
-            <Button fx:id="MDCBtn" layoutX="139.0" layoutY="348.0" mnemonicParsing="false" onAction="#MDCpop" prefHeight="85.0" prefWidth="124.0" style="-fx-background-color: pink;" text="약">
-               <font>
-                  <Font size="20.0" />
-               </font></Button>
-            <Button fx:id="clothesBtn" layoutX="138.0" layoutY="511.0" mnemonicParsing="false" onAction="#clothespop" prefHeight="85.0" prefWidth="124.0" style="-fx-background-color: pink;" text="옷">
+            <Button fx:id="MDCBtn" layoutX="138.0" layoutY="431.0" mnemonicParsing="false" onAction="#MDCpop" prefHeight="157.0" prefWidth="124.0" style="-fx-background-color: pink;" text="약">
                <font>
                   <Font size="20.0" />
                </font></Button>

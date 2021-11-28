@@ -106,8 +106,6 @@ public class MainController extends Login implements Initializable {
 		}
 	}
 
-	// 버튼 클릭 하면 음성나오기(징징이)
-
 	// 프롤로그(임시)
 	public void changeSceneToProlog() {
 		try {

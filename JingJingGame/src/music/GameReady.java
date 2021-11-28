@@ -23,9 +23,10 @@ import javafx.scene.control.Label;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import login.Login;
 import util.AppUtil;
 
-public class GameReady implements Initializable {
+public class GameReady extends Login implements Initializable {
 	@FXML
 	Button btn;
 	@FXML
