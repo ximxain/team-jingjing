@@ -1059,15 +1059,19 @@ public class StoreController extends Login implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		if (hungry == 1) {
-			hungryLabel.setText("O");
-		} else {
-			hungryLabel.setText("X");
-		}
-		if (sick == 1) {
-			sickLabel.setText("O");
-		} else {
-			sickLabel.setText("X");
+		try {
+			if (hungry == 1) {
+				hungryLabel.setText("O");
+			} else {
+				hungryLabel.setText("X");
+			}
+			if (sick == 1) {
+				sickLabel.setText("O");
+			} else {
+				sickLabel.setText("X");
+			}
+		}catch(Exception E) {
+			
 		}
 	}
 
