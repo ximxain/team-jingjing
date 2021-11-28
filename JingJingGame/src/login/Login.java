@@ -21,7 +21,7 @@ import util.JDBCUtil;
 public class Login {
 	
 	//징징이의 스텟
-	static public int grows ;
+	static public int grows = 0;
 	static public int presentLevel = 0;
 	static public int presentExperience = 0;
 	static public int money = 0;
@@ -188,7 +188,7 @@ public class Login {
 			presentLevel ++;
 		}
 		
-		String sql = "UPDATE jingjing_currentStat SET grows =" + presentExperience +" , money =" + money + ", grows = "+presentLevel+", hungry = " +hungry+ " , sick = "+sick+"where userId ='"+user+"'";
+		String sql = "UPDATE jingjing_currentStat SET grows = "+grows+" exp =" + presentExperience +" , money =" + money + ", grows = "+presentLevel+", hungry = " +hungry+ " , sick = "+sick+"where userId ='"+user+"'";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.executeUpdate();
