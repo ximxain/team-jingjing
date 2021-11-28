@@ -1,5 +1,15 @@
 package tickTacToe;
 
-public class ai {
-	
+import javafx.fxml.FXML;
+import login.Login;
+
+public class ai extends Login{
+	@FXML
+	public void initialize() {
+		hungry+=10;
+		sick+=10;
+		
+		up();
+
+	}
 }

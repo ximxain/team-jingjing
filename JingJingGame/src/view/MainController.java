@@ -86,7 +86,20 @@ public class MainController extends Login implements Initializable {
 		try {
 			System.out.println((double) presentExperience / limitExperience);
 			experienceBar.setProgress((double) presentExperience / limitExperience);
-			presentGrowth.setText(currentStat[presentLevel]);
+			String statLabel = "";
+			statLabel += currentStat[presentLevel] + "/";
+			if(sick == 1) {
+				statLabel += "아픔"+"/";
+			} else {
+				statLabel += "건강함"+"/";
+			}
+			
+			if(hungry == 1) {
+				statLabel += "배고품";
+			} else {
+				statLabel += "배부름";
+			}
+			presentGrowth.setText(statLabel);
 			moneyLabel.setText(""+money);
 		}catch(Exception E){
 			

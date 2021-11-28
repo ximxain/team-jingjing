@@ -71,7 +71,12 @@ public class MainController {
 		boolean res = check(1,1);
 		if (res == true) {
 			drawone(1);
-			auto();
+			try {
+				auto();
+				System.out.println(1);
+			}catch(Exception E) {
+				
+			}
 		}
 	}
 
@@ -79,7 +84,11 @@ public class MainController {
 		boolean res = check(2,1);
 		if (res == true) {
 			drawtwo(1);
-			auto();
+			try {
+				auto();
+			}catch(Exception E) {
+				
+			}
 		}
 	}
 
@@ -87,7 +96,11 @@ public class MainController {
 		boolean res = check(3,1);
 		if (res == true) {
 			drawthree(1);
-			auto();
+			try {
+				auto();
+			}catch(Exception E) {
+				
+			}
 		}
 	}
 
@@ -95,7 +108,11 @@ public class MainController {
 		boolean res = check(4,1);
 		if (res == true) {
 			drawfour(1);
-			auto();
+			try {
+				auto();
+			}catch(Exception E) {
+				
+			}
 		}
 	}
 
@@ -103,7 +120,11 @@ public class MainController {
 		boolean res = check(5,1);
 		if (res == true) {
 			drawfive(1);
-			auto();
+			try {
+				auto();
+			}catch(Exception E) {
+				
+			}
 		}
 	}
 
@@ -111,7 +132,11 @@ public class MainController {
 		boolean res = check(6,1);
 		if (res == true) {
 			drawsix(1);
-			auto();
+			try {
+				auto();
+			}catch(Exception E) {
+				
+			}
 		}
 	}
 
@@ -119,7 +144,11 @@ public class MainController {
 		boolean res = check(7,1);
 		if (res == true) {
 			drawseven(1);
-			auto();
+			try {
+				auto();
+			}catch(Exception E) {
+				
+			}
 		}
 	}
 
@@ -127,7 +156,11 @@ public class MainController {
 		boolean res = check(8,1);
 		if (res == true) {
 			draweight(1);
-			auto();
+			try {
+				auto();
+			}catch(Exception E) {
+				
+			}
 		}
 	}
 
@@ -135,7 +168,11 @@ public class MainController {
 		boolean res = check(9,1);
 		if (res == true) {
 			drawnine(1);
-			auto();
+			try {
+				auto();
+			}catch(Exception E) {
+				
+			}
 		}
 	}
 
@@ -236,75 +273,73 @@ public class MainController {
 		
 	}
 
-	public void auto() {
+	public int sum = 0;
+	public boolean res = false;
+	Integer rand = 0;
+	public void rands() {
+		res = true;
 		Random rd = new Random();
-		Integer rand = rd.nextInt(8)+1;
-		boolean res = check(rand,2);
+		rand = rd.nextInt(8)+1;
+		res = check(rand,2);
+	}
+	
+	public void auto() {
+		int counts = 0;
+		while(res == false) {
+			rands();
+			counts+=1;
+			if(counts>=9) {
+				checker();
+			}
+		}
+		
 		try {
 			switch (rand) {
 			case 1:
 				if (res == true) {
 					drawone(2);
-				} else {
-					auto();
-				}
+				} 
 
 				break;
 			case 2:
 				if (res == true) {
 					drawtwo(2);
-				} else {
-					auto();
-				}
+				} 
 				break;
 			case 3:
 				if (res == true) {
 					drawthree(2);
-				} else {
-					auto();
-				}
+				} 
 				break;
 			case 4:
 				if (res == true) {
 					drawfour(2);
-				} else {
-					auto();
-				}
+				} 
 				break;
 			case 5:
 				if (res == true) {
 					drawfive(2);
-				} else {
-					auto();
-				}
+				} 
 				break;
 			case 6:
 				if (res == true) {
 					drawsix(2);
-				} else {
-					auto();
-				}
+				} 
 				break;
 			case 7:
 				if (res == true) {
 					drawseven(2);
-				} else {
-					auto();
-				}
+				} 
 				break;
 			case 8:
 				if (res == true) {
 					draweight(2);
-				} else {
-					auto();
-				}
+				} 
 				break;
 			case 9:
 				if (res == true) {
 					drawnine(2);
-				} else {
-					auto();
-				}
+				} 
 				break;
 			}
 		}catch(Exception E) {
@@ -358,6 +393,7 @@ public class MainController {
 		}else if(win == "NO"){
 			popup3();
 			System.out.println("NO");
+			
 		}
 		
 	}
@@ -441,9 +477,9 @@ public class MainController {
 			sc.getStylesheets().add(getClass().getResource("/tickTacToe/application.css").toExternalForm());
 			pop.setScene(sc);
 			pop.setTitle("");
-			pop.setResizable(false); // â ������ ���� ����
+			pop.setResizable(false); 
 
-			// �����ֱ�
+			
 			pop.show();
 
 		} catch (IOException e) {
