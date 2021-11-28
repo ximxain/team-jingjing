@@ -8,13 +8,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import login.Login;
 
-public class GameClear {
+public class GameClear extends Login{
 	@FXML
 	Button btn;
 	
 	
 	public void replay(){
+		presentExperience+=200;
+		money+=2;
+		up();
 		try {
 			Parent login = FXMLLoader.load(getClass().getResource("/music/GameReadyScene.fxml"));
 			Scene scene = new Scene(login);
@@ -26,6 +30,9 @@ public class GameClear {
 	}
 	
 	public void quit() {
+		presentExperience+=200;
+		money+=2;
+		up();
 		try {
 			Parent login = FXMLLoader.load(getClass().getResource("/appScene/GameView.fxml"));
 			Scene scene = new Scene(login);

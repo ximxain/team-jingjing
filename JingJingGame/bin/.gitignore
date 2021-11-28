@@ -3,16 +3,13 @@
 /application/
 /cardgame/
 /event/
-/image/
 /item/
 /login/
 /math/
 /music/
-/musicResource/
-/picture/
 /prolog/
-/resource/
 /store/
 /tickTacToe/
 /util/
 /view/
+/musicResource/
