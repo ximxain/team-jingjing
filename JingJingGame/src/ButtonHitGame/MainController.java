@@ -70,10 +70,9 @@ public class MainController implements Initializable {
 				// label에 출력
 				Platform.runLater(() -> timerLabel.setText("남은 시간 : " + (Integer.toString(count))));
 
-				if (count == 0) {
+				if (count <= 0) {
 					timer.cancel();
 					timeUp();
-					
 				}
 			}
 		};
@@ -82,7 +81,14 @@ public class MainController implements Initializable {
 
 	public void timeUp() {
 		// fxml 이동
-		System.out.println("성공");
+		try {
+			Parent login = FXMLLoader.load(getClass().getResource("/ButtonHitGame/Fail.fxml"));
+			Scene scene = new Scene(login);
+			Stage primaryStage = (Stage) ClickBtn.getScene().getWindow();
+			primaryStage.setScene(scene);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	
@@ -119,27 +125,6 @@ public class MainController implements Initializable {
 					Scene scene = new Scene(login);
 					Stage primaryStage = (Stage) ClickBtn.getScene().getWindow();
 					primaryStage.setScene(scene);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				JDBCUtil db = new JDBCUtil();
-				Connection con = db.getConnection();
-
-				Stage stage = (Stage) ClickBtn.getScene().getWindow(); // 팝업창 닫기
-				stage.close();
-				util.AppUtil.alert("구매 완료", null); // 구매 완료 알림
-
-				PreparedStatement pstmt = null;
-				String sql = "insert into jingjing_currentStat values(?,?,?,?)";
-
-				try {
-					pstmt = con.prepareStatement(sql);
-					pstmt.setString(1, "ButtonHitGame");
-					pstmt.setInt(2, 0);
-					pstmt.setInt(3, 0);
-					pstmt.setInt(3, 2);
-					pstmt.executeUpdate();
-
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
