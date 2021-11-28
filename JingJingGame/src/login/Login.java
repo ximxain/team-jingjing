@@ -186,9 +186,10 @@ public class Login {
 		if(presentExperience <= limitExperience && presentLevel <= 3) {
 			System.out.println("레벨 업!");
 			presentLevel ++;
+			presentExperience -= limitExperience;
 		}
 		
-		String sql = "UPDATE jingjing_currentStat SET grows = "+grows+" exp =" + presentExperience +" , money =" + money + ", grows = "+presentLevel+", hungry = " +hungry+ " , sick = "+sick+"where userId ='"+user+"'";
+		String sql = "UPDATE jingjing_currentStat SET grows = "+grows+", exp =" + presentExperience +" , money =" + money + ", grows = "+presentLevel+", hungry = " +hungry+ " , sick = "+sick+" where userId ='"+user+"'";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.executeUpdate();
