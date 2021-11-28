@@ -1,10 +1,12 @@
 package ButtonHitGame;
 
 import java.net.URL;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -21,18 +23,18 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import login.Login;
+import util.AppUtil;
 import util.JDBCUtil;
 
 public class MainController extends Login implements Initializable {
 	int click = 0; // 버튼클릭 횟수
 	int SuccessClick = 10; // 버튼클릭 성공횟수
-	int FailCount = 0;
 
 	@FXML
 	private ImageView win;
 
 	@FXML
-	private Button ClickBtn; // 버튼 클릭
+	private Button ClickBtn; // 줄다리기
 	@FXML
 	private Button endBtn;
 	@FXML
@@ -41,7 +43,7 @@ public class MainController extends Login implements Initializable {
 	private Button fail;
 
 	private JDBCUtil db;
-	
+
 	private static String viewName = "ButtonGame"; // fxml 구분
 
 	@FXML
@@ -147,6 +149,20 @@ public class MainController extends Login implements Initializable {
 	}
 
 	public void give() {
+		presentExperience += sickAndHungry(200); // 성장게이지 상승
+
+		Random rd = new Random();
+
+		if (rd.nextInt(10) < 3 && hungry == 0) {
+
+			// 30%에 걸리면 호출
+			hungry = 1;
+			AppUtil.alert("징징이가 배고파졌습니다! 상점에서 해결할 수 있습니다.", "");
+		}
+		
+		money += 2; // 소지금 지급
+		up();
+
 		System.out.println("코인 2개 지급");
 		JDBCUtil db = new JDBCUtil();
 		Connection con = db.getConnection();
@@ -170,7 +186,8 @@ public class MainController extends Login implements Initializable {
 		Connection con2 = db.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs2 = null;
-		String sql2 = "UPDATE `jingjing_currentStat` SET `money`=" + money+2 + " WHERE userId = '" + user + "'";
+		// DB에 돈 지급
+		String sql2 = "UPDATE `jingjing_currentStat` SET `money`=" + money + 2 + " WHERE userId = '" + user + "'";
 
 		try {
 			pstmt = con.prepareStatement(sql2);
