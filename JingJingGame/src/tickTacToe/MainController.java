@@ -285,12 +285,15 @@ public class MainController {
 	
 	public void auto() {
 		int counts = 0;
+		System.out.println(res);
 		while(res == false) {
 			rands();
 			counts+=1;
 			if(counts>=9) {
 				checker();
+				res = true;
 			}
+			
 		}
 		
 		try {
@@ -298,47 +301,57 @@ public class MainController {
 			case 1:
 				if (res == true) {
 					drawone(2);
+					res = false;
+					
 				} 
 
 				break;
 			case 2:
 				if (res == true) {
 					drawtwo(2);
+					res = false;
 				} 
 				break;
 			case 3:
 				if (res == true) {
 					drawthree(2);
+					res = false;
 				} 
 				break;
 			case 4:
 				if (res == true) {
 					drawfour(2);
+					res = false;
 				} 
 				break;
 			case 5:
 				if (res == true) {
 					drawfive(2);
+					res = false;
 				} 
 				break;
 			case 6:
 				if (res == true) {
 					drawsix(2);
+					res = false;
 				} 
 				break;
 			case 7:
 				if (res == true) {
 					drawseven(2);
+					res = false;
 				} 
 				break;
 			case 8:
 				if (res == true) {
 					draweight(2);
+					res = false;
 				} 
 				break;
 			case 9:
 				if (res == true) {
 					drawnine(2);
+					res = false;
 				} 
 				break;
 			}
@@ -376,23 +389,20 @@ public class MainController {
 			win = "AI";
 		}else if(tictactoe[2] == 2 && tictactoe[4] == 2 && tictactoe[6] == 2 ) {
 			win = "AI";
-		}else{
-			for(int i = 0; i>=9; i++) {
-				if(tictactoe[i]==0) {
-					break;
-				}else {
-					win = "NO";
-				}
-			}
+		}else if(tictactoe[0] != 0 && tictactoe[1] != 0 && tictactoe[2] != 0 && tictactoe[3] != 0 && tictactoe[4] != 0 && tictactoe[5] != 0 && tictactoe[6] != 0 && tictactoe[7] != 0 && tictactoe[8] != 0) {
+			win = "NO";
 		}
 		
 		if(win == "human") {
 			popup();
+			System.out.println("human");
 		}else if(win == "AI"){
 			popup2();
+			System.out.println("AI");
 		}else if(win == "NO"){
 			popup3();
 			System.out.println("NO");
+			
 			
 		}
 		
