@@ -37,20 +37,23 @@ public class MDController extends Login{
 			rs = stmt.executeQuery(sql);
 			
 			while(rs.next()) {
-				String a = rs.getString("food");
+				String a = rs.getString("MD");
 				set(a);
-				
+				System.out.println(a);
 				Connection con2 = db.getConnection();
 				Statement stmt2 = null;
 				ResultSet rs2 = null;
 				
-				String sql2 = "SELECT * FROM `mdDB` WHERE `food` = " + "'" + a + "'";
+				String sql2 = "SELECT * FROM `mdDB` WHERE `MD` = " + "'" + a + "'";
 				try {
 					
 					stmt2 = con2.createStatement();
 					rs2 = stmt2.executeQuery(sql2);
+					
 					while(rs2.next()) {
+						
 						String s = rs2.getString("image");
+						System.out.println(s);
 						images.add(s);
 					}
 				}catch(Exception E) {}
@@ -66,7 +69,7 @@ public class MDController extends Login{
 		int idx = lists.getSelectionModel().getSelectedIndex();
 		System.out.println(images.get(idx));
 		String idxs = images.get(idx);
-		String url = "resource/food"+idxs+".jpg";
+		String url = "resource/MD"+idxs+".jpg";
 		Image image = new Image(url);
 		img.setImage(image);
 	}
